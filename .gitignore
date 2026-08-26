@@ -47,3 +47,7 @@ $RECYCLE.BIN/
 build/
 dist/
 *.egg-info/
+
+# Agentic AI secrets
+03_agentic_ai/.env
+.env

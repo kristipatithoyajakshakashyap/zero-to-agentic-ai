@@ -1,0 +1,5 @@
+COURSE SAMPLE NOTE (authored by MLCourse).
+
+Document = page_content + metadata.
+Loader = file(s) to Documents.
+Chunk = retrievable slice of one Document.

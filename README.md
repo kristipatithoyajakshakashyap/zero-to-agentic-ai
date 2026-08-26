@@ -22,8 +22,10 @@ MLCourse/
 │   │                                · adaboost · gradient boosting · xgboost
 │   └── 02_unsupervised/             k-means · hierarchical clustering
 │                                    · silhouette evaluation lab
-└── 03_agentic_ai/                   LLM agents, tool use, RAG, multi-agent
-                                     systems                          (planned)
+└── 03_agentic_ai/                   LangChain fundamentals: chat models, prompts,
+                                     pydantic outputs, LCEL runnables, loaders,
+                                     chunking, embeddings, Chroma/FAISS, retrievers,
+                                     basic RAG, session memory, RAG-chatbot capstone (AVAILABLE)
 ```
 
 ## Environment setup

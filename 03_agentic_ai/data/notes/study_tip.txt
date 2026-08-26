@@ -1,0 +1,5 @@
+COURSE SAMPLE NOTE (authored by MLCourse).
+
+Read WHAT and WHY before code. Then retype the smallest example
+that proves the point to yourself. Understanding compresses;
+memorization does not.

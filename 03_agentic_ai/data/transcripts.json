@@ -1,0 +1,64 @@
+{
+  "reader-live": [
+    {
+      "role": "user",
+      "text": "What made Alice grow so tall?"
+    },
+    {
+      "role": "bot",
+      "text": "[offline stub] Noted: \"What made Alice grow so tall?\" (swap llm back for real answers)"
+    },
+    {
+      "role": "user",
+      "text": "And how did she shrink again?"
+    },
+    {
+      "role": "bot",
+      "text": "[offline stub] Noted: \"And how did she shrink again?\" (swap llm back for real answers)"
+    }
+  ],
+  "reader-milo": [
+    {
+      "role": "user",
+      "text": "Hello! My name is Milo."
+    },
+    {
+      "role": "bot",
+      "text": "Welcome back to the Alice collection, Milo."
+    },
+    {
+      "role": "user",
+      "text": "What is my name?"
+    },
+    {
+      "role": "bot",
+      "text": "Welcome back to the Alice collection, Milo."
+    },
+    {
+      "role": "user",
+      "text": "What should I read first?"
+    },
+    {
+      "role": "bot",
+      "text": "Start at Chapter 1, 'Down the Rabbit-Hole' - everything spirals from there."
+    }
+  ],
+  "reader-june": [
+    {
+      "role": "user",
+      "text": "Hi! My name is June."
+    },
+    {
+      "role": "bot",
+      "text": "Welcome back to the Alice collection, June."
+    },
+    {
+      "role": "user",
+      "text": "What is my name?"
+    },
+    {
+      "role": "bot",
+      "text": "Welcome back to the Alice collection, June."
+    }
+  ]
+}
