@@ -67,7 +67,17 @@ Work top-to-bottom within each track. Times assume focused part-time study.
 | 16 | [Human-in-the-Loop](03_agentic_ai/16_human_in_the_loop/) | ~3 h | Breakpoints, interrupt_before, human review |
 | 17 | [Streaming](03_agentic_ai/17_streaming/) | ~3 h | stream_mode values, token/event streaming |
 | 18 | [Multi-Agent Systems](03_agentic_ai/18_multi_agent_systems/) | ~4 h | Supervisor, swarm, agent handoffs |
-| 19 | [Capstone: LinkedIn Post](03_agentic_ai/19_capstone_linkedin_post/) | ~2 h | Full agentic pipeline end-to-end project |
+| 19 | [Travel Planner](03_agentic_ai/19_travel_planner/) | ~4 h | Agentic travel planning with tools |
+| 20 | [Hybrid Search](03_agentic_ai/20_hybrid_search/) | ~4 h | Dense + sparse retrieval fusion |
+| 21 | [Multi-Modal RAG](03_agentic_ai/21_multimodal_rag/) | ~4 h | Images, tables, and text in RAG |
+| 22 | [Agentic RAG](03_agentic_ai/22_agentic_rag/) | ~4 h | Agent-driven retrieval and reasoning |
+| 23 | [Autonomous RAG](03_agentic_ai/23_autonomous_rag/) | ~3 h | Self-directed retrieval pipelines |
+| 24 | [Corrective RAG](03_agentic_ai/24_corrective_rag/) | ~4 h | Retrieval validation and correction |
+| 25 | [Adaptive RAG](03_agentic_ai/25_adaptive_rag/) | ~3 h | Dynamic strategy selection |
+| 26 | [Cache RAG](03_agentic_ai/26_cache_rag/) | ~3 h | Semantic caching for RAG |
+| 27 | [Vectorless RAG](03_agentic_ai/27_vectorless_rag/) | ~4 h | BM25 and keyword-based RAG |
+| 28 | [Persistent Memory RAG](03_agentic_ai/28_persistent_memory_rag/) | ~3 h | Long-term memory across sessions |
+| 29 | [RAG Evaluation](03_agentic_ai/29_rag_evaluation/) | ~4 h | Faithfulness, relevance, RAGAS metrics |
 
 Study discipline matters more than speed: read the section reference first,
 execute every cell, attempt exercises before solutions, and inspect errors
