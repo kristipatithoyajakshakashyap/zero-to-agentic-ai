@@ -1,0 +1,49 @@
+# ============================================================
+# MLCourse — .gitignore
+# ============================================================
+
+# --- Virtual environments -----------------------------------
+.venv/
+venv/
+env/
+ENV/
+.venv*/
+
+# --- Python bytecode & caches --------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# --- Downloaded datasets (notebooks re-fetch automatically) --
+**/data/*.csv
+**/data/*.tsv
+01_data_science_foundations/**/data/
+
+# --- Generated analysis artifacts ----------------------------
+processed_churn.csv
+
+# --- Jupyter / IPython runtime -------------------------------
+.jupyter/
+runtime/
+
+# --- OS junk --------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# --- Editors / IDEs -------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# --- Build / distribution -------------------------------------
+build/
+dist/
+*.egg-info/

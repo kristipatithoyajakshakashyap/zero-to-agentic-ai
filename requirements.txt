@@ -1,0 +1,13 @@
+numpy>=1.26
+pandas>=2.0
+matplotlib>=3.8
+seaborn>=0.13
+scipy>=1.11
+scikit-learn>=1.4
+xgboost>=2.0
+nltk>=3.8
+wordcloud>=1.13
+jupyterlab>=4.0
+notebook>=7.0
+nbformat>=5.9
+ipykernel>=6.29
