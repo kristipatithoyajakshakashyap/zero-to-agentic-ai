@@ -37,24 +37,24 @@ MLCourse/
     │   ├── 11_memory_and_state          session memory
     │   └── 12_capstone_rag_chatbot      end-to-end RAG chatbot
     ├── 02_langgraph/                LangGraph agents (7 modules):
-    │   ├── 13_graph_basics              StateGraph, nodes, edges
-    │   ├── 14_tool_using_agents         tool binding, ToolNode
-    │   ├── 15_persistence_checkpointing SqliteSaver, threads
-    │   ├── 16_human_in_the_loop         breakpoints, human review
-    │   ├── 17_streaming                 stream_mode values
-    │   ├── 18_multi_agent_systems       supervisor, swarm
-    │   └── 19_travel_planner            agentic travel planning
+    │   ├── 01_graph_basics              StateGraph, nodes, edges
+    │   ├── 02_tool_using_agents         tool binding, ToolNode
+    │   ├── 03_persistence_checkpointing SqliteSaver, threads
+    │   ├── 04_human_in_the_loop         breakpoints, human review
+    │   ├── 05_streaming                 stream_mode values
+    │   ├── 06_multi_agent_systems       supervisor, swarm
+    │   └── 07_travel_planner            agentic travel planning
     └── 03_rag_advanced/             Advanced RAG (10 modules):
-        ├── 20_hybrid_search             dense + sparse fusion
-        ├── 21_multimodal_rag            images, tables, text
-        ├── 22_agentic_rag               agent-driven retrieval
-        ├── 23_autonomous_rag            self-directed pipelines
-        ├── 24_corrective_rag            retrieval validation
-        ├── 25_adaptive_rag              dynamic strategy selection
-        ├── 26_cache_rag                 semantic caching
-        ├── 27_vectorless_rag            BM25, keyword-based
-        ├── 28_persistent_memory_rag     long-term memory
-        └── 29_rag_evaluation            RAGAS metrics
+        ├── 01_hybrid_search             dense + sparse fusion
+        ├── 02_multimodal_rag            images, tables, text
+        ├── 03_agentic_rag               agent-driven retrieval
+        ├── 04_autonomous_rag            self-directed pipelines
+        ├── 05_corrective_rag            retrieval validation
+        ├── 06_adaptive_rag              dynamic strategy selection
+        ├── 07_cache_rag                 semantic caching
+        ├── 08_vectorless_rag            BM25, keyword-based
+        ├── 09_persistent_memory_rag     long-term memory
+        └── 10_rag_evaluation            RAGAS metrics
 ```
 
 ## Environment setup
@@ -101,24 +101,24 @@ Work top-to-bottom within each track. Times assume focused part-time study.
 | 20 | [Memory & State](03_agentic_ai/01_langchain/11_memory_and_state/) | ~4 h | Session memory |
 | 21 | [RAG Chatbot Capstone](03_agentic_ai/01_langchain/12_capstone_rag_chatbot/) | ~4 h | End-to-end RAG chatbot |
 | **LangGraph** | | | |
-| 22 | [Graph Basics](03_agentic_ai/02_langgraph/13_graph_basics/) | ~4 h | StateGraph, nodes, edges |
-| 23 | [Tool-Using Agents](03_agentic_ai/02_langgraph/14_tool_using_agents/) | ~4 h | Tool binding, prebuilt ToolNode agents |
-| 24 | [Persistence & Checkpointing](03_agentic_ai/02_langgraph/15_persistence_checkpointing/) | ~4 h | SqliteSaver, thread management, state replay |
-| 25 | [Human-in-the-Loop](03_agentic_ai/02_langgraph/16_human_in_the_loop/) | ~3 h | Breakpoints, interrupt_before, human review |
-| 26 | [Streaming](03_agentic_ai/02_langgraph/17_streaming/) | ~3 h | stream_mode values, token/event streaming |
-| 27 | [Multi-Agent Systems](03_agentic_ai/02_langgraph/18_multi_agent_systems/) | ~4 h | Supervisor, swarm, agent handoffs |
-| 28 | [Travel Planner](03_agentic_ai/02_langgraph/19_travel_planner/) | ~4 h | Agentic travel planning with tools |
+| 22 | [Graph Basics](03_agentic_ai/02_langgraph/01_graph_basics/) | ~4 h | StateGraph, nodes, edges |
+| 23 | [Tool-Using Agents](03_agentic_ai/02_langgraph/02_tool_using_agents/) | ~4 h | Tool binding, prebuilt ToolNode agents |
+| 24 | [Persistence & Checkpointing](03_agentic_ai/02_langgraph/03_persistence_checkpointing/) | ~4 h | SqliteSaver, thread management, state replay |
+| 25 | [Human-in-the-Loop](03_agentic_ai/02_langgraph/04_human_in_the_loop/) | ~3 h | Breakpoints, interrupt_before, human review |
+| 26 | [Streaming](03_agentic_ai/02_langgraph/05_streaming/) | ~3 h | stream_mode values, token/event streaming |
+| 27 | [Multi-Agent Systems](03_agentic_ai/02_langgraph/06_multi_agent_systems/) | ~4 h | Supervisor, swarm, agent handoffs |
+| 28 | [Travel Planner](03_agentic_ai/02_langgraph/07_travel_planner/) | ~4 h | Agentic travel planning with tools |
 | **RAG Advanced** | | | |
-| 29 | [Hybrid Search](03_agentic_ai/03_rag_advanced/20_hybrid_search/) | ~4 h | Dense + sparse retrieval fusion |
-| 30 | [Multi-Modal RAG](03_agentic_ai/03_rag_advanced/21_multimodal_rag/) | ~4 h | Images, tables, and text in RAG |
-| 31 | [Agentic RAG](03_agentic_ai/03_rag_advanced/22_agentic_rag/) | ~4 h | Agent-driven retrieval and reasoning |
-| 32 | [Autonomous RAG](03_agentic_ai/03_rag_advanced/23_autonomous_rag/) | ~3 h | Self-directed retrieval pipelines |
-| 33 | [Corrective RAG](03_agentic_ai/03_rag_advanced/24_corrective_rag/) | ~4 h | Retrieval validation and correction |
-| 34 | [Adaptive RAG](03_agentic_ai/03_rag_advanced/25_adaptive_rag/) | ~3 h | Dynamic strategy selection |
-| 35 | [Cache RAG](03_agentic_ai/03_rag_advanced/26_cache_rag/) | ~3 h | Semantic caching for RAG |
-| 36 | [Vectorless RAG](03_agentic_ai/03_rag_advanced/27_vectorless_rag/) | ~4 h | BM25 and keyword-based RAG |
-| 37 | [Persistent Memory RAG](03_agentic_ai/03_rag_advanced/28_persistent_memory_rag/) | ~3 h | Long-term memory across sessions |
-| 38 | [RAG Evaluation](03_agentic_ai/03_rag_advanced/29_rag_evaluation/) | ~4 h | Faithfulness, relevance, RAGAS metrics |
+| 29 | [Hybrid Search](03_agentic_ai/03_rag_advanced/01_hybrid_search/) | ~4 h | Dense + sparse retrieval fusion |
+| 30 | [Multi-Modal RAG](03_agentic_ai/03_rag_advanced/02_multimodal_rag/) | ~4 h | Images, tables, and text in RAG |
+| 31 | [Agentic RAG](03_agentic_ai/03_rag_advanced/03_agentic_rag/) | ~4 h | Agent-driven retrieval and reasoning |
+| 32 | [Autonomous RAG](03_agentic_ai/03_rag_advanced/04_autonomous_rag/) | ~3 h | Self-directed retrieval pipelines |
+| 33 | [Corrective RAG](03_agentic_ai/03_rag_advanced/05_corrective_rag/) | ~4 h | Retrieval validation and correction |
+| 34 | [Adaptive RAG](03_agentic_ai/03_rag_advanced/06_adaptive_rag/) | ~3 h | Dynamic strategy selection |
+| 35 | [Cache RAG](03_agentic_ai/03_rag_advanced/07_cache_rag/) | ~3 h | Semantic caching for RAG |
+| 36 | [Vectorless RAG](03_agentic_ai/03_rag_advanced/08_vectorless_rag/) | ~4 h | BM25 and keyword-based RAG |
+| 37 | [Persistent Memory RAG](03_agentic_ai/03_rag_advanced/09_persistent_memory_rag/) | ~3 h | Long-term memory across sessions |
+| 38 | [RAG Evaluation](03_agentic_ai/03_rag_advanced/10_rag_evaluation/) | ~4 h | Faithfulness, relevance, RAGAS metrics |
 
 Study discipline matters more than speed: read the section reference first,
 execute every cell, attempt exercises before solutions, and inspect errors
