@@ -12,7 +12,7 @@ OUTSIDE the tube - the **support vectors** - shape the model.
 Ordinary least squares punishes *every* residual by squaring it. SVR says:
 "stay within ε of every point if you can; pay only for violations":
 
-$$\min \tfrac{}{2}\|w\|^2 + C\sum_i(\xi_i + \xi_i^*) \quad\text{s.t.}\quad |y_i - w^\top x_i - b| \le \varepsilon + \xi_i$$
+$$\min \tfrac{1}{2}\|w\|^2 + C\sum_i(\xi_i + \xi_i^*) \quad\text{s.t.}\quad |y_i - w^\top x_i - b| \le \varepsilon + \xi_i$$
 
 - Flat street = the prediction line; **ε-tube** = the asphalt you're allowed to miss by.
 - Curb stones holding the street = support vectors (`model.support_`).

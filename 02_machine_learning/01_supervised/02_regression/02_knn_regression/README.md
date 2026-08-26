@@ -16,7 +16,7 @@ $$d(a,b)=\sqrt{(a_-b_)^2+(a_2-b_2)^2+\cdots}$$
 Prediction = the mean of the targets of the k rows with the smallest distances
 (optionally a *weighted* mean with weights `/d`, so closer neighbors count more):
 
-$$\hat{y}(q)=\frac{1}{k}\sum_{i \in \text{kNN}} y_i \quad\text{or}\quad \hat{y}(q)=\frac{\sum_i y_i/d_i}{\sum_i /d_i}$$
+$$\hat{y}(q)=\frac{1}{k}\sum_{i \in \text{kNN}} y_i \quad\text{or}\quad \hat{y}(q)=\frac{\sum_i y_i/d_i}{\sum_i 1/d_i}$$
 
 Classification votes; regression averages. Everything else is identical.
 
