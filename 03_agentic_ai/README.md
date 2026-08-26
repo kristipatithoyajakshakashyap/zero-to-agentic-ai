@@ -37,23 +37,23 @@ patterns.
 | 10 | [10_basic_rag](./01_langchain/10_basic_rag/README.md) | LangChain | Minimal RAG chain |
 | 11 | [11_memory_and_state](./01_langchain/11_memory_and_state/README.md) | LangChain | Session-id history, RunnableWithMessageHistory |
 | 12 | [12_capstone_rag_chatbot](./01_langchain/12_capstone_rag_chatbot/README.md) | LangChain | Document-chat application |
-| 13 | [01_introduction_to_langgraph](./02_langgraph/01_introduction_to_langgraph/README.md) | LangGraph | StateGraph, nodes, edges, conditional routing |
-| 14 | [02_state_management](./02_langgraph/02_state_management/README.md) | LangGraph | TypedState, reducers, channel updates, persistence |
-| 15 | [03_tool_calling_agents](./02_langgraph/03_tool_calling_agents/README.md) | LangGraph | ReAct-style agents with tool nodes |
-| 16 | [04_human_in_the_loop](./02_langgraph/04_human_in_the_loop/README.md) | LangGraph | Breakpoints, approval nodes, interrupt/resume |
-| 17 | [05_multi_agent_systems](./02_langgraph/05_multi_agent_systems/README.md) | LangGraph | Supervisor, swarm, hierarchical topologies |
-| 18 | [06_memory_and_persistence](./02_langgraph/06_memory_and_persistence/README.md) | LangGraph | Checkpointers, thread-level state, long-term memory |
-| 19 | [07_capstone_agent_app](./02_langgraph/07_capstone_agent_app/README.md) | LangGraph | Full agent application |
-| 20 | [01_query_transformations](./03_rag_advanced/01_query_transformations/README.md) | Advanced RAG | HyDE, query rewriting, step-back prompting |
-| 21 | [02_advanced_chunking](./03_rag_advanced/02_advanced_chunking/README.md) | Advanced RAG | Semantic and agentic chunking |
-| 22 | [03_hybrid_search](./03_rag_advanced/03_hybrid_search/README.md) | Advanced RAG | Dense + sparse retrieval |
-| 23 | [04_reranking](./03_rag_advanced/04_reranking/README.md) | Advanced RAG | Cross-encoder reranking, Cohere rerank |
-| 24 | [05_multi_hop_rag](./03_rag_advanced/05_multi_hop_rag/README.md) | Advanced RAG | Iterative retrieval, chain-of-thought reasoning |
-| 25 | [06_graph_rag](./03_rag_advanced/06_graph_rag/README.md) | Advanced RAG | Knowledge graph augmentation, GraphRAG |
-| 26 | [07_self_rag](./03_rag_advanced/07_self_rag/README.md) | Advanced RAG | Self-reflective retrieval, hallucination detection |
-| 27 | [08_rag_evaluation](./03_rag_advanced/08_rag_evaluation/README.md) | Advanced RAG | RAGAS, DeepEval, metrics |
-| 28 | [09_production_patterns](./03_rag_advanced/09_production_patterns/README.md) | Advanced RAG | Caching, observability, guardrails, streaming |
-| 29 | [10_capstone_advanced_rag](./03_rag_advanced/10_capstone_advanced_rag/README.md) | Advanced RAG | End-to-end advanced RAG application |
+| 01 | [01_introduction_to_langgraph](./02_langgraph/01_introduction_to_langgraph/README.md) | LangGraph | StateGraph, nodes, edges, conditional routing |
+| 02 | [02_state_management](./02_langgraph/02_state_management/README.md) | LangGraph | TypedState, reducers, channel updates, persistence |
+| 03 | [03_tool_calling_agents](./02_langgraph/03_tool_calling_agents/README.md) | LangGraph | ReAct-style agents with tool nodes |
+| 04 | [04_human_in_the_loop](./02_langgraph/04_human_in_the_loop/README.md) | LangGraph | Breakpoints, approval nodes, interrupt/resume |
+| 05 | [05_multi_agent_systems](./02_langgraph/05_multi_agent_systems/README.md) | LangGraph | Supervisor, swarm, hierarchical topologies |
+| 06 | [06_memory_and_persistence](./02_langgraph/06_memory_and_persistence/README.md) | LangGraph | Checkpointers, thread-level state, long-term memory |
+| 07 | [07_capstone_agent_app](./02_langgraph/07_capstone_agent_app/README.md) | LangGraph | Full agent application |
+| 01 | [01_query_transformations](./03_rag_advanced/01_query_transformations/README.md) | Advanced RAG | HyDE, query rewriting, step-back prompting |
+| 02 | [02_advanced_chunking](./03_rag_advanced/02_advanced_chunking/README.md) | Advanced RAG | Semantic and agentic chunking |
+| 03 | [03_hybrid_search](./03_rag_advanced/03_hybrid_search/README.md) | Advanced RAG | Dense + sparse retrieval |
+| 04 | [04_reranking](./03_rag_advanced/04_reranking/README.md) | Advanced RAG | Cross-encoder reranking, Cohere rerank |
+| 05 | [05_multi_hop_rag](./03_rag_advanced/05_multi_hop_rag/README.md) | Advanced RAG | Iterative retrieval, chain-of-thought reasoning |
+| 06 | [06_graph_rag](./03_rag_advanced/06_graph_rag/README.md) | Advanced RAG | Knowledge graph augmentation, GraphRAG |
+| 07 | [07_self_rag](./03_rag_advanced/07_self_rag/README.md) | Advanced RAG | Self-reflective retrieval, hallucination detection |
+| 08 | [08_rag_evaluation](./03_rag_advanced/08_rag_evaluation/README.md) | Advanced RAG | RAGAS, DeepEval, metrics |
+| 09 | [09_production_patterns](./03_rag_advanced/09_production_patterns/README.md) | Advanced RAG | Caching, observability, guardrails, streaming |
+| 10 | [10_capstone_advanced_rag](./03_rag_advanced/10_capstone_advanced_rag/README.md) | Advanced RAG | End-to-end advanced RAG application |
 
 ## Data
 
