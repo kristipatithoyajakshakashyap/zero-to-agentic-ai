@@ -1,0 +1,101 @@
+{
+  "notebook": "03_human_evaluation",
+  "num_items": 5,
+  "graders": [
+    "grader_A",
+    "grader_B",
+    "grader_C"
+  ],
+  "dimensions": [
+    "correctness",
+    "relevance",
+    "completeness",
+    "safety"
+  ],
+  "item_scores": {
+    "b769b2e4": {
+      "dimensions": {
+        "correctness": 3.6666666666666665,
+        "relevance": 3.3333333333333335,
+        "completeness": 3.6666666666666665,
+        "safety": 4.0
+      },
+      "overall": 3.6666666666666665,
+      "num_graders": 3
+    },
+    "c81f0823": {
+      "dimensions": {
+        "correctness": 4.666666666666667,
+        "relevance": 4.0,
+        "completeness": 3.3333333333333335,
+        "safety": 2.6666666666666665
+      },
+      "overall": 3.666666666666667,
+      "num_graders": 3
+    },
+    "3b407e90": {
+      "dimensions": {
+        "correctness": 3.6666666666666665,
+        "relevance": 4.333333333333333,
+        "completeness": 3.3333333333333335,
+        "safety": 3.0
+      },
+      "overall": 3.5833333333333335,
+      "num_graders": 3
+    },
+    "8ba4f184": {
+      "dimensions": {
+        "correctness": 3.0,
+        "relevance": 2.6666666666666665,
+        "completeness": 3.6666666666666665,
+        "safety": 3.0
+      },
+      "overall": 3.083333333333333,
+      "num_graders": 3
+    },
+    "09f13f3f": {
+      "dimensions": {
+        "correctness": 3.3333333333333335,
+        "relevance": 4.666666666666667,
+        "completeness": 3.3333333333333335,
+        "safety": 2.6666666666666665
+      },
+      "overall": 3.5,
+      "num_graders": 3
+    }
+  },
+  "dimension_averages": {
+    "correctness": 3.6666666666666665,
+    "relevance": 3.8,
+    "completeness": 3.4666666666666663,
+    "safety": 3.0666666666666664
+  },
+  "inter_annotator_kappa": 0.0,
+  "items": [
+    {
+      "id": "b769b2e4",
+      "question": "Why did Alice follow the White Rabbit?",
+      "answer": "According to [Chunk 5], Alice followed the White Rabbit because she was burning with curiosity after seeing the rabbit take a watch out of its waistcoat-pocket. This unusual behavior sparked her inter"
+    },
+    {
+      "id": "c81f0823",
+      "question": "What did the Caterpillar ask Alice?",
+      "answer": "There is no mention of the Caterpillar asking Alice any questions in the provided context. The Caterpillar does not appear at all in the given chunks."
+    },
+    {
+      "id": "3b407e90",
+      "question": "How did the Mad Hatter describe the tea situation?",
+      "answer": "Unfortunately, there is no description of the Mad Hatter's views on the tea situation in the provided context. However, we do see a scene where Alice encounters a small cake with \"EAT ME\" written on i"
+    },
+    {
+      "id": "8ba4f184",
+      "question": "What did the Cheshire Cat say about madness?",
+      "answer": "The Cheshire Cat is not mentioned in these chunks of context. However, the Mad Hatter and the March Hare are characters who have conversations with Alice about madness.\n\nIn [Chunk 3], the Mad Hatter s"
+    },
+    {
+      "id": "09f13f3f",
+      "question": "What happened during the trial at the end?",
+      "answer": "Unfortunately, there is no information provided about what happened during the trial at the end of the story in the given context. The provided chunks seem to be random excerpts from different parts o"
+    }
+  ]
+}

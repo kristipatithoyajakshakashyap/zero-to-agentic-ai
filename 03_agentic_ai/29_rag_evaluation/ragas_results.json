@@ -1,0 +1,12 @@
+{
+  "notebook": "02_ragas_framework",
+  "test_questions": [
+    "Why did Alice fall down the rabbit hole?",
+    "What did the Cheshire Cat tell Alice about madness?",
+    "What was the Queen of Hearts obsessed with?",
+    "What happened at the croquet game?",
+    "Who is Alice's sister?"
+  ],
+  "ragas_available": false,
+  "evaluation_date": "2026-08-26"
+}

@@ -1,0 +1,219 @@
+{
+  "notebook": "04_evaluation_pipeline",
+  "strategies": [
+    "basic",
+    "multi_query",
+    "filtered"
+  ],
+  "num_test_questions": 5,
+  "test_questions": [
+    "Here are 5 questions that can be answered from the text:",
+    "What was unusual about the rabbit Alice saw?",
+    "Why did Alice call after the Mouse?",
+    "Who spoke in a solemn tone at the meeting?",
+    "What caused Alice's clothes not to dry?"
+  ],
+  "summary": {
+    "basic": {
+      "faithfulness": {
+        "mean": 0.9797619047619047,
+        "std": 0.11114228587603629
+      },
+      "relevance": {
+        "mean": 0.62,
+        "std": 0.34292856398964494
+      },
+      "context_precision": {
+        "mean": 0.2,
+        "std": 0.18708286933869708
+      },
+      "combined": {
+        "mean": 0.599920634920635,
+        "std": 0.15601697034788597
+      }
+    },
+    "multi_query": {
+      "faithfulness": {
+        "mean": 0.99,
+        "std": 0.142828568570857
+      },
+      "relevance": {
+        "mean": 0.45999999999999996,
+        "std": 0.25768197453450253
+      },
+      "context_precision": {
+        "mean": 0.19,
+        "std": 0.1854723699099141
+      },
+      "combined": {
+        "mean": 0.5466666666666666,
+        "std": 0.1199073716573663
+      }
+    },
+    "filtered": {
+      "faithfulness": {
+        "mean": 0.9751515151515152,
+        "std": 0.21584948672228446
+      },
+      "relevance": {
+        "mean": 0.6199999999999999,
+        "std": 0.1469693845669907
+      },
+      "context_precision": {
+        "mean": 0.25,
+        "std": 0.22360679774997896
+      },
+      "combined": {
+        "mean": 0.615050505050505,
+        "std": 0.0896890068355551
+      }
+    }
+  },
+  "per_question": [
+    {
+      "question": "Here are 5 questions that can be answered from the text:",
+      "strategies": {
+        "basic": {
+          "question": "Here are 5 questions that can be answered from the text:",
+          "answer": "Here are the answers to your 5 questions:\n\n1. What is Alice trying to calculate in [c2_0]?\nAnswer: She's trying to calculate four times seven.\n\n2. What subject does Alice decide to try instead of multiplication in [c2_11]?\nAnswer: Geography (Chunk ID: [c2_11])\n\n3. Who does Alice think she has been c",
+          "faithfulness": 0.8571428571428571,
+          "relevance": 0.5,
+          "context_precision": 0.0,
+          "combined": 0.4523809523809524
+        },
+        "multi_query": {
+          "question": "Here are 5 questions that can be answered from the text:",
+          "answer": "Here are the answers to your 5 questions:\n\n1. What is Alice's problem with multiplication?\nAnswer: She thinks she'll never get to twenty at that rate (chunk ID: c2_11).\n\n2. Where does London think it is the capital of, according to Alice?\nAnswer: Paris (chunk ID: c2_11).\n\n3. How many miles down do y",
+          "faithfulness": 1.0,
+          "relevance": 0.5,
+          "context_precision": 0.0,
+          "combined": 0.5
+        },
+        "filtered": {
+          "question": "Here are 5 questions that can be answered from the text:",
+          "answer": "Here are the answers to your 5 questions:\n\n1. Who is to give the prizes?\nAnswer: She (pointing to Alice) [c3_13]\n\n2. What did Alice pull out of her pocket and hand around as prizes?\nAnswer: A box of comfits [c3_13]\n\n3. What was the distance that Alice was trying to determine in [c1_9]?\nAnswer: The r",
+          "faithfulness": 1.0,
+          "relevance": 0.5,
+          "context_precision": 0.0,
+          "combined": 0.5
+        }
+      }
+    },
+    {
+      "question": "What was unusual about the rabbit Alice saw?",
+      "strategies": {
+        "basic": {
+          "question": "What was unusual about the rabbit Alice saw?",
+          "answer": "According to the context, what was unusual about the rabbit Alice saw is that it had a waistcoat-pocket and a watch. Specifically:\n\n* It \"had never before seen a rabbit with either a waistcoat-pocket\" (c1_3)\n* The Rabbit actually \"took a watch out of its waistcoat-pocket\" (c1_2)",
+          "faithfulness": 1.0,
+          "relevance": 0.8,
+          "context_precision": 0.5,
+          "combined": 0.7666666666666666
+        },
+        "multi_query": {
+          "question": "What was unusual about the rabbit Alice saw?",
+          "answer": "According to the context, what was unusual about the rabbit Alice saw is that it had a waistcoat-pocket and a watch. Specifically:\n\n* It \"had never before seen a rabbit with either a waistcoat-pocket\" (c1_3)\n* The Rabbit actually \"took a watch out of its waistcoat-pocket\" (c1_2)",
+          "faithfulness": 1.0,
+          "relevance": 0.8,
+          "context_precision": 0.5,
+          "combined": 0.7666666666666666
+        },
+        "filtered": {
+          "question": "What was unusual about the rabbit Alice saw?",
+          "answer": "The White Rabbit was unusual because he carried a watch in his waistcoat pocket and looked at it before hurrying on. (c1_2)",
+          "faithfulness": 1.2,
+          "relevance": 0.8,
+          "context_precision": 0.25,
+          "combined": 0.75
+        }
+      }
+    },
+    {
+      "question": "Why did Alice call after the Mouse?",
+      "strategies": {
+        "basic": {
+          "question": "Why did Alice call after the Mouse?",
+          "answer": "The context does not provide a clear reason why Alice called after the Mouse. It only shows that Alice spoke to the Mouse after it had stopped talking, saying \"Mouse dear! Do come back again...\" (c2_33). There is no prior conversation or explanation for why she did so.",
+          "faithfulness": 1.0,
+          "relevance": 0.9,
+          "context_precision": 0.25,
+          "combined": 0.7166666666666667
+        },
+        "multi_query": {
+          "question": "Why did Alice call after the Mouse?",
+          "answer": "Context is insufficient. The provided text does not mention Alice calling after the Mouse before the Mouse calls out to her in [c3_3].",
+          "faithfulness": 0.75,
+          "relevance": 0.5,
+          "context_precision": 0.2,
+          "combined": 0.48333333333333334
+        },
+        "filtered": {
+          "question": "Why did Alice call after the Mouse?",
+          "answer": "According to [c2_33], Alice called after the Mouse because she wanted it to come back again and not talk about cats or dogs if it didn't like them. She was trying to be friendly and avoid offending the Mouse.",
+          "faithfulness": 0.9090909090909091,
+          "relevance": 0.5,
+          "context_precision": 0.5,
+          "combined": 0.6363636363636364
+        }
+      }
+    },
+    {
+      "question": "Who spoke in a solemn tone at the meeting?",
+      "strategies": {
+        "basic": {
+          "question": "Who spoke in a solemn tone at the meeting?",
+          "answer": "The Dodo spoke in a solemn tone at the meeting, saying \"I move that the meeting adjourn, for the immediate adoption of more energetic remedies\u2014\" (chunk ID: c3_8).",
+          "faithfulness": 0.875,
+          "relevance": 0.0,
+          "context_precision": 0.25,
+          "combined": 0.375
+        },
+        "multi_query": {
+          "question": "Who spoke in a solemn tone at the meeting?",
+          "answer": "The Dodo spoke in a solemn tone at the meeting, saying \"I move that the meeting adjourn, for the immediate adoption of more energetic remedies\u2014\" (chunk ID: c3_8).",
+          "faithfulness": 1.0,
+          "relevance": 0.0,
+          "context_precision": 0.25,
+          "combined": 0.4166666666666667
+        },
+        "filtered": {
+          "question": "Who spoke in a solemn tone at the meeting?",
+          "answer": "The Dodo spoke in a solemn tone at the meeting. (Chunk IDs: [c3_14], [c3_12])",
+          "faithfulness": 0.6,
+          "relevance": 0.5,
+          "context_precision": 0.5,
+          "combined": 0.5333333333333333
+        }
+      }
+    },
+    {
+      "question": "What caused Alice's clothes not to dry?",
+      "strategies": {
+        "basic": {
+          "question": "What caused Alice's clothes not to dry?",
+          "answer": "The context does not mention what caused Alice's clothes not to dry. The provided text only mentions Alice's concern about getting dry and her discussion with various creatures, but it does not provide any information on why her clothes are still wet. (Context is insufficient)",
+          "faithfulness": 1.1666666666666667,
+          "relevance": 0.9,
+          "context_precision": 0.0,
+          "combined": 0.688888888888889
+        },
+        "multi_query": {
+          "question": "What caused Alice's clothes not to dry?",
+          "answer": "The context does not mention what caused Alice's clothes not to dry. It only mentions that she needs to get dry and discusses possible ways to achieve this, such as a Caucus-race (c3_9).",
+          "faithfulness": 1.2,
+          "relevance": 0.5,
+          "context_precision": 0.0,
+          "combined": 0.5666666666666667
+        },
+        "filtered": {
+          "question": "What caused Alice's clothes not to dry?",
+          "answer": "The context does not mention Alice's clothes not drying. It only mentions her getting wet from crying (chunk ID: c2_5) and needing to get dry (chunk ID: c3_3).",
+          "faithfulness": 1.1666666666666667,
+          "relevance": 0.8,
+          "context_precision": 0.0,
+          "combined": 0.6555555555555556
+        }
+      }
+    }
+  ]
+}
