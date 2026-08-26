@@ -10,15 +10,15 @@ five graded real-data projects. Zero .py files; every class lives in a notebook.
 
 | # | Notebook | Focus | Time |
 |---|---|---|---|
-| 1 | `01_theory_made_simple` | probability → odds → sigmoid → cross-entropy (story-built) → the familiar gradient | ~2 h |
-| 2 | `02_from_scratch_oop` | `MyLogisticRegression`, verified vs sklearn on Titanic | ~1 h |
-| 3 | `03_sklearn_implementation` | Pipeline + C-parameter + L1/L2 paragraph on bundled breast-cancer data | ~1 h |
-| 4 | `04_evaluation_and_thresholds` | confusion matrix, precision/recall/F1 stories, ROC-AUC, threshold dial, imbalance trap | ~1.5 h |
-| 5-9 | `projects/01…05` | 🟢 titanic · 🟢 penguins · 🟡 heart · 🟠 pima · 🔴 sms spam | ~6 h |
+|  | `0_theory_made_simple` | probability -> odds -> sigmoid -> cross-entropy (story-built) -> the familiar gradient | ~2 h |
+| 2 | `02_from_scratch_oop` | `MyLogisticRegression`, verified vs sklearn on Titanic | ~ h |
+| 3 | `03_sklearn_implementation` | Pipeline + C-parameter + L/L2 paragraph on bundled breast-cancer data | ~ h |
+| 4 | `04_evaluation_and_thresholds` | confusion matrix, precision/recall/F stories, ROC-AUC, threshold dial, imbalance trap | ~.5 h |
+| 5-9 | `projects/0…05` |  titanic ·  penguins ·  heart ·  pima ·  sms spam | ~6 h |
 
 ## The whole model on a napkin
 
-$$p = \sigma(w_0+w_1x_1+\cdots), \qquad \sigma(z)=\frac{1}{1+e^{-z}},
+$$p = \sigma(w_0+w_x_+\cdots), \qquad \sigma(z)=\frac{}{+e^{-z}},
 \qquad w := w-\alpha\,\frac{X^T(p-y)}{m}$$
 
 Same skeleton as linear regression: weighted sum in, average-error-times-inputs
@@ -32,11 +32,11 @@ out. Everything else is interpretation craft - which is what notebook 04 teaches
 
 ## Project rubric (grade yourself)
 
-1. Lazy baseline computed before celebrating accuracy?
+. Lazy baseline computed before celebrating accuracy?
 2. Every cleaning/imputation choice justified?
 3. Confusion matrix READ (which error hurts more here)?
 4. Threshold chosen deliberately with numbers, not left at 0.5 by accident?
 5. Coefficients translated into plain business/clinical language?
 6. Limitations admitted?
 
-*Start → `01_theory_made_simple.ipynb`*
+*Start -> `0_theory_made_simple.ipynb`*

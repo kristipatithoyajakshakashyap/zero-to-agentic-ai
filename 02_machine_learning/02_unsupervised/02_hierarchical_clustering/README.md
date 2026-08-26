@@ -11,7 +11,7 @@ This book covers the merge logic, the linkage zoo, dendrogram reading, and the
 traps.
 
 **Contents**
-1. [The idea in words](#1-the-idea-in-words-agglomerative)
+. [The idea in words](#-the-idea-in-words-agglomerative)
 2. [Linkage types](#2-linkage-types-how-is-cluster-distance-defined)
 3. [Reading a dendrogram](#3-reading-a-dendrogram)
 4. [Scaling is mandatory](#4-scaling-is-mandatory)
@@ -23,7 +23,7 @@ traps.
 
 ---
 
-## 1. The idea in words (agglomerative)
+## . The idea in words (agglomerative)
 
 ```
 start:  every point is its own tiny cluster (n clusters)
@@ -39,8 +39,8 @@ down at which "height" each snap happened. The recorded heights become the y-axi
 of the dendrogram; longer branches = more dissimilar merges = stronger evidence
 of separate groups.
 
-> 💡 **Why it's loved:** the tree shows ALL granularities at once - executives
-> can argue about 3 macro-segments while analysts inspect 12 micro-segments
+>  **Why it's loved:** the tree shows ALL granularities at once - executives
+> can argue about 3 macro-segments while analysts inspect 2 micro-segments
 > from the same fit.
 
 ## 2. Linkage types - how is "cluster distance" defined?
@@ -51,12 +51,12 @@ answers differently:
 | Linkage | Distance between clusters A,B | Minimizes / behavior |
 |---|---|---|
 | `ward` (default) | increase in within-cluster variance if merged | tight, spherical, similar-size clusters - usually the best default |
-| `complete` (max) | FARTHEST pair distance | minimizes cluster diameter → compact blobs |
+| `complete` (max) | FARTHEST pair distance | minimizes cluster diameter -> compact blobs |
 | `average` | MEAN over all cross pairs | compromise between complete & single |
-| `single` (min) | CLOSEST pair distance | minimizes nearest-neighbour gap → can "chain" into long snakes |
+| `single` (min) | CLOSEST pair distance | minimizes nearest-neighbour gap -> can "chain" into long snakes |
 
-Rules of thumb: blob-shaped data → `ward`; noisy elongated truth you want
-respected → try `average`/`complete`; avoid `single` unless you specifically
+Rules of thumb: blob-shaped data -> `ward`; noisy elongated truth you want
+respected -> try `average`/`complete`; avoid `single` unless you specifically
 want chain-like clusters (it is the classic "chaining" failure mode).
 
 ## 3. Reading a dendrogram
@@ -69,13 +69,13 @@ dendrogram(Z)                              # full tree plot
 
 - Each leaf = one observation; each U = one merge event.
 - **y-value of a U = the linkage distance at which those branches fused.**
-- Draw a horizontal line ("cut") at height h → the vertical lines it crosses =
+- Draw a horizontal line ("cut") at height h -> the vertical lines it crosses =
   your clusters. Tall U's below your cut = robust separation; cutting through
   short U's = arbitrary grouping.
 - Long vertical stretches with NO merges (big gaps between fusion heights) mark
   natural cut positions.
 
-⚠️ Dendrograms get unreadable past a few hundred leaves - use
+ Dendrograms get unreadable past a few hundred leaves - use
 `truncate_mode="level", p=3` to show only the top of the tree, or
 `no_labels=True`.
 
@@ -91,19 +91,19 @@ X_scaled = StandardScaler().fit_transform(X)
 
 ## 5. When to use / when to avoid
 
-✅ **Use hierarchical clustering when…**
+ **Use hierarchical clustering when…**
 - **k is unknown** and you want to see structure before choosing it
 - you need a **taxonomy / nested categories** (product catalog, species,
   org-level segmentation)
 - dataset is **small-to-medium** (up to a few thousand rows comfortably)
 - stakeholders debate granularity - one tree serves many cuts
 
-❌ **Avoid when…**
+ **Avoid when…**
 - **n is large**: naive algorithms cost O(n²) memory (distance matrix!) and
-  ~O(n² log n) time - 100k rows will hurt
+  ~O(n² log n) time - 00k rows will hurt
 - you must **assign NEW points later**: `AgglomerativeClustering` has NO
   `.predict()` - the tree is built once for the data it saw (K-Means wins here)
-- you need guaranteed convex, re-seedable partitions → K-Means
+- you need guaranteed convex, re-seedable partitions -> K-Means
 
 ## 6. Key parameters (`sklearn` + `scipy`)
 
@@ -124,12 +124,12 @@ X_scaled = StandardScaler().fit_transform(X)
 | `dendrogram(Z, truncate_mode, p, ...)` | draw the tree |
 | `fcluster(Z, t, criterion="maxclust")` | extract flat labels: k=t clusters |
 
-💡 sklearn gives labels; scipy gives the tree + flexible cuts. Pros often do
+ sklearn gives labels; scipy gives the tree + flexible cuts. Pros often do
 both: scipy to LOOK, sklearn to LABEL.
 
 ## 7. Common pitfalls
 
-1. **Wrong linkage for the shape** - `single` chains noise into mega-clusters;
+. **Wrong linkage for the shape** - `single` chains noise into mega-clusters;
    `ward` shatters elongated truths. Compare linkages before believing any tree.
 2. **Unscaled features** - biggest-unit column dictates every early merge.
 3. **Memory blow-up** - the pairwise-distance approach is O(n²); subsample for
@@ -145,9 +145,9 @@ both: scipy to LOOK, sklearn to LABEL.
 ```
 02_hierarchical_clustering/
 ├── README.md                            <- this reference book
-├── 01_theory_and_mathematics.nb.py      <- merge 6 customers BY HAND + dendrogram
+├── 0_theory_and_mathematics.nb.py      <- merge 6 customers BY HAND + dendrogram
 ├── 02_model_development_workflow.nb.py  <- penguins: dendrogram, cut, sanity check
-├── 01_easy_mall_dendrogram.nb.py        <- PROJECT: mall segments via ward tree
+├── 0_easy_mall_dendrogram.nb.py        <- PROJECT: mall segments via ward tree
 ├── 02_medium_penguins_discovery.nb.py   <- PROJECT: linkage face-off on penguins
 └── 03_hard_wine_linkages.nb.py          <- PROJECT: method x k silhouette grid
 ```
@@ -161,7 +161,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import AgglomerativeClustering
 from scipy.cluster.hierarchy import linkage, dendrogram, fcluster
 
-Xs = StandardScaler().fit_transform(df[num_cols])       # 1. ALWAYS scale
+Xs = StandardScaler().fit_transform(df[num_cols])       # . ALWAYS scale
 
 Z = linkage(Xs, method="ward")                          # 2. merge table (scipy view)
 dendrogram(Z, truncate_mode="level", p=3)               #    readable top-of-tree
@@ -184,4 +184,4 @@ profile = df.assign(c=labels).groupby("c").mean()       # 5. interpret segments
 | number of clusters in Z | `len(np.unique(labels))` or count crossings at your cut |
 
 *Next: perform three merges with pen-and-paper numpy in
-`01_theory_and_mathematics.nb.py`.*
+`0_theory_and_mathematics.nb.py`.*

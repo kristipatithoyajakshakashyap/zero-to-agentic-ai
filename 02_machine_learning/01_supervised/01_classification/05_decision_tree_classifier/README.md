@@ -12,7 +12,7 @@ At every node the tree asks: *"which single question lowers class-mixing the
 most?"* Mixing is measured by:
 
 **Gini impurity** - chance two random rows disagree:
-$$G = 1-\sum_c p_c^2 \quad\text{(0 = pure node)}$$
+$$G = -\sum_c p_c^2 \quad\text{(0 = pure node)}$$
 
 or **entropy** - surprise in bits: $H=-\sum_c p_c\log_2 p_c$.
 
@@ -22,10 +22,10 @@ $$\Delta = G_{\text{parent}} - \frac{n_L}{n}G_L - \frac{n_R}{n}G_R$$
 Trees recurse until stopping rules bite (`max_depth`, `min_samples_leaf`…).
 
 ## When / how to use
-✅ interpretability is required (print the tree!) · mixed numeric/categorical
+ interpretability is required (print the tree!) · mixed numeric/categorical
 features · non-linear thresholds · fast inference.
-❌ alone on noisy data (overfits wildly) → always prune or move to forests;
-unstable: tiny data change → different tree.
+ alone on noisy data (overfits wildly) -> always prune or move to forests;
+unstable: tiny data change -> different tree.
 
 ## Key sklearn parameters (the pruning kit)
 | param | effect |
@@ -37,14 +37,14 @@ unstable: tiny data change → different tree.
 | `criterion` | "gini" (default) or "entropy" |
 
 ## Pitfalls
-- unconstrained depth memorizes training data (100% train / coin-flip test)
+- unconstrained depth memorizes training data (00% train / coin-flip test)
 - axis-aligned splits struggle with diagonal relationships
 - class imbalance biases default thresholds
 
 ## Contents
-- `01_theory_and_mathematics.ipynb` - Gini by hand + grow/visualize a real tree
+- `0_theory_and_mathematics.ipynb` - Gini by hand + grow/visualize a real tree
 - `02_model_development_workflow.ipynb` - depth tuning, pruning, feature importances
-- `projects/` - 🟢 titanic readable-tree · 🟡 penguins multiclass · 🔴 credit-g pruning
+- `projects/` -  titanic readable-tree ·  penguins multiclass ·  credit-g pruning
 
 ## Cheat sheet
 ```python

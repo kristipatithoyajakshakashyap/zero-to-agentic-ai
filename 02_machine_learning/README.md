@@ -6,9 +6,9 @@ algorithm lives in its own module with a consistent structure:
 ```
 <module>/
 ├── README.md                        reference sheet: intuition, when/how to use
-├── 01_theory_and_mathematics.ipynb  gentle math demonstrated on real data
+├── 0_theory_and_mathematics.ipynb  gentle math demonstrated on real data
 ├── 02_model_development_workflow.ipynb  end-to-end sklearn workflow
-└── projects/                        3-4 graded notebooks, easy → advanced
+└── projects/                        3-4 graded notebooks, easy -> advanced
 ```
 
 ## Layout
@@ -16,9 +16,9 @@ algorithm lives in its own module with a consistent structure:
 ```
 02_machine_learning/
 ├── data/                            shared dataset hub (downloaded once)
-├── 01_supervised/
-│   ├── 01_classification/
-│   │   ├── 01_logistic_regression       includes evaluation-and-thresholds lab
+├── 0_supervised/
+│   ├── 0_classification/
+│   │   ├── 0_logistic_regression       includes evaluation-and-thresholds lab
 │   │   ├── 02_knn_classification
 │   │   ├── 03_svm_classification
 │   │   ├── 04_naive_bayes
@@ -28,7 +28,7 @@ algorithm lives in its own module with a consistent structure:
 │   │   ├── 08_gradient_boosting_classifier
 │   │   └── 09_xgboost_classifier
 │   └── 02_regression/
-│       ├── 01_linear_regression         includes Ridge / Lasso / ElasticNet
+│       ├── 0_linear_regression         includes Ridge / Lasso / ElasticNet
 │       ├── 02_knn_regression
 │       ├── 03_svm_regression
 │       ├── 04_decision_tree_regressor
@@ -37,14 +37,14 @@ algorithm lives in its own module with a consistent structure:
 │       ├── 07_gradient_boosting_regressor
 │       └── 08_xgboost_regressor
 └── 02_unsupervised/
-    ├── 01_kmeans_clustering
+    ├── 0_kmeans_clustering
     ├── 02_hierarchical_clustering
     └── 03_cluster_evaluation_silhouette
 ```
 
 ## Study order
 
-1. Linear regression module and its regularization trilogy; then its projects.
+. Linear regression module and its regularization trilogy; then its projects.
 2. Logistic regression module and the evaluation lab; then its projects.
 3. Classification trees and forests (`05`, `06`), followed by boosting (`07`-`09`).
 4. Regression twins of whichever classifiers you liked best.

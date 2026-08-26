@@ -2,16 +2,16 @@
 
 **MLCourse · Data Science Foundations · 06_capstone_projects**
 
-Five end-to-end analyses chaining **pandas → preprocessing → matplotlib → seaborn**
+Five end-to-end analyses chaining **pandas -> preprocessing -> matplotlib -> seaborn**
 into stakeholder-grade deliverables. No scaffolding here - you drive.
 
 ## The method (use it on every project)
 
 ```
-1 QUESTION   translate the brief into concrete, answerable questions
+ QUESTION   translate the brief into concrete, answerable questions
 2 LOAD       acquire + audit data (shape, dtypes, missing, duplicates)
 3 CLEAN      justified per-column strategies - never silent fixes
-4 ANALYZE    segment → aggregate → compare; every number earns a sentence
+4 ANALYZE    segment -> aggregate -> compare; every number earns a sentence
 5 VISUALIZE  one coherent dashboard + supporting charts
 6 INSIGHT    quantify each finding; state limitations honestly
 7 COMMUNICATE findings + recommendations in plain language
@@ -21,7 +21,7 @@ into stakeholder-grade deliverables. No scaffolding here - you drive.
 
 | # | Notebook | Dataset | Skills spotlight |
 |---|---|---|---|
-| 01 | `titanic_survival_eda` | seaborn titanic | missing-data strategy, feature engineering, survival segmentation dashboard |
+| 0 | `titanic_survival_eda` | seaborn titanic | missing-data strategy, feature engineering, survival segmentation dashboard |
 | 02 | `restaurant_tips_analytics` | tips | tip-% economics, regression line, Simpson's-paradox hint, business recs |
 | 03 | `penguins_statistical_eda` | penguins | species statistics, correlation matrix, IQR outlier audit, dimorphism |
 | 04 | `flights_timeseries_dashboard` | flights | datetime index, trend/seasonality decomposition, YoY growth, anomaly flags |
@@ -38,4 +38,4 @@ Project 05 auto-downloads and caches to `data/imdb_reviews.csv`.
 - Self-review rubric: reproducible top-to-bottom? every chart labeled? every
   insight quantified? limitations stated? recommendations actionable?
 
-*Start with Capstone 01.*
+*Start with Capstone 0.*

@@ -9,12 +9,12 @@ per section.
 
 ```
 MLCourse/
-├── 01_data_science_foundations/     NumPy · Pandas · Matplotlib · Seaborn
+├── 0_data_science_foundations/     NumPy · Pandas · Matplotlib · Seaborn
 │                                    + Data Preprocessing + Capstone Projects
 ├── 02_machine_learning/
 │   ├── data/                        shared dataset hub (auto-downloaded)
-│   ├── 01_supervised/
-│   │   ├── 01_classification/       logistic · knn · svm · naive bayes
+│   ├── 0_supervised/
+│   │   ├── 0_classification/       logistic · knn · svm · naive bayes
 │   │   │                            · decision tree · random forest
 │   │   │                            · adaboost · gradient boosting · xgboost
 │   │   └── 02_regression/           linear (+ Ridge/Lasso/ElasticNet) · knn
@@ -32,7 +32,7 @@ From the repository root:
 
 ```powershell
 python -m venv .venv
-.\.venv\Scripts\Activate.ps1        # Linux/macOS: source .venv/bin/activate
+.\.venv\Scripts\Activate.ps        # Linux/macOS: source .venv/bin/activate
 pip install -r requirements.txt
 jupyter lab
 ```
@@ -47,14 +47,14 @@ Work top-to-bottom within each track. Times assume focused part-time study.
 
 | Order | Section | Time | Outcome |
 |---|---|---|---|
-| 1 | `foundations/01_numpy` | ~6 h | Arrays, broadcasting, vectorization |
+|  | `foundations/0_numpy` | ~6 h | Arrays, broadcasting, vectorization |
 | 2 | `foundations/02_pandas` | ~8 h | Cleaning, groupby, merging, time series |
 | 3 | `foundations/03_matplotlib` | ~5 h | Full plotting control, dashboards |
 | 4 | `foundations/04_seaborn` | ~5 h | Statistical graphics |
 | 5 | `foundations/05_preprocessing` | ~6 h | Missing/numeric/categorical/text pipelines |
-| 6 | `foundations/06_capstones` | ~10 h | Five end-to-end projects |
-| 7 | `ml/classification` | ~16 h | Nine classifiers with graded projects |
-| 8 | `ml/regression` | ~13 h | Eight regressors with graded projects |
+| 6 | `foundations/06_capstones` | ~0 h | Five end-to-end projects |
+| 7 | `ml/classification` | ~6 h | Nine classifiers with graded projects |
+| 8 | `ml/regression` | ~3 h | Eight regressors with graded projects |
 | 9 | `ml/unsupervised` | ~6 h | Clustering plus silhouette evaluation |
 
 Study discipline matters more than speed: read the section reference first,
@@ -82,7 +82,7 @@ After the initial fetches the entire course runs offline.
 
 Standards that keep this repository maintainable:
 
-1. **Notebooks only.** Content ships as self-contained `.ipynb` files; no
+. **Notebooks only.** Content ships as self-contained `.ipynb` files; no
    companion `.py` scripts. A notebook is accepted only if it executes
    top-to-bottom from a fresh kernel without errors.
 2. **Comment density is part of the contract.** Every non-trivial line or block

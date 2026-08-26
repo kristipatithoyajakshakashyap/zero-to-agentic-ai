@@ -1,13 +1,13 @@
 # Supervised Learning
 
-**MLCourse · Machine Learning · 01_supervised**
+**MLCourse · Machine Learning · 0_supervised**
 
 Supervised models learn from **labeled examples**: every row carries the answer
 (target) you want to predict. Split by task type:
 
 ```
-01_supervised/
-├── 01_classification/    predict a CATEGORY   (spam? disease? which species?)
+0_supervised/
+├── 0_classification/    predict a CATEGORY   (spam? disease? which species?)
 └── 02_regression/        predict a NUMBER     (price, weight, charges)
 ```
 
@@ -20,14 +20,14 @@ pipe = Pipeline([("scaler", StandardScaler()),      # when the model needs it
                  ("model", SomeAlgorithm())])
 pipe.fit(X_train, y_train)
 cross_val_score(pipe, X_train, y_train, cv=5)
-# evaluate on test → interpret → check errors
+# evaluate on test -> interpret -> check errors
 ```
 
 ## Model lineup
 
 | Classification | Regression |
 |---|---|
-| 01 Logistic regression ✅ | 01 Linear regression (+ Ridge/Lasso/ElasticNet) ✅ |
+| 0 Logistic regression  | 0 Linear regression (+ Ridge/Lasso/ElasticNet)  |
 | 02 k-Nearest Neighbors | 02 k-Nearest Neighbors |
 | 03 Support Vector Machines | 03 SVR |
 | 04 Naive Bayes | - (no standard NB regressor) |
@@ -39,8 +39,8 @@ cross_val_score(pipe, X_train, y_train, cv=5)
 
 ## Choosing a starter model (rule of thumb)
 
-1. Always run the simple baseline first (logistic / linear).
-2. Tabular data with mixed types → tree ensembles (RF, then boosting).
-3. Small clean data needing smooth boundaries → SVM / KNN.
-4. Text counts → Naive Bayes.
+. Always run the simple baseline first (logistic / linear).
+2. Tabular data with mixed types -> tree ensembles (RF, then boosting).
+3. Small clean data needing smooth boundaries -> SVM / KNN.
+4. Text counts -> Naive Bayes.
 Every module's README has its own "when to use" table.

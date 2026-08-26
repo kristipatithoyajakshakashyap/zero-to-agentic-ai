@@ -6,7 +6,7 @@ Gradient boosting is the idea that won Kaggle after Kaggle: build a regression m
 **slowly**, each new small tree trained to predict the **residuals** the current model
 still leaves behind, then added in with a shrinkage factor:
 
-$$F_m(x) \;=\; F_{m-1}(x) \;+\; \nu \cdot h_m(x), \qquad 0 < \nu \le 1$$
+$$F_m(x) \;=\; F_{m-}(x) \;+\; \nu \cdot h_m(x), \qquad 0 < \nu \le $$
 
 ## What you'll learn
 
@@ -18,29 +18,29 @@ $$F_m(x) \;=\; F_{m-1}(x) \;+\; \nu \cdot h_m(x), \qquad 0 < \nu \le 1$$
 
 ## The loop in words
 
-1. Start with a constant: $F_0(x) = \bar y$ (the mean minimises squared error).
-2. Compute residuals $r_i = y_i - F_{m-1}(x_i)$.
-3. Fit a shallow tree $h_m$ to those residuals (features → *error corrections*).
-4. Add it in shrunk: $F_m = F_{m-1} + \nu\, h_m$.
+. Start with a constant: $F_0(x) = \bar y$ (the mean minimises squared error).
+2. Compute residuals $r_i = y_i - F_{m-}(x_i)$.
+3. Fit a shallow tree $h_m$ to those residuals (features -> *error corrections*).
+4. Add it in shrunk: $F_m = F_{m-} + \nu\, h_m$.
 5. Repeat `n_estimators` times. Predictions are just the final accumulated $F_M(x)$.
 
 ### Why residuals ARE gradients (the one-line calculus)
 
-For squared-error loss $\frac{1}{2}(y - F)^2$, the gradient with respect to the
+For squared-error loss $\frac{}{2}(y - F)^2$, the gradient with respect to the
 prediction is
 
-$$\frac{\partial}{\partial F}\,\tfrac12\bigl(y-F\bigr)^2 \;=\; -(y-F).$$
+$$\frac{\partial}{\partial F}\,\tfrac2\bigl(y-F\bigr)^2 \;=\; -(y-F).$$
 
 So "the negative gradient" - the direction of steepest DESCENT in prediction space -
 is exactly the residual. Fitting a tree to residuals **is** taking a gradient step,
 where each leaf outputs the step size. Change the loss and the pseudo-residuals change
-(absolute error → sign of residual; huber → residual clipped at δ); the machinery
+(absolute error -> sign of residual; huber -> residual clipped at δ); the machinery
 never changes. That generality is why this family is called gradient boosting.
 
 ### Shrinkage (why ν matters)
 
-Without shrinkage (ν=1) each tree fully "corrects" the residuals - including noise -
-and the train MSE plummets while test error balloons. Small ν (0.01-0.3) makes each
+Without shrinkage (ν=) each tree fully "corrects" the residuals - including noise -
+and the train MSE plummets while test error balloons. Small ν (0.0-0.3) makes each
 round a cautious nudge; errors decay smoothly and many rounds average out noise.
 The classic recipe: **small learning_rate + more trees + early stopping.**
 
@@ -61,7 +61,7 @@ The classic recipe: **small learning_rate + more trees + early stopping.**
 
 When NOT to:
 
-- Huge data → prefer `HistGradientBoostingRegressor` (or XGBoost/LightGBM).
+- Huge data -> prefer `HistGradientBoostingRegressor` (or XGBoost/LightGBM).
 - Need extrapolation beyond training ranges (all tree ensembles fail there).
 - Ultra-noisy labels with no cleaning possible - boosting will fit the noise eventually.
 
@@ -77,10 +77,10 @@ When NOT to:
 
 | Parameter | Default | What it does |
 |---|---|---|
-| `learning_rate` (ν) | `0.1` | shrinkage per tree; smaller = safer, needs more trees |
-| `n_estimators` | `100` | number of sequential trees (M) |
+| `learning_rate` (ν) | `0.` | shrinkage per tree; smaller = safer, needs more trees |
+| `n_estimators` | `00` | number of sequential trees (M) |
 | `max_depth` | `3` | depth of each small tree; 2-4 is the sweet spot |
-| `subsample` | `1.0` | fraction of rows per tree; `<1` adds stochasticity (variance ↓, speed ↑) |
+| `subsample` | `.0` | fraction of rows per tree; `<` adds stochasticity (variance (down), speed (up)) |
 | `loss` | `'squared_error'` | also `'absolute_error'`, `'huber'` for robustness |
 | `init` | mean Dummy | the starting constant model $F_0$ |
 | `random_state` | `None` | reproducibility of subsampling |
@@ -91,26 +91,26 @@ Useful extras: `staged_predict()` (prediction after every round),
 
 ## Pitfalls
 
-- ⚠️ **Overfits by design if unchecked**: train MSE falls every single round; only a
+-  **Overfits by design if unchecked**: train MSE falls every single round; only a
   held-out curve tells you when to STOP adding trees.
-- ⚠️ **lr × n_estimators are coupled**: changing ν without retuning M invalidates
+-  **lr × n_estimators are coupled**: changing ν without retuning M invalidates
   comparisons.
-- ⚠️ **No extrapolation**: predictions are sums of bounded leaf values - the model can
+-  **No extrapolation**: predictions are sums of bounded leaf values - the model can
   never output beyond the range seen during training.
-- ⚠️ Sensitive to duplicated/leaky columns: boosting will happily latch onto leakage
+-  Sensitive to duplicated/leaky columns: boosting will happily latch onto leakage
   and report glorious CV numbers until deployment humbles everyone.
-- ⚠️ Sequential by nature - no easy parallelism across trees (unlike forests).
+-  Sequential by nature - no easy parallelism across trees (unlike forests).
 
 ## Contents
 
 | File | Focus |
 |---|---|
-| `01_theory_and_mathematics.nb.py` | manual 4-round residual loop (bmi), verified == sklearn; ν comparison |
+| `0_theory_and_mathematics.nb.py` | manual 4-round residual loop (bmi), verified == sklearn; ν comparison |
 | `02_model_development_workflow.nb.py` | insurance: log-target, `staged_predict` best-round, lr×depth grid, importances |
-| `projects/01_easy_diabetes_gbm.nb.py` 🟢 | baseline vs tuned, staged peak, bmi/s5 drivers |
-| `projects/02_medium_white_wine_gbm.nb.py` 🟡 | UCI white wine quality: baselines, MAE/RMSE/R², alcohol/density |
-| `projects/03_hard_insurance_log_gbm.nb.py` 🟠 | log-charges pipeline, $-metrics, smoker×bmi partial dependence |
-| `projects/04_advanced_california_staged.nb.py` 🔴 | 8k-row California: staged early-stop, subsample study, error hotspots |
+| `projects/0_easy_diabetes_gbm.nb.py`  | baseline vs tuned, staged peak, bmi/s5 drivers |
+| `projects/02_medium_white_wine_gbm.nb.py`  | UCI white wine quality: baselines, MAE/RMSE/R², alcohol/density |
+| `projects/03_hard_insurance_log_gbm.nb.py`  | log-charges pipeline, $-metrics, smoker×bmi partial dependence |
+| `projects/04_advanced_california_staged.nb.py`  | 8k-row California: staged early-stop, subsample study, error hotspots |
 
 ## Cheat sheet
 
@@ -127,10 +127,10 @@ gbm = GradientBoostingRegressor(
 ).fit(X_train, y_train)
 
 # staged API: predictions after EVERY round -> pick the validation optimum
-for m, pred in enumerate(gbm.staged_predict(X_valid), start=1):
+for m, pred in enumerate(gbm.staged_predict(X_valid), start=):
     ...
-best_round = int(np.argmin([mse(y_valid, p) for p in gbm.staged_predict(X_valid)])) + 1
+best_round = int(np.argmin([mse(y_valid, p) for p in gbm.staged_predict(X_valid)])) +
 final = GradientBoostingRegressor(n_estimators=best_round, **same_kwargs).fit(X_trval, y_trval)
 ```
 
-*Next section → `08_xgboost_regressor` - the industrial-strength descendant.*
+*Next section -> `08_xgboost_regressor` - the industrial-strength descendant.*

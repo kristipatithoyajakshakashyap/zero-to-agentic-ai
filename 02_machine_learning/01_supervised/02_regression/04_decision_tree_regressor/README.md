@@ -30,15 +30,15 @@ as classification trees, with Gini swapped for MSE.
 
 ## Overfitting anatomy
 An unpruned tree keeps splitting until leaves are nearly singletons:
-- **Symptoms:** hundreds of leaves, train R² ≈ 1.0, test R² far lower, staircase with one step per point.
+- **Symptoms:** hundreds of leaves, train R² ≈ .0, test R² far lower, staircase with one step per point.
 - **Cause:** splits start isolating *noise*, not signal - the model memorizes instead of generalizes.
 - **Cure:** prune. Limit depth, fatten leaves, or cut weak branches with cost-complexity pruning.
 
 ## Key sklearn parameters (the pruning kit)
 | param | effect |
 |---|---|
-| `max_depth` | hard stop on question-chain length (1-3 = crude steps, ~8 = usually enough on tabular data) |
-| `min_samples_leaf` | leaf must hold ≥ this many rows → smooths steps, blocks singleton memorization |
+| `max_depth` | hard stop on question-chain length (-3 = crude steps, ~8 = usually enough on tabular data) |
+| `min_samples_leaf` | leaf must hold ≥ this many rows -> smooths steps, blocks singleton memorization |
 | `min_samples_split` | don't bother splitting nodes smaller than this |
 | `ccp_alpha` | cost-complexity penalty: grow full tree, then cut branches whose gain < alpha |
 | `max_features` | features considered per split (adds randomness - mostly a forest tool) |
@@ -50,12 +50,12 @@ An unpruned tree keeps splitting until leaves are nearly singletons:
   steps bounded by training range) or low-variance standalone accuracy -
   always pair with pruning or upgrade to a random forest.
 
-💡 Tune in this order: `max_depth` sweep → `min_samples_leaf` → `ccp_alpha`.
+ Tune in this order: `max_depth` sweep -> `min_samples_leaf` -> `ccp_alpha`.
 Validate every choice with cross-validation, never by staring at training error.
 
 ## Contents
-- `01_theory_and_mathematics.nb.py` - SSE of the root by hand, Δ of a real split,
-  proving sklearn's depth-1 tree predicts group means, step-functions at depth 1/3/unlimited
+- `0_theory_and_mathematics.nb.py` - SSE of the root by hand, Δ of a real split,
+  proving sklearn's depth- tree predicts group means, step-functions at depth /3/unlimited
 - `02_model_development_workflow.nb.py` - California housing: unpruned baseline,
   depth CV sweep, ccp_alpha path, feature importances
 - `projects/` - easy tips tree · medium mpg tree · hard insurance charges tree ·
@@ -64,7 +64,7 @@ Validate every choice with cross-validation, never by staring at training error.
 ## Cheat sheet
 ```python
 from sklearn.tree import DecisionTreeRegressor, plot_tree
-tree = DecisionTreeRegressor(max_depth=6, min_samples_leaf=20, ccp_alpha=1e-3)
+tree = DecisionTreeRegressor(max_depth=6, min_samples_leaf=20, ccp_alpha=e-3)
 tree.fit(X_train, y_train)
 plot_tree(tree, feature_names=X.columns, filled=True, rounded=True)
 ```
