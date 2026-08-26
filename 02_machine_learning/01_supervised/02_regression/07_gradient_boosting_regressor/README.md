@@ -26,10 +26,10 @@ $$F_m(x) \;=\; F_{m-}(x) \;+\; \nu \cdot h_m(x), \qquad 0 < \nu \le $$
 
 ### Why residuals ARE gradients (the one-line calculus)
 
-For squared-error loss $\frac{}{2}(y - F)^2$, the gradient with respect to the
+For squared-error loss $\frac{1}{2}(y - F)^2$, the gradient with respect to the
 prediction is
 
-$$\frac{\partial}{\partial F}\,\tfrac2\bigl(y-F\bigr)^2 \;=\; -(y-F).$$
+$$\frac{\partial}{\partial F}\,\tfrac{1}{2}\bigl(y-F\bigr)^2 \;=\; -(y-F).$$
 
 So "the negative gradient" - the direction of steepest DESCENT in prediction space -
 is exactly the residual. Fitting a tree to residuals **is** taking a gradient step,

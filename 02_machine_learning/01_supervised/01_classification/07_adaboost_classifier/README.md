@@ -13,7 +13,7 @@ trust.
 Round t with row-weights $w_i$:
 
 . fit stump on weighted rows -> weighted error $\epsilon_t$
-2. learner's say: $\alpha_t = \tfrac2 \ln\frac{-\epsilon_t}{\epsilon_t}$
+2. learner's say: $\alpha_t = \tfrac{1}{2}\ln\frac{1-\epsilon_t}{\epsilon_t}$
    (better-than-coin-flip -> positive say)
 3. re-weight wrong rows by $e^{\alpha_t}$ (right rows shrink)
 

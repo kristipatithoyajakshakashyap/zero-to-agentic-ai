@@ -18,7 +18,7 @@ five graded real-data projects. Zero .py files; every class lives in a notebook.
 
 ## The whole model on a napkin
 
-$$p = \sigma(w_0+w_x_+\cdots), \qquad \sigma(z)=\frac{}{+e^{-z}},
+$$p = \sigma(w_0+w_1x_1+\cdots), \qquad \sigma(z)=\frac{1}{1+e^{-z}},
 \qquad w := w-\alpha\,\frac{X^T(p-y)}{m}$$
 
 Same skeleton as linear regression: weighted sum in, average-error-times-inputs

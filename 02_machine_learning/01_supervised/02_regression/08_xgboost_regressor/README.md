@@ -14,9 +14,9 @@ Same additive recipe as GBM: $F_m = F_{m-}+\nu h_m$, but each tree $h_m$ is
 grown against a closed-form score built from gradient sums $G$ and hessian
 sums $H$, with regularization wired into the split decision:
 
-$$\text{gain} = \underbrace{\tfrac2\frac{G_L^2}{H_L+\lambda}}_{left}
-+\underbrace{\tfrac2\frac{G_R^2}{H_R+\lambda}}_{right}
--\underbrace{\tfrac2\frac{(G_L+G_R)^2}{H_L+H_R+\lambda}}_{parent}
+$$\text{gain} = \underbrace{\tfrac{1}{2}\frac{G_L^2}{H_L+\lambda}}_{left}
++\underbrace{\tfrac{1}{2}\frac{G_R^2}{H_R+\lambda}}_{right}
+-\underbrace{\tfrac{1}{2}\frac{(G_L+G_R)^2}{H_L+H_R+\lambda}}_{parent}
 -\gamma$$
 
 - For `reg:squarederror`: $G$ = residual sum, $H$ = row count (hessian = )

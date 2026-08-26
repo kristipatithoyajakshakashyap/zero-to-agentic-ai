@@ -12,9 +12,9 @@ the industry default for tabular competitions and production.
 Same additive recipe as GBM: $F_m = F_{m-}+\nu h_m$, but each tree $h_m$ is
 fit to a smoothed objective that ADDS penalties inside the split search:
 
-$$\text{gain} = \underbrace{\tfrac2\frac{G_L^2}{H_L+\lambda}}_{left}
-+\underbrace{\tfrac2\frac{G_R^2}{H_R+\lambda}}_{right}
--\underbrace{\tfrac2\frac{(G_L+G_R)^2}{H_L+H_R+\lambda}}_{parent}
+$$\text{gain} = \underbrace{\tfrac{1}{2}\frac{G_L^2}{H_L+\lambda}}_{left}
++\underbrace{\tfrac{1}{2}\frac{G_R^2}{H_R+\lambda}}_{right}
+-\underbrace{\tfrac{1}{2}\frac{(G_L+G_R)^2}{H_L+H_R+\lambda}}_{parent}
 -\gamma$$
 
 - $G$ = gradient sums, $H$ = hessian (curvature) sums -> smarter steps than GBM

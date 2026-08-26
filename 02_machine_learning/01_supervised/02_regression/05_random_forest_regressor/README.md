@@ -20,7 +20,7 @@ cancels each member's noise.
 
 ## Why averaging works: variance cancellation
 Independent errors average out:
-$$Var(\bar{pred}) = \rho\,\sigma^2 + \frac{-\rho}{B}\,\sigma^2$$
+$$Var(\bar{pred}) = \rho\,\sigma^2 + \frac{1-\rho}{B}\,\sigma^2$$
 With $B$ trees the second term shrinks toward zero; the first term survives
 because trees correlate (they keep picking similar top features). `max_features`
 randomises which features each split may consider -> decorrelates trees ->
