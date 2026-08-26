@@ -58,6 +58,16 @@ Work top-to-bottom within each track. Times assume focused part-time study.
 | 7 | `ml/classification` | ~6 h | Nine classifiers with graded projects |
 | 8 | `ml/regression` | ~3 h | Eight regressors with graded projects |
 | 9 | `ml/unsupervised` | ~6 h | Clustering plus silhouette evaluation |
+| 10 | `agentic/10_foundations` | ~4 h | Chat models, prompts, Pydantic outputs, LCEL |
+| 11 | `agentic/11_rag_basics` | ~5 h | Loaders, chunking, embeddings, Chroma/FAISS |
+| 12 | `agentic/12_memory_rag_chatbot` | ~4 h | Session memory, RAG chatbot capstone |
+| 13 | [Graph Basics](03_agentic_ai/13_graph_basics/) | ~4 h | LangGraph graphs, StateGraph, nodes, edges |
+| 14 | [Tool-Using Agents](03_agentic_ai/14_tool_using_agents/) | ~4 h | Tool binding, prebuilt ToolNode agents |
+| 15 | [Persistence & Checkpointing](03_agentic_ai/15_persistence_checkpointing/) | ~4 h | SqliteSaver, thread management, state replay |
+| 16 | [Human-in-the-Loop](03_agentic_ai/16_human_in_the_loop/) | ~3 h | Breakpoints, interrupt_before, human review |
+| 17 | [Streaming](03_agentic_ai/17_streaming/) | ~3 h | stream_mode values, token/event streaming |
+| 18 | [Multi-Agent Systems](03_agentic_ai/18_multi_agent_systems/) | ~4 h | Supervisor, swarm, agent handoffs |
+| 19 | [Capstone: LinkedIn Post](03_agentic_ai/19_capstone_linkedin_post/) | ~2 h | Full agentic pipeline end-to-end project |
 
 Study discipline matters more than speed: read the section reference first,
 execute every cell, attempt exercises before solutions, and inspect errors

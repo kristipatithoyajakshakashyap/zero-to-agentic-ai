@@ -27,3 +27,7 @@ pypdf>=6.0
 tiktoken>=0.14
 python-dotenv>=1.0
 sentence-transformers>=3.0
+# --- LangGraph track ---
+langgraph>=0.4
+langgraph-checkpoint>=2.0
+tavily-python>=0.5
