@@ -44,17 +44,42 @@ MLCourse/
     │   ├── 05_streaming                 stream_mode values
     │   ├── 06_multi_agent_systems       supervisor, swarm
     │   └── 07_travel_planner            agentic travel planning
-    └── 03_rag_advanced/             Advanced RAG (10 modules):
-        ├── 01_hybrid_search             dense + sparse fusion
-        ├── 02_multimodal_rag            images, tables, text
-        ├── 03_agentic_rag               agent-driven retrieval
-        ├── 04_autonomous_rag            self-directed pipelines
-        ├── 05_corrective_rag            retrieval validation
-        ├── 06_adaptive_rag              dynamic strategy selection
-        ├── 07_cache_rag                 semantic caching
-        ├── 08_vectorless_rag            BM25, keyword-based
-        ├── 09_persistent_memory_rag     long-term memory
-        └── 10_rag_evaluation            RAGAS metrics
+    ├── 03_rag_advanced/             Advanced RAG (10 modules):
+    │   ├── 01_hybrid_search             dense + sparse fusion
+    │   ├── 02_multimodal_rag            images, tables, text
+    │   ├── 03_agentic_rag               agent-driven retrieval
+    │   ├── 04_autonomous_rag            self-directed pipelines
+    │   ├── 05_corrective_rag            retrieval validation
+    │   ├── 06_adaptive_rag              dynamic strategy selection
+    │   ├── 07_cache_rag                 semantic caching
+    │   ├── 08_vectorless_rag            BM25, keyword-based
+    │   ├── 09_persistent_memory_rag     long-term memory
+    │   └── 10_rag_evaluation            RAGAS metrics
+    └── 04_crewai/                   CrewAI: Multi-Agent Orchestration (20 modules):
+        ├── 01_fundamentals/             agents, tasks, crews, tools
+        │   ├── 01_installation_and_first_crew
+        │   ├── 02_agents_deep_dive
+        │   ├── 03_tasks_and_processes
+        │   ├── 04_built_in_tools
+        │   └── 05_research_assistant_crew
+        ├── 02_advanced_agents/          custom tools, knowledge, memory
+        │   ├── 01_custom_tools
+        │   ├── 02_knowledge_sources
+        │   ├── 03_memory_systems
+        │   ├── 04_reasoning_and_planning
+        │   └── 05_conditional_and_multimodal
+        ├── 03_flows_and_orchestration/  flows, HITL, MCP, parallel crews
+        │   ├── 01_flows_basics
+        │   ├── 02_flow_state_persistence
+        │   ├── 03_human_in_the_loop
+        │   ├── 04_mcp_integration
+        │   └── 05_delegation_and_parallel_crews
+        └── 04_production/               testing, observability, capstone
+            ├── 01_testing_and_training
+            ├── 02_observability
+            ├── 03_coding_agents_and_cli
+            ├── 04_llm_connections
+            └── 05_capstone_full_stack_app_builder
 ```
 
 ## Environment setup
@@ -119,6 +144,27 @@ Work top-to-bottom within each track. Times assume focused part-time study.
 | 36 | [Vectorless RAG](03_agentic_ai/03_rag_advanced/08_vectorless_rag/) | ~4 h | BM25 and keyword-based RAG |
 | 37 | [Persistent Memory RAG](03_agentic_ai/03_rag_advanced/09_persistent_memory_rag/) | ~3 h | Long-term memory across sessions |
 | 38 | [RAG Evaluation](03_agentic_ai/03_rag_advanced/10_rag_evaluation/) | ~4 h | Faithfulness, relevance, RAGAS metrics |
+| **CrewAI** | | | |
+| 39 | [Installation & First Crew](03_agentic_ai/04_crewai/01_fundamentals/01_installation_and_first_crew/) | ~3 h | CrewAI setup, first agent-team |
+| 40 | [Agents Deep Dive](03_agentic_ai/04_crewai/01_fundamentals/02_agents_deep_dive/) | ~3 h | Role, goal, backstory, LLM assignment |
+| 41 | [Tasks & Processes](03_agentic_ai/04_crewai/01_fundamentals/03_tasks_and_processes/) | ~3 h | Sequential vs hierarchical, async |
+| 42 | [Built-in Tools](03_agentic_ai/04_crewai/01_fundamentals/04_built_in_tools/) | ~3 h | 40+ tool catalog |
+| 43 | [Research Assistant](03_agentic_ai/04_crewai/01_fundamentals/05_research_assistant_crew/) | ~3 h | Mini-capstone research crew |
+| 44 | [Custom Tools](03_agentic_ai/04_crewai/02_advanced_agents/01_custom_tools/) | ~3 h | @tool, BaseTool, hooks |
+| 45 | [Knowledge Sources](03_agentic_ai/04_crewai/02_advanced_agents/02_knowledge_sources/) | ~3 h | Text/PDF knowledge, RAG |
+| 46 | [Memory Systems](03_agentic_ai/04_crewai/02_advanced_agents/03_memory_systems/) | ~3 h | Short/long-term, entity memory |
+| 47 | [Reasoning & Planning](03_agentic_ai/04_crewai/02_advanced_agents/04_reasoning_and_planning/) | ~3 h | Chain-of-thought, crew planning |
+| 48 | [Conditional & Multimodal](03_agentic_ai/04_crewai/02_advanced_agents/05_conditional_and_multimodal/) | ~3 h | ConditionalTask, VisionTool |
+| 49 | [Flows Basics](03_agentic_ai/04_crewai/03_flows_and_orchestration/01_flows_basics/) | ~3 h | @start, @listen, typed state |
+| 50 | [Flow State Persistence](03_agentic_ai/04_crewai/03_flows_and_orchestration/02_flow_state_persistence/) | ~3 h | @persist, SQLite checkpointing |
+| 51 | [Human-in-the-Loop](03_agentic_ai/04_crewai/03_flows_and_orchestration/03_human_in_the_loop/) | ~3 h | @human_feedback, approval gates |
+| 52 | [MCP Integration](03_agentic_ai/04_crewai/03_flows_and_orchestration/04_mcp_integration/) | ~3 h | MCPServerAdapter, transports |
+| 53 | [Delegation & Parallel Crews](03_agentic_ai/04_crewai/03_flows_and_orchestration/05_delegation_and_parallel_crews/) | ~3 h | Supervisor, fan-out/fan-in |
+| 54 | [Testing & Training](03_agentic_ai/04_crewai/04_production/01_testing_and_training/) | ~3 h | crewai test, crew.train() |
+| 55 | [Observability](03_agentic_ai/04_crewai/04_production/02_observability/) | ~3 h | Tracing, event listeners |
+| 56 | [Coding Agents & CLI](03_agentic_ai/04_crewai/04_production/03_coding_agents_and_cli/) | ~3 h | CodeInterpreter, AGENTS.md |
+| 57 | [LLM Connections](03_agentic_ai/04_crewai/04_production/04_llm_connections/) | ~3 h | LiteLLM, Ollama, Groq |
+| 58 | [Full-Stack App Builder](03_agentic_ai/04_crewai/04_production/05_capstone_full_stack_app_builder/) | ~6 h | 6-agent capstone with Flow orchestration |
 
 Study discipline matters more than speed: read the section reference first,
 execute every cell, attempt exercises before solutions, and inspect errors
