@@ -103,15 +103,17 @@ Work top-to-bottom within each track. Times assume focused part-time study.
 
 | Order | Section | Time | Outcome |
 |---|---|---|---|
-|  | `foundations/0_numpy` | ~6 h | Arrays, broadcasting, vectorization |
-| 2 | `foundations/02_pandas` | ~8 h | Cleaning, groupby, merging, time series |
-| 3 | `foundations/03_matplotlib` | ~5 h | Full plotting control, dashboards |
-| 4 | `foundations/04_seaborn` | ~5 h | Statistical graphics |
-| 5 | `foundations/05_preprocessing` | ~6 h | Missing/numeric/categorical/text pipelines |
-| 6 | `foundations/06_capstones` | ~0 h | Five end-to-end projects |
-| 7 | `ml/classification` | ~6 h | Nine classifiers with graded projects |
-| 8 | `ml/regression` | ~3 h | Eight regressors with graded projects |
-| 9 | `ml/unsupervised` | ~6 h | Clustering plus silhouette evaluation |
+| **Data Science Foundations** | | | |
+| 1 | [NumPy](01_data_science_foundations/01_numpy/) | ~6 h | Arrays, broadcasting, vectorization |
+| 2 | [Pandas](01_data_science_foundations/02_pandas/) | ~8 h | Cleaning, groupby, merging, time series |
+| 3 | [Matplotlib](01_data_science_foundations/03_matplotlib/) | ~5 h | Full plotting control, dashboards |
+| 4 | [Seaborn](01_data_science_foundations/04_seaborn/) | ~5 h | Statistical graphics |
+| 5 | [Data Preprocessing](01_data_science_foundations/05_data_preprocessing/) | ~6 h | Missing/numeric/categorical/text pipelines |
+| 6 | [Capstone Projects](01_data_science_foundations/06_capstone_projects/) | ~0 h | Five end-to-end projects |
+| **Machine Learning** | | | |
+| 7 | [Classification](02_machine_learning/01_supervised/01_classification/) | ~6 h | Nine classifiers with graded projects |
+| 8 | [Regression](02_machine_learning/01_supervised/02_regression/) | ~3 h | Eight regressors with graded projects |
+| 9 | [Unsupervised Learning](02_machine_learning/02_unsupervised/) | ~6 h | Clustering plus silhouette evaluation |
 | **LangChain** | | | |
 | 10 | [Chat Models & Providers](03_agentic_ai/01_langchain/01_chat_models_providers/) | ~4 h | Chat models, providers |
 | 11 | [Prompt Templates](03_agentic_ai/01_langchain/02_prompt_templates/) | ~3 h | Prompt engineering |
