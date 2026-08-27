@@ -36,3 +36,7 @@ tavily-python>=0.5
 rank_bm25>=0.2
 ragas>=0.2
 unstructured>=0.15
+
+# --- CrewAI track ---
+crewai>=1.10
+crewai-tools>=0.14

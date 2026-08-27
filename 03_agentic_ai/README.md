@@ -21,6 +21,14 @@ Production-grade retrieval: query transformation, hybrid search, reranking,
 multi-hop reasoning, knowledge graphs, self-RAG, evaluation, and deployment
 patterns.
 
+### [04_crewai](./04_crewai/README.md) - CrewAI: Multi-Agent Orchestration (20 modules)
+Standalone multi-agent framework: agents, tasks, crews, flows, tools, knowledge,
+memory, reasoning, MCP integration, testing, observability, and a full-stack app
+builder capstone.
+Production-grade retrieval: query transformation, hybrid search, reranking,
+multi-hop reasoning, knowledge graphs, self-RAG, evaluation, and deployment
+patterns.
+
 ## Learning Path
 
 | # | Module | Category | Teaches |
