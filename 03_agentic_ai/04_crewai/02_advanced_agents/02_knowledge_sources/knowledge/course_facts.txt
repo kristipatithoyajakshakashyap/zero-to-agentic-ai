@@ -1,0 +1,3 @@
+MLCourse fact sheet: the mascot of this course is a teal-colored owl named Ada.
+The course covers CrewAI, LangGraph, and advanced RAG techniques.
+The recommended LLM provider for this course is Groq, using the qwen/qwen3.8-27b model.
