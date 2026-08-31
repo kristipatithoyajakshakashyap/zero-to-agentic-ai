@@ -1,31 +1,52 @@
-# Module 02 - Flow State Persistence
+# 02 — Flow State Persistence
 
-> **MLCourse - Flows and Orchestration - Flow State Persistence**
+## What is this, and why does it matter?
 
-Long-running flows need to survive crashes and restarts. This module covers
-@persist for automatic state checkpointing, SQLite-based storage, and how to
-resume or fork flows from saved states.
+By default a Flow's state only exists in memory while your Python script is
+running. If the process crashes, or the flow needs to pause and wait for
+something (a human, a webhook, tomorrow), you lose everything.
+**Persistence** solves this: CrewAI's `@persist` decorator automatically
+saves your flow's state to a local SQLite database after every step, keyed
+by a unique flow id. Later, you can create a new Flow instance with that
+same id and CrewAI loads the saved state instead of starting over.
 
-## What you'll learn
+This matters for anything long-running or resumable — a workflow that waits
+for approval, a multi-day research pipeline, or just being able to recover
+from a crash without redoing expensive LLM calls.
 
-- Use @persist to automatically save flow state
-- Configure SQLite checkpointing for local persistence
-- Resume flows from their last checkpoint
-- Fork a flow from a saved state to explore alternatives
-- Manage checkpoint lifecycle and cleanup
+## Files in this module
 
-## Key concepts
+| File | What it teaches |
+|---|---|
+| `persisted_flow.py` | A 2-step Flow (`brainstorm` -> `plan`) decorated with `@persist`, so every run's state is checkpointed to SQLite automatically. |
+| `checkpoint_inspection.py` | Reads a saved checkpoint directly from SQLite, then creates a new Flow instance with the same id to demonstrate resuming from that checkpoint. |
+| `main.py` | Runs both files above in sequence. |
 
-- **@persist decorator**: marks state fields for automatic checkpointing
-- **SQLite checkpointing**: local file-based state storage
-- **Resume**: restart a flow from its last saved state
-- **Fork**: branch from a checkpoint into an alternative execution path
-- **Checkpoint lifecycle**: creation, reading, and cleanup of saved states
+## Walkthrough
 
-## Contents
+1. **`persisted_flow.py`** — `ChecklistFlow` is decorated with `@persist`.
+   Nothing else changes about how you write the flow's steps — CrewAI
+   handles saving state behind the scenes. `run_and_checkpoint()` generates
+   a fresh UUID as the flow id, runs the flow, and prints where it got
+   checkpointed. CrewAI's default persistence backend is SQLite; find the
+   database location any time via `SQLiteFlowPersistence().db_path`.
 
-1. `01_persist_decorator.ipynb` - @persist basics, which fields to persist
-2. `02_sqlite_checkpointing.ipynb` - SQLite storage, configuration, inspection
-3. `03_resume_and_fork.ipynb` - resuming flows, forking from checkpoints
+2. **`checkpoint_inspection.py`** — `inspect_checkpoint(flow_id)` reads the
+   raw saved row for a flow id straight out of SQLite, so you can see
+   exactly what's stored. `resume_flow(flow_id)` then creates a **new**
+   `ChecklistFlow()` object and calls `kickoff()` with that same id — this
+   is what makes CrewAI load the existing state instead of starting fresh.
 
-After this module, continue to `03_human_in_the_loop` for approval gates.
+3. **`main.py`** — runs a full checkpoint-then-resume cycle, printing the
+   idea and plan before and after resuming, so you can confirm they match.
+
+## How to run it
+
+```bash
+python persisted_flow.py         # create + checkpoint one flow run
+python checkpoint_inspection.py  # checkpoint, inspect, then resume
+python main.py                   # both, in sequence
+```
+
+Uses your Groq API key from `03_agentic_ai/.env` (`GROQ_API_KEY`), with a
+local Ollama fallback. No OpenAI is used anywhere in this course.
