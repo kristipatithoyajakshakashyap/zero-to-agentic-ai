@@ -53,7 +53,8 @@ ALWAYS scale features (margins are distance-based).
 
 ## Contents
 - `01_theory_and_mathematics.ipynb` - margin geometry drawn on real penguins
-- `02_model_development_workflow.ipynb` - C/gamma sweeps + grid search on breast cancer
+- `02_from_scratch_oop.ipynb` - pure-NumPy `MySVC` implementation
+- `03_sklearn_implementation.ipynb` - C/gamma sweeps + grid search on breast cancer
 - `projects/` -  penguins boundary ·  heart kernels ·  german credit costs
 
 ## Cheat sheet
