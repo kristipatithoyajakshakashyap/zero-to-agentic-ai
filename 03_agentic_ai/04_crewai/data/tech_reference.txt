@@ -1,0 +1,11 @@
+TechCorp Analytics Platform - Technical Reference
+
+Architecture: The platform uses a microservices architecture with FastAPI backends, PostgreSQL for persistence, and Redis for caching.
+
+Authentication: JWT tokens with RS256 signing. Tokens expire after 24 hours. Refresh tokens are valid for 30 days.
+
+Rate Limits: Free tier allows 100 requests per minute. Pro tier allows 1000 requests per minute. Enterprise tier has no rate limits.
+
+Data Retention: Free tier retains data for 30 days. Pro tier retains data for 1 year. Enterprise tier retains data indefinitely.
+
+SDK: The Python SDK is installed via 'pip install techcorp-sdk'. The latest stable version is 2.4.1.

@@ -1,0 +1,3 @@
+{"input": {"topic": "reinforcement learning"}, "expected_output": "Reinforcement learning is a type of machine learning where an agent learns to make decisions by interacting with an environment and receiving rewards or penalties."}
+{"input": {"topic": "transformer architecture"}, "expected_output": "The transformer architecture is a neural network design based on self-attention mechanisms that process input sequences in parallel, forming the basis of models like BERT and GPT."}
+{"input": {"topic": "gradient descent optimization"}, "expected_output": "Gradient descent is an optimization algorithm that iteratively adjusts model parameters to minimize a loss function, with variants including SGD, Adam, and AdaGrad."}

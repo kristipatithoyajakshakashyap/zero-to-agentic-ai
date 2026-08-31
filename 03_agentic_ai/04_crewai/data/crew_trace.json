@@ -1,0 +1,30 @@
+[
+  {
+    "event": "crew_start",
+    "timestamp": 1787891704.8606045
+  },
+  {
+    "event": "task_start",
+    "timestamp": 1787891704.863138
+  },
+  {
+    "event": "agent_start",
+    "timestamp": 1787891704.8641355,
+    "agent": "Analyst"
+  },
+  {
+    "event": "agent_end",
+    "timestamp": 1787891705.327111,
+    "agent": "Analyst",
+    "duration_s": 0.463
+  },
+  {
+    "event": "task_end",
+    "timestamp": 1787891705.327111
+  },
+  {
+    "event": "crew_end",
+    "timestamp": 1787891705.3316398,
+    "duration_s": 0.471
+  }
+]

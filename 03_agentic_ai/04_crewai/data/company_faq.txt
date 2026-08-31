@@ -1,0 +1,16 @@
+Frequently Asked Questions - TechCorp
+
+Q: What is TechCorp's main product?
+A: TechCorp builds AI-powered analytics dashboards for mid-size enterprises.
+
+Q: How many employees does TechCorp have?
+A: TechCorp has approximately 450 employees across three offices.
+
+Q: Where are TechCorp's offices located?
+A: San Francisco (headquarters), London, and Singapore.
+
+Q: What programming languages does TechCorp use?
+A: Python, TypeScript, and Go are the primary languages in the tech stack.
+
+Q: Does TechCorp offer remote work?
+A: Yes, all engineering roles support full remote work within US time zones.
