@@ -56,7 +56,8 @@ Validate every choice with cross-validation, never by staring at training error.
 ## Contents
 - `01_theory_and_mathematics.ipynb` - SSE of the root by hand, Δ of a real split,
   proving sklearn's depth-1 tree predicts group means, step-functions at depth 1/3/unlimited
-- `02_model_development_workflow.ipynb` - California housing: unpruned baseline,
+- `02_from_scratch_oop.ipynb` - pure-NumPy `MyDecisionTreeRegressor` implementation
+- `03_sklearn_implementation.ipynb` - California housing: unpruned baseline,
   depth CV sweep, ccp_alpha path, feature importances
 - `projects/` - easy tips tree · medium mpg tree · hard insurance charges tree ·
   advanced underfit-vs-overfit audit
