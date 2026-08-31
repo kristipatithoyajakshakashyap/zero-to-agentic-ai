@@ -2,9 +2,14 @@
 
 > **MLCourse - Production Readiness - Observability**
 
-Understanding what your crews do and why is critical in production. This module
-covers CrewAI's tracing capabilities, event listeners, and OpenTelemetry
-integration for monitoring and debugging multi-agent workflows.
+## Why this matters
+
+When an agent crew misbehaves in production, "it printed some text" isn't
+enough to debug it — you need to know which agent ran, for how long, and
+in what order. CrewAI emits an event for every stage of execution (crew
+started, agent started/ended, task started/ended) on a global event bus.
+This module teaches you to listen to those events and turn them into
+structured logs and timing data.
 
 ## What you'll learn
 
@@ -24,8 +29,11 @@ integration for monitoring and debugging multi-agent workflows.
 
 ## Contents
 
-1. `01_tracing.ipynb` - enabling traces, trace format, reading output
-2. `02_event_listeners.ipynb` - real-time callbacks, custom logging
-3. `03_opentelemetry.ipynb` - OTel integration, dashboards, distributed traces
+1. `event_listeners.py` - CrewAI event bus, event type reference, `@crewai_event_bus.on()` subscription against a live Groq crew
+2. `timing_logger.py` - custom `BaseEventListener` subclass tracking per-agent/task durations, exports trace to `data/crew_trace.json`
+3. `otel_integration.py` - OpenTelemetry integration pattern (reference), Python-logging-based listener, production observability checklist
+4. `main.py` - runs the whole module end to end
+
+Every file has a `python <file>.py` entry point and can be run standalone. LLM provider: Groq (`GROQ_API_KEY` in `03_agentic_ai/.env`), falling back to local Ollama if Groq is unreachable.
 
 After this module, continue to `03_coding_agents_and_cli` for code execution.
