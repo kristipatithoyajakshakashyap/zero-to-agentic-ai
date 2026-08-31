@@ -2,30 +2,54 @@
 
 > **MLCourse - Production Readiness - Coding Agents and CLI**
 
-CrewAI agents can write and execute code. This module covers CodeInterpreterTool,
-AGENTS.md for project-level agent instructions, and the CrewAI CLI for managing
-crews from the terminal.
+## Why this matters
+
+Sometimes the best way for an AI agent to answer a question is to actually
+run code and see what happens, instead of guessing the answer from
+pattern-matching. A "coding agent" is just a normal CrewAI agent that has
+been given a tool for executing Python. This module also covers the two
+things every real CrewAI project needs on the command line: the `crewai`
+CLI (for scaffolding and running projects) and the `AGENTS.md` file
+(instructions that tell any AI coding assistant working on your repo how
+it's organized).
 
 ## What you'll learn
 
-- Use CodeInterpreterTool to let agents execute Python code
-- Write AGENTS.md files to give project-level instructions to agents
-- Navigate the CrewAI CLI for common development tasks
-- Manage crew projects from the command line
-- Combine coding agents with other tools for powerful workflows
-
-## Key concepts
-
-- **CodeInterpreterTool**: sandboxed Python code execution by agents
-- **AGENTS.md**: project-level instructions that agents read automatically
-- **CrewAI CLI**: command-line interface for creating, running, and managing crews
-- **Sandboxed execution**: safe code execution with resource limits
-- **Project structure**: conventions for CrewAI project layouts
+- How to give an agent a tool that runs Python code safely, and get the result back
+- What `AGENTS.md` is for and why AI coding tools look for it
+- The `crewai create crew` / `crewai run` / `crewai test` CLI commands
+- How to make an agent retry when its generated code fails
 
 ## Contents
 
-1. `01_code_interpreter.ipynb` - CodeInterpreterTool setup, safe execution
-2. `02_agents_md.ipynb` - AGENTS.md format, project-level instructions
-3. `03_cli_workflows.ipynb` - crewai CLI commands, project management
+1. **`code_interpreter_agent.py`** — Walks through: writing `AGENTS.md`,
+   building a `RunPython` tool (a `@tool`-decorated function that runs
+   Python in a subprocess and returns the output — this avoids needing
+   Docker, which CrewAI's built-in `CodeInterpreterTool` normally
+   requires), a validate-and-retry pattern for code that might fail, and
+   finally a real Groq-powered agent that writes and runs a Fibonacci
+   script.
+2. **`cli_reference.py`** — Prints the live output of `crewai --help` and
+   `crewai run --help` from the CLI actually installed in this
+   environment, shows what a scaffolded project (`crewai create crew`)
+   looks like, and lists the CLI commands you'll use day to day.
+3. **`main.py`** — Runs both files above in order.
+
+## How to run it
+
+Each file works standalone:
+
+```bash
+python code_interpreter_agent.py
+python cli_reference.py
+python main.py   # runs everything in one go
+```
+
+**LLM provider:** Groq (`GROQ_API_KEY` in `03_agentic_ai/.env`), falling
+back to local Ollama if Groq is unreachable. This module uses the
+`qwen/qwen3.8-27b` Groq model, which is the default across this whole
+course phase (Groq's `openai/gpt-oss-*` models are avoided even though
+Groq-hosted, since the "openai/" name is confusing in a Groq-only course,
+and they also have a tool-calling bug that crashes coding-agent runs).
 
 After this module, continue to `04_llm_connections` for provider configuration.
