@@ -2,30 +2,46 @@
 
 > **MLCourse - Production Readiness - LLM Connections**
 
-CrewAI uses LiteLLM under the hood to connect to dozens of LLM providers. This
-module covers configuring Ollama, Groq, OpenAI, and other providers, plus model
-selection strategies for different agent roles.
+## Why this matters
+
+CrewAI never talks to a model provider directly — under the hood it uses a
+library called LiteLLM, which understands one naming convention
+(`"<provider>/<model>"`) for dozens of providers. Once you understand that
+convention, switching providers is a one-line change. This course
+standardizes on **Groq** (fast, cloud, needs a free API key) as the
+primary provider, with **Ollama** (free, runs on your own machine) as a
+fallback if Groq is unreachable. We never use OpenAI in this course.
 
 ## What you'll learn
 
-- Configure Ollama for local-first agent execution
-- Connect to Groq for fast cloud inference
-- Use OpenAI models when needed
-- Select different models for different agent roles
-- Manage API keys and provider switching
-
-## Key concepts
-
-- **LiteLLM**: the universal LLM adapter powering CrewAI's provider support
-- **Provider configuration**: setting up each provider with correct credentials
-- **Model selection**: choosing the right model for each agent's role
-- **Local-first**: using Ollama for privacy and cost-free experimentation
-- **Provider switching**: changing models with a single configuration change
+- The `"provider/model"` string format CrewAI's `LLM` class expects
+- How to check whether Groq or Ollama is actually reachable before using it
+- Temperature and `max_tokens` — what they control and when to change them
+- How to build a small "pick the best available provider" strategy class
 
 ## Contents
 
-1. `01_ollama_setup.ipynb` - local Ollama, model pulling, configuration
-2. `02_groq_setup.ipynb` - Groq cloud, free tier, speed optimization
-3. `03_provider_switching.ipynb` - LiteLLM, model per agent, swap pattern
+1. **`provider_comparison.py`** — Side-by-side comparison of Groq vs.
+   Ollama (cost, speed, quality, privacy, setup), live reachability
+   checks for both, a real LLM call using whichever one is available, and
+   a table of temperature/`max_tokens` presets for different task types.
+2. **`llm_selection_strategy.py`** — `LLMSelectionStrategy`, a small class
+   that scores each *reachable* provider and picks the best one for a
+   given task (e.g. "high complexity" tasks weigh quality more, "prefer
+   speed" weighs Groq's speed more). Ends with a production
+   configuration checklist.
+3. **`main.py`** — Runs both files above in order.
+
+## How to run it
+
+```bash
+python provider_comparison.py
+python llm_selection_strategy.py
+python main.py   # runs everything in one go
+```
+
+**LLM provider:** Groq (`GROQ_API_KEY` in `03_agentic_ai/.env`), falling
+back to local Ollama if Groq is unreachable. No OpenAI anywhere in this
+module, by design.
 
 After this module, continue to `05_capstone_full_stack_app_builder` for the capstone.
