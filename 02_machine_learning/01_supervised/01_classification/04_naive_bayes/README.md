@@ -48,7 +48,8 @@ No scaling needed; GaussianNB is scale-invariant.
 
 ## Contents
 - `01_theory_and_mathematics.ipynb` - Bayes computed BY HAND on Titanic counts
-- `02_model_development_workflow.ipynb` - GaussianNB vs logistic on breast cancer + MultinomialNB taste
+- `02_from_scratch_oop.ipynb` - pure-NumPy `MyGaussianNB` implementation
+- `03_sklearn_implementation.ipynb` - GaussianNB vs logistic on breast cancer + MultinomialNB taste
 - `projects/` -  titanic ·  SMS spam ·  20-newsgroups routing
 
 ## Cheat sheet
