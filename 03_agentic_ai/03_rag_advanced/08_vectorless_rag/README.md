@@ -15,7 +15,7 @@ Explore retrieval without vector embeddings by leveraging page-level indexing, s
 
 ## Prerequisites
 
-- Modules 05-06 (Document processing, text extraction)
+- LangChain modules [05_document_loaders](../../01_langchain/05_document_loaders/README.md) and [06_chunking_strategies](../../01_langchain/06_chunking_strategies/README.md) - metadata and page structure come from the loaders
 
 ## When to use this technique
 

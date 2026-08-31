@@ -1,4 +1,4 @@
-# Module 03: Tool-Using Agents
+# Module 02: Tool-Using Agents
 
 > **MLCourse - Agentic AI - LangGraph**
 
@@ -15,7 +15,7 @@ Building agents that call external tools — from simple `@tool`-decorated funct
 
 ## Prerequisites
 
-- Module 02 (Graph Basics)
+- Module 01 ([Graph Basics](../01_graph_basics/README.md))
 
 ## What you'll learn
 

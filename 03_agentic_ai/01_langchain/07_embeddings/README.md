@@ -114,8 +114,8 @@ the capstone calls `embed_query` on every user turn.
 
 | Notebook | What it does |
 |---|---|
-| `01_free_embeddings_intuition.nb.py` | MiniLM (384-dim): three sentences, hand-computed cosine matrix, heatmap, batch embedding, optional Ollama nomic (768-dim) rerun. |
-| `02_openai_embeddings.nb.py` | `text-embedding-3-small` (1536-dim), key-guarded, mirrors notebook 01 to prove the swap pattern, with real cost math. |
+| [01_free_embeddings_intuition.ipynb](01_free_embeddings_intuition.ipynb) | MiniLM (384-dim): three sentences, hand-computed cosine matrix, heatmap, batch embedding, optional Ollama nomic (768-dim) rerun. |
+| [02_openai_embeddings.ipynb](02_openai_embeddings.ipynb) | `text-embedding-3-small` (1536-dim), key-guarded, mirrors notebook 01 to prove the swap pattern, with real cost math. |
 
 ## Summary
 

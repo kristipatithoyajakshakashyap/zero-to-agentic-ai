@@ -1,0 +1,30 @@
+{
+  "beccd3cc": {
+    "request_id": "beccd3cc",
+    "thread_id": "purchase-in-progress",
+    "summary": "Approve purchase: 20x GPU instances (1 week) for $4200.00",
+    "payload": {
+      "item": "20x GPU instances (1 week)",
+      "amount": 4200.0
+    },
+    "created_at": 1788194607.2538745,
+    "status": "approved",
+    "decided_by": "finance-lead@company",
+    "decided_at": 1788194607.2709084,
+    "reason": "Within Q3 infra budget."
+  },
+  "888d67d2": {
+    "request_id": "888d67d2",
+    "thread_id": "purchase-in-progress",
+    "summary": "Approve purchase: 20x GPU instances (1 week) for $4200.00",
+    "payload": {
+      "item": "20x GPU instances (1 week)",
+      "amount": 4200.0
+    },
+    "created_at": 1788194607.2807207,
+    "status": "pending",
+    "decided_by": null,
+    "decided_at": null,
+    "reason": null
+  }
+}

@@ -14,7 +14,9 @@ Build RAG systems with persistent memory that retain conversation history, accum
 
 ## Prerequisites
 
-- Module 11 (Conversational AI), Module 04 (Memory systems), Module 01 (Hybrid search)
+- LangChain module [11_memory_and_state](../../01_langchain/11_memory_and_state/README.md) - the session-id history pattern
+- LangGraph module [03_persistence_checkpointing](../../02_langgraph/03_persistence_checkpointing/README.md) - durable state across sessions
+- Module 01 ([Hybrid Search](../01_hybrid_search/README.md)) - the retriever these pipelines build on
 
 ## When to use this technique
 

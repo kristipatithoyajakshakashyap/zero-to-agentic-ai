@@ -6,7 +6,7 @@ No labels at all - the algorithm discovers structure on its own.
 
 ```
 02_unsupervised/
-├── 0_kmeans_clustering/               assign points to k group centers
+├── 01_kmeans_clustering/               assign points to k group centers
 ├── 02_hierarchical_clustering/         build a tree of nested groups (dendrogram)
 └── 03_cluster_evaluation_silhouette/   how do we KNOW clustering is any good?
 ```

@@ -7,16 +7,16 @@ Companion notebooks in this folder:
 
 | File | Contents |
 |---|---|
-| `0_seaborn_foundations.nb.py` | Philosophy, themes, relational/distributional/categorical basics, palettes |
-| `02_seaborn_advanced.nb.py` | Regression, heatmaps & clustering, joint/pair grids, FacetGrid masterclass, interop, saving |
-| `03_seaborn_exercises.nb.py` | 2 graded challenges (4 Easy / 5 Medium / 3 Hard), no answers |
-| `04_seaborn_solutions.nb.py` | Fully commented standalone solutions |
+| `01_seaborn_foundations.ipynb` | Philosophy, themes, relational/distributional/categorical basics, palettes |
+| `02_seaborn_advanced.ipynb` | Regression, heatmaps & clustering, joint/pair grids, FacetGrid masterclass, interop, saving |
+| `03_seaborn_exercises.ipynb` | 12 graded challenges (4 Easy / 5 Medium / 3 Hard), no answers |
+| `04_seaborn_solutions.ipynb` | Fully commented standalone solutions |
 
 ---
 
 ## Table of contents
 
-. [Mental model](#-mental-model)
+1. [Mental model](#1-mental-model)
 2. [The two-level API](#2-the-two-level-api)
 3. [Setup conventions](#3-setup-conventions)
 4. [Relational family](#4-relational-family)
@@ -25,16 +25,16 @@ Companion notebooks in this folder:
 7. [Regression family](#7-regression-family)
 8. [Matrix family](#8-matrix-family)
 9. [Grids: FacetGrid, PairGrid, JointGrid](#9-grids-facetgrid-pairgrid-jointgrid)
-0. [Palette guide](#0-palette-guide)
-. [Styling and theming guide](#-styling-and-theming-guide)
-2. [Matplotlib interop recipes](#2-matplotlib-interop-recipes)
-3. [Saving and exporting](#3-saving-and-exporting)
-4. [Performance and etiquette](#4-performance-and-etiquette)
-5. [Cheat sheet](#5-cheat-sheet)
+10. [Palette guide](#10-palette-guide)
+11. [Styling and theming guide](#11-styling-and-theming-guide)
+12. [Matplotlib interop recipes](#12-matplotlib-interop-recipes)
+13. [Saving and exporting](#13-saving-and-exporting)
+14. [Performance and etiquette](#14-performance-and-etiquette)
+15. [Cheat sheet](#15-cheat-sheet)
 
 ---
 
-## . Mental model
+## 1. Mental model
 
 Seaborn is a **dataset-oriented** interface on top of matplotlib:
 
@@ -67,9 +67,9 @@ Return a single matplotlib `Axes`. They accept an existing axes via `ax=`,
 compose into arbitrary subplot grids, and never create figures themselves.
 
 ```python
-fig, axes = plt.subplots(, 2, figsize=(0, 4))
+fig, axes = plt.subplots(1, 2, figsize=(10, 4))
 sns.boxplot(data=tips, x="day", y="tip", ax=axes[0])
-sns.violinplot(data=tips, x="day", y="tip", ax=axes[])
+sns.violinplot(data=tips, x="day", y="tip", ax=axes[1])
 ```
 
 ### Figure-level functions
@@ -80,7 +80,7 @@ create a new window on each call, and provide native faceting via `col=`/`row=`.
 ```python
 g = sns.catplot(data=tips, kind="bar",
                 x="day", y="tip", col="time", height=3)
-g.figure.suptitle("Faceted in one call", y=.03)
+g.figure.suptitle("Faceted in one call", y=1.03)
 ```
 
 ### Function table
@@ -166,12 +166,12 @@ group shapes fairly. Always try 2-3 bin widths before trusting a shape.
 ### kdeplot
 
 ```python
-sns.kdeplot(data=penguins, x="body_mass_g", bw_adjust=, cut=0, fill=True)
+sns.kdeplot(data=penguins, x="body_mass_g", bw_adjust=1, cut=0, fill=True)
 sns.kdeplot(data=penguins, x="bill_length_mm", y="bill_depth_mm",
-            fill=True, cmap="crest", levels=0)
+            fill=True, cmap="crest", levels=10)
 ```
 
-`bw_adjust < ` wigglier, `> ` smoother; `cut=0` stops invented tails on
+`bw_adjust < 1` wigglier, `> 1` smoother; `cut=0` stops invented tails on
 bounded quantities. 2-D form gives topographic density contours.
 
 ### ecdfplot
@@ -199,7 +199,7 @@ Question answered: **how does a distribution or aggregate compare across groups?
 |---|---|---|
 | `stripplot` | jittered raw points | n small-medium, show evidence |
 | `swarmplot` | non-overlapping points | n ≤ ~2000/category; shape for free |
-| `boxplot` | median, IQR, whiskers (.5×IQR), fliers | robust summary; small multiples |
+| `boxplot` | median, IQR, whiskers (1.5×IQR), fliers | robust summary; small multiples |
 | `violinplot` | mirrored KDE (+ `inner=`) | n ≥ ~50/group, shape matters |
 | `boxenplot` | nested letter-value boxes | large n, tail structure |
 | `countplot` | row frequencies | category sizes |
@@ -213,7 +213,7 @@ order = tips["day"].value_counts().index              # frequency ordering trick
 sns.countplot(data=tips, x="day", order=order)
 
 sns.barplot(data=tips, x="day", y="tip",
-            estimator=np.median, errorbar=("sd", ))  # legacy ci= -> errorbar=("ci",95)
+            estimator=np.median, errorbar=("sd", 1))  # legacy ci= -> errorbar=("ci",95)
 
 sns.pointplot(data=tips, x="day", y="tip", hue="smoker", dodge=0.35)
 ```
@@ -274,11 +274,11 @@ Question answered: **what structure lives in a rows × columns numeric table?**
 
 ```python
 corr = penguins[num_cols].corr(numeric_only=True)
-mask = np.triu(np.ones_like(corr, dtype=bool), k=)
+mask = np.triu(np.ones_like(corr, dtype=bool), k=1)
 
 sns.heatmap(corr, mask=mask, annot=True, fmt=".2f",
             annot_kws={"fontsize": 9}, linewidths=.5, linecolor="white",
-            cmap="vlag", center=0, vmin=-, vmax=, square=True)
+            cmap="vlag", center=0, vmin=-1, vmax=1, square=True)
 ```
 
 Rules: diverging cmaps need a meaningful `center` (0 for correlations);
@@ -294,7 +294,7 @@ sns.clustermap(iris_sample.iloc[:, :4], cmap="mako",
                row_colors=labels.map(palette_dict), figsize=(7, 6))
 ```
 
-Standardize mixed-unit features first (`standard_scale=` or `z_score=`) so
+Standardize mixed-unit features first (`standard_scale=1` or `z_score=1`) so
 large units don't dominate distances.
 
 ## 9. Grids: FacetGrid, PairGrid, JointGrid
@@ -314,7 +314,7 @@ Marginals answer "is the cluster difference along x, y, or both?"
 ```python
 sns.pairplot(penguins, vars=num_cols, hue="species",
              diag_kind="kde", corner=True,
-             plot_kws={"s": 8, "alpha": .65})
+             plot_kws={"s": 18, "alpha": .65})
 ```
 
 `corner=True` halves panels beyond ~5 variables; `diag_kind="hist"` for counts.
@@ -326,7 +326,7 @@ Different plot per triangle:
 ```python
 pg = sns.PairGrid(penguins, vars=num_cols, hue="species", diag_sharey=False)
 pg.map_diag(sns.kdeplot, fill=True, common_norm=False)
-pg.map_upper(sns.scatterplot, s=2, alpha=.55)
+pg.map_upper(sns.scatterplot, s=12, alpha=.55)
 pg.map_lower(sns.regplot, scatter=False)
 pg.add_legend()
 ```
@@ -339,7 +339,7 @@ def mark_mean(data, y, **kws):
     ax.axhline(data[y].mean(), ls="--", color="crimson")
 
 g = sns.FacetGrid(tips, row="time", col="sex",
-                  margin_titles=True, height=2.8, aspect=.3,
+                  margin_titles=True, height=2.8, aspect=1.3,
                   sharex=True, sharey=True)
 g.map_dataframe(sns.scatterplot, x="total_bill", y="tip", alpha=.55)
 g.map_dataframe(mark_mean, y="tip")
@@ -352,7 +352,7 @@ Contract for mapped functions: receive the facet's data subset, draw on the
 current axes. Free scales via `sharex/sharey=False` (warn readers!),
 reflow with `col_wrap=n`, individual facets via `g.axes_dict`.
 
-## 0. Palette guide
+## 10. Palette guide
 
 Choose color by *meaning*:
 
@@ -366,7 +366,7 @@ Choose color by *meaning*:
 | `bright` | punchy, high contrast |
 | `dark` | muted-dark, good on white |
 | `colorblind` | Okabe-Ito-style safe set - default for public work |
-| `Set2` / `tab0` | classic categorical standards |
+| `Set2` / `tab10` | classic categorical standards |
 
 ### Sequential - ordered magnitude
 
@@ -398,10 +398,10 @@ sns.set_palette("colorblind")                    # global until changed back
 sns.diverging_palette(220, 20, as_cmap=True)     # custom diverging build
 ```
 
-Accessibility: ~ in 2 men has color-vision deficiency; avoid red/green pairs
+Accessibility: ~1 in 12 men has color-vision deficiency; avoid red/green pairs
 and rainbow maps - make `"colorblind"` your public default.
 
-## . Styling and theming guide
+## 11. Styling and theming guide
 
 ### Styles (background furniture)
 
@@ -415,7 +415,7 @@ and rainbow maps - make `"colorblind"` your public default.
 
 ```python
 sns.set_theme(style="ticks")
-sns.despine(offset=0, trim=True)
+sns.despine(offset=10, trim=True)
 ```
 
 ### Contexts (font/line scaling)
@@ -433,17 +433,17 @@ with sns.plotting_context("talk"):
 ```python
 sns.set_theme(style="white",
               rc={"axes.spines.top": False, "axes.spines.right": False,
-                  "figure.dpi": 0})
+                  "figure.dpi": 110})
 ```
 
 Remember: `set_theme()` resets style + context + palette together; reapply
 targeted tweaks after calling it.
 
-## 2. Matplotlib interop recipes
+## 12. Matplotlib interop recipes
 
 Everything seaborn draws is matplotlib - so these all just work:
 
-**Recipe  - annotate a seaborn axes afterwards**
+**Recipe 1 - annotate a seaborn axes afterwards**
 
 ```python
 ax = sns.histplot(data=tips, x="total_bill", bins=30)
@@ -478,7 +478,7 @@ sns.move_legend(g, "lower center", bbox_to_anchor=(0.5, -0.08), ncol=3)
 fig, ax = plt.subplots()
 sns.kdeplot(data=bill, x="bill_length_mm", y="bill_depth_mm",
             fill=True, cmap="crest", ax=ax)
-ax.scatter(sub.x, sub.y, s=0, c="k", alpha=.4)   # raw mpl on seaborn axes
+ax.scatter(sub.x, sub.y, s=10, c="k", alpha=.4)   # raw mpl on seaborn axes
 ```
 
 **Recipe 6 - reach individual facets of a grid**
@@ -488,20 +488,26 @@ g.axes_dict["Dinner"]            # dict keyed by facet variable
 g.axes                           # numpy array of Axes
 ```
 
-## 3. Saving and exporting
+## 13. Saving and exporting
 
 ```python
-fig.savefig("chart.png", dpi=50, bbox_inches="tight")   # axes-level path
-g.savefig("facets.svg")                                   # figure-level path
+fig.savefig("mlcourse_demo_box.png", dpi=150, bbox_inches="tight")  # axes-level path
+g.savefig("mlcourse_demo_lm.svg")                                   # figure-level path
 ```
 
-- `dpi=50` screens/slides · `dpi=300` print · `svg`/`pdf` vector for reports.
+Those two names are not arbitrary: `mlcourse_demo_box.png` and
+`mlcourse_demo_lm.svg` are sitting in this folder already, written by the saving
+cells in `02_seaborn_advanced.ipynb`. Open them side by side to see the
+difference between a raster export (fixed pixels, blurs when enlarged) and a
+vector export (crisp at any zoom, the right choice for reports and print).
+
+- `dpi=150` screens/slides · `dpi=300` print · `svg`/`pdf` vector for reports.
 - `bbox_inches="tight"` crops whitespace; `transparent=True` drops background.
 - Set once globally: `sns.set_theme(rc={"savefig.dpi": 200})`.
 
-## 4. Performance and etiquette
+## 14. Performance and etiquette
 
-. **Sample reproducibly**: `diamonds.sample(5000, random_state=42)` looks like
+1. **Sample reproducibly**: `diamonds.sample(5000, random_state=42)` looks like
    54k rows at a fraction of the cost.
 2. **Explore without CIs**: `ci=None` / `errorbar=None` removes the expensive
    bootstrap; restore for finals.
@@ -524,12 +530,12 @@ g.savefig("facets.svg")                                   # figure-level path
 | Reading bar error bars as spread | overconfident group comparisons | they are bootstrap CIs of the mean; label them |
 | Rainbow/jet colormap | fake visual boundaries | sequential (`viridis`, `crest`) or diverging with real center |
 | Diverging scale without `center=` | midpoint lands on arbitrary value | pass `center=0` (or grand median) explicitly |
-| Unmasked correlation matrix | duplicated triangles waste attention | `mask=np.triu(np.ones_like(corr, bool), k=)` |
+| Unmasked correlation matrix | duplicated triangles waste attention | `mask=np.triu(np.ones_like(corr, bool), k=1)` |
 | Figure-level call expecting `ax=` | confusing errors / stray windows | figure-level owns its figure; use axes-level for grids |
 | Facets with free scales | silent incomparable panels | `sharey=False` only with a caption warning |
 | Regression on thin facets | wild slopes from n=8 groups | check `value_counts()` per facet first |
 
-## 5. Cheat sheet
+## 15. Cheat sheet
 
 | Task | One-liner |
 |---|---|
@@ -567,5 +573,5 @@ Quick FAQ:
 
 ---
 
-*End of the Seaborn reference. Pair it with notebooks 0-04 in this folder for
+*End of the Seaborn reference. Pair it with notebooks 01-04 in this folder for
 guided walkthroughs and graded practice.*

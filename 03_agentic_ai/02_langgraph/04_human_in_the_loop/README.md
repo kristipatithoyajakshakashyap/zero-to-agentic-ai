@@ -1,4 +1,4 @@
-# Module 05: Human-in-the-Loop
+# Module 04: Human-in-the-Loop
 
 > **MLCourse - Agentic AI - LangGraph**
 
@@ -14,7 +14,7 @@ Pausing graph execution for human input — using `interrupt()` and `Command(res
 
 ## Prerequisites
 
-- Module 04 (Persistence & Checkpointing)
+- Module 03 ([Persistence & Checkpointing](../03_persistence_checkpointing/README.md)) - `interrupt()` needs a checkpointer
 
 ## What you'll learn
 

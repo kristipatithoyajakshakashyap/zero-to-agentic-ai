@@ -13,21 +13,28 @@ stateful chatbots. Everything you need to build a working document-chat
 application.
 
 ### [02_langgraph](./02_langgraph/README.md) - LangGraph: Graph-Based Agents (7 modules)
-Move beyond linear chains into stateful, graph-based agent workflows. Branching
-logic, cycles, human-in-the-loop, multi-agent systems, and persistent state.
+Move beyond linear chains into stateful, graph-based agent workflows: `StateGraph`
+basics, tool-using ReAct agents, checkpointing and time-travel, human-in-the-loop
+interrupts, streaming, multi-agent topologies, and a travel-planner capstone.
 
 ### [03_rag_advanced](./03_rag_advanced/README.md) - Advanced RAG Techniques (10 modules)
-Production-grade retrieval: query transformation, hybrid search, reranking,
-multi-hop reasoning, knowledge graphs, self-RAG, evaluation, and deployment
-patterns.
+Production-grade retrieval: hybrid (BM25 + dense) search, multi-modal RAG,
+agentic and autonomous retrieval loops, corrective and adaptive pipelines,
+semantic caching, vectorless retrieval with guardrails, persistent memory, and
+systematic evaluation.
 
-### [04_crewai](./04_crewai/README.md) - CrewAI: Multi-Agent Orchestration (20 modules)
-Standalone multi-agent framework: agents, tasks, crews, flows, tools, knowledge,
-memory, reasoning, MCP integration, testing, observability, and a full-stack app
-builder capstone.
-Production-grade retrieval: query transformation, hybrid search, reranking,
-multi-hop reasoning, knowledge graphs, self-RAG, evaluation, and deployment
-patterns.
+### [04_crewai](./04_crewai/README.md) - CrewAI: Multi-Agent Orchestration (4 phases, 20 modules)
+Standalone multi-agent framework, organised into four phases of five modules
+each: `01_fundamentals`, `02_advanced_agents`, `03_flows_and_orchestration`, and
+`04_production`. Covers agents, tasks, crews, flows, tools, knowledge, memory,
+reasoning, MCP integration, testing, observability, and a full-stack app builder
+capstone.
+
+### [05_production_security](./05_production_security/README.md) - Production Security (5 modules)
+Security, guardrails, caching, and privacy patterns for production agents.
+Conceptual and practical: every module runs deterministically without an API
+key. Focuses on the concepts and how to use them (authentication is out of
+scope by design).
 
 ## Learning Path
 
@@ -45,33 +52,50 @@ patterns.
 | 10 | [10_basic_rag](./01_langchain/10_basic_rag/README.md) | LangChain | Minimal RAG chain |
 | 11 | [11_memory_and_state](./01_langchain/11_memory_and_state/README.md) | LangChain | Session-id history, RunnableWithMessageHistory |
 | 12 | [12_capstone_rag_chatbot](./01_langchain/12_capstone_rag_chatbot/README.md) | LangChain | Document-chat application |
-| 01 | [01_introduction_to_langgraph](./02_langgraph/01_introduction_to_langgraph/README.md) | LangGraph | StateGraph, nodes, edges, conditional routing |
-| 02 | [02_state_management](./02_langgraph/02_state_management/README.md) | LangGraph | TypedState, reducers, channel updates, persistence |
-| 03 | [03_tool_calling_agents](./02_langgraph/03_tool_calling_agents/README.md) | LangGraph | ReAct-style agents with tool nodes |
-| 04 | [04_human_in_the_loop](./02_langgraph/04_human_in_the_loop/README.md) | LangGraph | Breakpoints, approval nodes, interrupt/resume |
-| 05 | [05_multi_agent_systems](./02_langgraph/05_multi_agent_systems/README.md) | LangGraph | Supervisor, swarm, hierarchical topologies |
-| 06 | [06_memory_and_persistence](./02_langgraph/06_memory_and_persistence/README.md) | LangGraph | Checkpointers, thread-level state, long-term memory |
-| 07 | [07_capstone_agent_app](./02_langgraph/07_capstone_agent_app/README.md) | LangGraph | Full agent application |
-| 01 | [01_query_transformations](./03_rag_advanced/01_query_transformations/README.md) | Advanced RAG | HyDE, query rewriting, step-back prompting |
-| 02 | [02_advanced_chunking](./03_rag_advanced/02_advanced_chunking/README.md) | Advanced RAG | Semantic and agentic chunking |
-| 03 | [03_hybrid_search](./03_rag_advanced/03_hybrid_search/README.md) | Advanced RAG | Dense + sparse retrieval |
-| 04 | [04_reranking](./03_rag_advanced/04_reranking/README.md) | Advanced RAG | Cross-encoder reranking, Cohere rerank |
-| 05 | [05_multi_hop_rag](./03_rag_advanced/05_multi_hop_rag/README.md) | Advanced RAG | Iterative retrieval, chain-of-thought reasoning |
-| 06 | [06_graph_rag](./03_rag_advanced/06_graph_rag/README.md) | Advanced RAG | Knowledge graph augmentation, GraphRAG |
-| 07 | [07_self_rag](./03_rag_advanced/07_self_rag/README.md) | Advanced RAG | Self-reflective retrieval, hallucination detection |
-| 08 | [08_rag_evaluation](./03_rag_advanced/08_rag_evaluation/README.md) | Advanced RAG | RAGAS, DeepEval, metrics |
-| 09 | [09_production_patterns](./03_rag_advanced/09_production_patterns/README.md) | Advanced RAG | Caching, observability, guardrails, streaming |
-| 10 | [10_capstone_advanced_rag](./03_rag_advanced/10_capstone_advanced_rag/README.md) | Advanced RAG | End-to-end advanced RAG application |
+| 13 | [01_graph_basics](./02_langgraph/01_graph_basics/README.md) | LangGraph | Why graphs beat chains, StateGraph, nodes/edges, conditional routing, reducers |
+| 14 | [02_tool_using_agents](./02_langgraph/02_tool_using_agents/README.md) | LangGraph | @tool, ToolNode, tools_condition, ReAct loop, custom agent graphs |
+| 15 | [03_persistence_checkpointing](./02_langgraph/03_persistence_checkpointing/README.md) | LangGraph | MemorySaver, SqliteSaver/PostgresSaver, time travel, cross-thread memory |
+| 16 | [04_human_in_the_loop](./02_langgraph/04_human_in_the_loop/README.md) | LangGraph | interrupt()/Command(resume), approval gates, breakpoints |
+| 17 | [05_streaming](./02_langgraph/05_streaming/README.md) | LangGraph | stream() vs invoke(), token streaming, streaming multi-node graphs |
+| 18 | [06_multi_agent_systems](./02_langgraph/06_multi_agent_systems/README.md) | LangGraph | Supervisor, swarm handoff, hierarchical supervisors, parallel agents |
+| 19 | [09_travel_planner](./02_langgraph/09_travel_planner/README.md) | LangGraph | Capstone: research + planning agents behind a human approval gate |
+| 20 | [01_hybrid_search](./03_rag_advanced/01_hybrid_search/README.md) | Advanced RAG | BM25, dense retrieval, reciprocal rank fusion, hybrid pipeline |
+| 21 | [02_multimodal_rag](./03_rag_advanced/02_multimodal_rag/README.md) | Advanced RAG | Image-text embeddings, multimodal indexing, cross-modal retrieval |
+| 22 | [03_agentic_rag](./03_rag_advanced/03_agentic_rag/README.md) | Advanced RAG | Agent-driven retrieval, self-querying, query decomposition |
+| 23 | [04_autonomous_rag](./03_rag_advanced/04_autonomous_rag/README.md) | Advanced RAG | Self-routing, self-correction, autonomous reasoning loop |
+| 24 | [05_corrective_rag](./03_rag_advanced/05_corrective_rag/README.md) | Advanced RAG | Retrieval grading, hallucination detection, corrective generation |
+| 25 | [06_adaptive_rag](./03_rag_advanced/06_adaptive_rag/README.md) | Advanced RAG | Query classification, per-query strategy selection |
+| 26 | [07_cache_rag](./03_rag_advanced/07_cache_rag/README.md) | Advanced RAG | Semantic caching, cache invalidation, multi-level cache |
+| 27 | [08_vectorless_rag](./03_rag_advanced/08_vectorless_rag/README.md) | Advanced RAG | Page-index retrieval, structured metadata filtering, guardrails |
+| 28 | [09_persistent_memory_rag](./03_rag_advanced/09_persistent_memory_rag/README.md) | Advanced RAG | Long-term memory, conversational RAG, cross-session knowledge |
+| 29 | [10_rag_evaluation](./03_rag_advanced/10_rag_evaluation/README.md) | Advanced RAG | Metrics, RAGAS framework, human evaluation protocols |
+| 30 | [01_prompt_injection](./05_production_security/01_prompt_injection/README.md) | Security | Injection attacks and defenses, detector without keys |
+| 31 | [02_guardrail_frameworks](./05_production_security/02_guardrail_frameworks/README.md) | Security | Input/output/action guardrails, Pydantic, fail-closed |
+| 32 | [03_caching_strategies](./05_production_security/03_caching_strategies/README.md) | Security | Exact/semantic/TTL cache, poisoning, cache-busting |
+| 33 | [04_privacy_and_data](./05_production_security/04_privacy_and_data/README.md) | Security | PII detection, redaction, minimization |
+| 34 | [05_security_evaluation](./05_production_security/05_security_evaluation/README.md) | Security | Red-team harness, recall/precision, scorecard |
+
+CrewAI is not numbered in this table because it is a standalone framework you can
+pick up at any point after LangChain. Its own twenty modules are listed, in order,
+in [04_crewai/README.md](./04_crewai/README.md).
 
 ## Data
 
-Shared datasets live in the `data/` directory at the root of this track.
+Shared datasets live in the [`data/`](./data) directory at the root of this
+track — including `alice.txt` (the default text corpus),
+`attention_is_all_you_need.pdf`, `winequality-red.csv`, and `multimodal_images/`.
+Notebooks locate it by walking up to the track root, so run them from wherever
+they live. CrewAI keeps its own fixtures in `04_crewai/data/`.
 
 ## Prerequisites
 
 - **LangChain modules**: Python 3.10+, basic familiarity with LLMs
 - **LangGraph modules**: Complete LangChain Fundamentals first
 - **Advanced RAG modules**: Complete LangChain Fundamentals first
+- **CrewAI modules**: Complete LangChain Fundamentals first; LangGraph helps but
+  is not required
+- **Production Security modules**: none — every notebook runs deterministically
+  without an API key
 
 ## Setup
 

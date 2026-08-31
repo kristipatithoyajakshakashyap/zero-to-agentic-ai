@@ -1,0 +1,49 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Northwind Parts - Contact</title></head>
+<body>
+  <h1>Contact us</h1>
+  <p>Tell us what you need and we will reply within one working day.</p>
+
+  <form id="contact-form">
+    <label for="name">Full name</label>
+    <input id="name" name="name" type="text">
+
+    <label for="email">Email</label>
+    <input id="email" name="email" type="email">
+
+    <label for="topic">Topic</label>
+    <select id="topic" name="topic">
+      <option value="">-- choose --</option>
+      <option value="order">Order status</option>
+      <option value="stock">Stock enquiry</option>
+      <option value="returns">Returns</option>
+      <option value="other">Something else</option>
+    </select>
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="4"></textarea>
+
+    <label><input id="urgent" name="urgent" type="checkbox"> Mark as urgent</label>
+
+    <button id="submit" type="button">Send</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    document.getElementById('submit').addEventListener('click', function () {
+      var f = document.getElementById('contact-form');
+      var missing = [];
+      ['name', 'email', 'topic', 'message'].forEach(function (k) {
+        if (!f[k].value) missing.push(k);
+      });
+      var out = document.getElementById('result');
+      if (missing.length) {
+        out.textContent = 'ERROR: missing fields: ' + missing.join(', ');
+        return;
+      }
+      out.textContent = 'TICKET-4471 created for ' + f.name.value +
+        ' (' + f.topic.value + (f.urgent.checked ? ', urgent' : '') + ')';
+    });
+  </script>
+</body></html>

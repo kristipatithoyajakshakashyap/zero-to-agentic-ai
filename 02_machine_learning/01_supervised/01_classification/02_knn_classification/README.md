@@ -10,18 +10,18 @@ vote. No training happens at all - the "model" IS the dataset.
 
 Distance between two rows (Euclidean):
 
-$$d(a,b)=\sqrt{(a_-b_)^2+(a_2-b_2)^2+\cdots}$$
+$$d(a,b)=\sqrt{(a_1-b_1)^2+(a_2-b_2)^2+\cdots}$$
 
 Prediction = majority class among the k smallest distances (optionally weighted
-by `/distance`, so closer votes count more).
+by `1/distance`, so closer votes count more).
 
 **Why scaling is MANDATORY:** a feature in dollars (0-50,000) drowns a feature
-in years (0-0) inside that square root. Always `StandardScaler` first.
+in years (0-10) inside that square root. Always `StandardScaler` first.
 
 ## The one knob: k
 | k | behavior | risk |
 |---|---|---|
-| too small (-3) | wiggly, chases noise | overfit |
+| too small (1-3) | wiggly, chases noise | overfit |
 | too large (~n) | predicts the majority class everywhere | underfit |
 
 Pick k odd (avoid ties) via cross-validation - shown in the notebook.
@@ -45,12 +45,12 @@ distinguishing - "curse of dimensionality") · categorical-heavy features.
 - judging speed by fit-time: KNN pays at PREDICT time instead
 
 ## Contents
-- `0_theory_and_mathematics.ipynb` - distances & voting by hand on real penguins
+- `01_theory_and_mathematics.ipynb` - distances & voting by hand on real penguins
 - `02_model_development_workflow.ipynb` - end-to-end sklearn workflow on real wine data
 - `projects/` -  iris ·  wine quality ·  breast cancer diagnosis
 
 ## Cheat sheet
 ```python
 Pipeline([("sc", StandardScaler()),
-          ("knn", KNeighborsClassifier(n_neighbors=5, weights="distance"))])
+          ("knn", KNeighborsClassifier(n_neighbors=15, weights="distance"))])
 ```

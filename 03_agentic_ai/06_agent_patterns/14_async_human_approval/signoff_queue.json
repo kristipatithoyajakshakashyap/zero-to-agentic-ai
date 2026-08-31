@@ -1,0 +1,74 @@
+{
+  "920296a5": {
+    "request_id": "920296a5",
+    "thread_id": "deploy-prod-2026-08-31",
+    "summary": "Production deploy: migrate payments DB to new cluster",
+    "required_reviewers": [
+      "oncall-eng@company",
+      "sre-lead@company",
+      "eng-manager@company"
+    ],
+    "quorum": 2,
+    "votes": {
+      "sre-lead@company": "approve",
+      "oncall-eng@company": "approve"
+    },
+    "reasons": {
+      "sre-lead@company": "Runbook looks solid.",
+      "oncall-eng@company": "Tested in staging."
+    },
+    "created_at": 1788194763.8308706,
+    "status": "approved"
+  },
+  "ef3a28b8": {
+    "request_id": "ef3a28b8",
+    "thread_id": "deploy-prod-2026-08-31",
+    "summary": "Production deploy: migrate payments DB to new cluster",
+    "required_reviewers": [
+      "oncall-eng@company",
+      "sre-lead@company",
+      "eng-manager@company"
+    ],
+    "quorum": 2,
+    "votes": {},
+    "reasons": {},
+    "created_at": 1788194763.8595726,
+    "status": "pending"
+  },
+  "8bcae02b": {
+    "request_id": "8bcae02b",
+    "thread_id": "deploy-prod-risky-change",
+    "summary": "Production deploy: enable untested feature flag globally",
+    "required_reviewers": [
+      "oncall-eng@company",
+      "sre-lead@company",
+      "eng-manager@company"
+    ],
+    "quorum": 2,
+    "votes": {
+      "oncall-eng@company": "approve",
+      "sre-lead@company": "reject"
+    },
+    "reasons": {
+      "oncall-eng@company": "Looks fine to me.",
+      "sre-lead@company": "No rollback plan documented."
+    },
+    "created_at": 1788194763.8665547,
+    "status": "rejected"
+  },
+  "2dc5b9ab": {
+    "request_id": "2dc5b9ab",
+    "thread_id": "deploy-prod-risky-change",
+    "summary": "Production deploy: enable untested feature flag globally",
+    "required_reviewers": [
+      "oncall-eng@company",
+      "sre-lead@company",
+      "eng-manager@company"
+    ],
+    "quorum": 2,
+    "votes": {},
+    "reasons": {},
+    "created_at": 1788194763.8905756,
+    "status": "pending"
+  }
+}

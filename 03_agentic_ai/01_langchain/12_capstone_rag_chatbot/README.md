@@ -59,7 +59,7 @@ could act on.
 
 ## Contents
 
-1. `01_capstone_rag_chatbot.ipynb.nb.py` - the complete nine-phase build:
+1. [01_capstone_rag_chatbot.ipynb](01_capstone_rag_chatbot.ipynb) - the complete nine-phase build:
    ingest, chunking with justification, embedding, indexing, MMR retrieval,
    structured-output RAG chain with offline fallback ladder, session memory,
    six-question scripted evaluation across two readers, findings, and an

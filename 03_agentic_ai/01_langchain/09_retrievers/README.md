@@ -115,7 +115,7 @@ fully offline, zero API keys.
 
 | Notebook | What it does |
 |---|---|
-| `01_retrievers_deepdive.nb.py` | `as_retriever` basics; MMR vs similarity on Alice's repetitive passages; `lambda_mult` sweep; retriever piped into an LCEL prompt printed offline (no LLM). |
+| [01_retrievers_deepdive.ipynb](01_retrievers_deepdive.ipynb) | `as_retriever` basics; MMR vs similarity on Alice's repetitive passages; `lambda_mult` sweep; retriever piped into an LCEL prompt printed offline (no LLM). |
 
 ## Summary
 

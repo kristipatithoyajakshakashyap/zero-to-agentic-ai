@@ -83,10 +83,10 @@ extension (see Step 12 extension ideas).
 
 ## Contents
 
-1. `01_chat_history_memory.nb.py` - char-bloat demo, InMemory histories +
+1. [01_chat_history_memory.ipynb](01_chat_history_memory.ipynb) - char-bloat demo, InMemory histories +
    `RunnableWithMessageHistory`, two-session isolation proof, sliding-window
    trim util with cost math, guarded SQLChatMessageHistory round trip.
-2. `02_stateful_chatbot_app.nb.py` - full "librarian of Alice" chatbot:
+2. [02_stateful_chatbot_app.ipynb](02_stateful_chatbot_app.ipynb) - full "librarian of Alice" chatbot:
    persona prompt + history placeholder + capped interactive loop, second-session
    separation demo, transcripts exported to `DATA / "transcripts.json"`.
 

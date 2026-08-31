@@ -3,7 +3,7 @@
 **MLCourse · Machine Learning · supervised · classification · 07_adaboost**
 
 ## The idea in one sentence
-Train a long line of WEAK learners (usually depth- "stumps"); after each round,
+Train a long line of WEAK learners (usually depth-1 "stumps"); after each round,
 **increase the weight of the rows the previous model got wrong**, forcing the
 next learner to focus on them; finally let all stumps vote with their earned
 trust.
@@ -30,9 +30,9 @@ and stronger) · high-cardinality categoricals without encoding care.
 ## Key sklearn parameters
 | param | meaning | start |
 |---|---|---|
-| `n_estimators` | number of stumps | 00-400 |
-| `learning_rate` | shrinks each α_t (needs more rounds) | 0.5-.0 |
-| `estimator` | weak learner | default depth- tree |
+| `n_estimators` | number of stumps | 100-400 |
+| `learning_rate` | shrinks each α_t (needs more rounds) | 0.5-1.0 |
+| `estimator` | weak learner | default depth-1 tree |
 
 Scaling unnecessary; watch for `SAMME` deprecation notes in old tutorials.
 
@@ -42,7 +42,7 @@ Scaling unnecessary; watch for `SAMME` deprecation notes in old tutorials.
 - don't deep-tree the base learner ("weak" is the point)
 
 ## Contents
-- `0_theory_and_mathematics.ipynb` - α and weight updates computed BY HAND on real rows
+- `01_theory_and_mathematics.ipynb` - α and weight updates computed BY HAND on real rows
 - `02_model_development_workflow.ipynb` - staged-error curve + tuning on breast cancer
 - `projects/` -  penguins ·  heart ·  pima screening
 

@@ -40,3 +40,5 @@ unstructured>=0.15
 # --- CrewAI track ---
 crewai>=1.10
 crewai-tools>=0.14
+litellm>=1.40
+nest_asyncio>=1.6

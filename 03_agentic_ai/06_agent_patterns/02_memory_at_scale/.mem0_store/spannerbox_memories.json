@@ -1,0 +1,96 @@
+{
+  "docstore": {
+    "e999c118-55d4-40f3-a50e-e7779133a78c": {
+      "user_id": "founder_01",
+      "role": "user",
+      "data": "The product must run entirely inside the EU.",
+      "hash": "cd3f867cd3836e3687b139ebe44dd0a1",
+      "created_at": "2026-08-31T01:40:36.277316+00:00",
+      "updated_at": "2026-08-31T01:40:36.277316+00:00",
+      "text_lemmatized": "product run entirely inside eu"
+    },
+    "93c2fd22-efe3-4283-9406-cfaf3442e956": {
+      "user_id": "founder_01",
+      "role": "user",
+      "data": "The customers are German bike shops.",
+      "hash": "3608bdbd375c36a7e852b2a944dbb552",
+      "created_at": "2026-08-31T01:40:39.617745+00:00",
+      "updated_at": "2026-08-31T01:40:39.617745+00:00",
+      "text_lemmatized": "customer german bike shop"
+    },
+    "80fbca7d-8356-42f2-9ac3-0fa4b6f15d41": {
+      "user_id": "founder_01",
+      "role": "user",
+      "data": "US data hosting is not acceptable.",
+      "hash": "601da2af70c53c4a8c226f8ae38b0a1c",
+      "created_at": "2026-08-31T01:40:39.673798+00:00",
+      "updated_at": "2026-08-31T01:40:39.673798+00:00",
+      "text_lemmatized": "datum host hosting acceptable"
+    },
+    "d270f0c1-958b-43ed-9acc-19b2531abc9c": {
+      "user_id": "founder_01",
+      "role": "user",
+      "data": "The product is called Spannerbox.",
+      "hash": "a022ee6f3db22d31f5e40d5b0fdd5bf3",
+      "created_at": "2026-08-31T01:40:39.724838+00:00",
+      "updated_at": "2026-08-31T01:40:39.724838+00:00",
+      "text_lemmatized": "product call spannerbox"
+    },
+    "96aceb08-c784-4428-ad1d-3934e56fecfd": {
+      "user_id": "founder_01",
+      "role": "user",
+      "data": "The database is Postgres.",
+      "hash": "fd587b132201ebd933317758be8b10c3",
+      "created_at": "2026-08-31T01:40:39.917457+00:00",
+      "updated_at": "2026-08-31T01:40:39.917457+00:00",
+      "text_lemmatized": "database postgre"
+    },
+    "310b4e7e-75d2-41d6-8416-2e449a9e8f70": {
+      "user_id": "founder_01",
+      "role": "user",
+      "data": "The framework is Django.",
+      "hash": "37edc982b8b1fc406188e71f3da06176",
+      "created_at": "2026-08-31T01:40:40.036627+00:00",
+      "updated_at": "2026-08-31T01:40:40.036627+00:00",
+      "text_lemmatized": "framework django"
+    },
+    "5054f615-6a53-422f-a01d-a34b1b0b3010": {
+      "user_id": "founder_01",
+      "role": "user",
+      "data": "The first pilot customer is Radhaus Krueger in Freiburg.",
+      "hash": "f8d702d741bdef469d9120687242aaf0",
+      "created_at": "2026-08-31T01:40:40.146333+00:00",
+      "updated_at": "2026-08-31T01:40:40.146333+00:00",
+      "text_lemmatized": "pilot customer radhaus krueger freiburg"
+    },
+    "421286df-0eb8-4f27-8c0b-fa25867f9965": {
+      "user_id": "founder_01",
+      "role": "user",
+      "data": "The pilot starts in March.",
+      "hash": "f1b61b02a6a981d9bc8aa00cddb3ccf2",
+      "created_at": "2026-08-31T01:40:40.207468+00:00",
+      "updated_at": "2026-08-31T01:40:40.207468+00:00",
+      "text_lemmatized": "pilot start march"
+    },
+    "45526a5b-b1e4-420e-b0df-48e87637fb3e": {
+      "user_id": "founder_01",
+      "role": "user",
+      "data": "The budget was raised to 18,000 EUR for the first six months.",
+      "hash": "23c98cc1b1fb8329439be858a9c6c4e2",
+      "created_at": "2026-08-31T01:40:43.666352+00:00",
+      "updated_at": "2026-08-31T01:40:43.666352+00:00",
+      "text_lemmatized": "budget raise eur month"
+    }
+  },
+  "index_to_id": {
+    "0": "e999c118-55d4-40f3-a50e-e7779133a78c",
+    "1": "93c2fd22-efe3-4283-9406-cfaf3442e956",
+    "2": "80fbca7d-8356-42f2-9ac3-0fa4b6f15d41",
+    "3": "d270f0c1-958b-43ed-9acc-19b2531abc9c",
+    "4": "96aceb08-c784-4428-ad1d-3934e56fecfd",
+    "5": "310b4e7e-75d2-41d6-8416-2e449a9e8f70",
+    "6": "5054f615-6a53-422f-a01d-a34b1b0b3010",
+    "7": "421286df-0eb8-4f27-8c0b-fa25867f9965",
+    "8": "45526a5b-b1e4-420e-b0df-48e87637fb3e"
+  }
+}

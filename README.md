@@ -43,7 +43,7 @@ MLCourse/
     │   ├── 04_human_in_the_loop         breakpoints, human review
     │   ├── 05_streaming                 stream_mode values
     │   ├── 06_multi_agent_systems       supervisor, swarm
-    │   └── 07_travel_planner            agentic travel planning
+    │   └── 09_travel_planner            agentic travel planning
     ├── 03_rag_advanced/             Advanced RAG (10 modules):
     │   ├── 01_hybrid_search             dense + sparse fusion
     │   ├── 02_multimodal_rag            images, tables, text
@@ -80,6 +80,12 @@ MLCourse/
             ├── 03_coding_agents_and_cli
             ├── 04_llm_connections
             └── 05_capstone_full_stack_app_builder
+    └── 05_production_security/       Security, Guardrails, Caching, Privacy:
+        ├── 01_prompt_injection          injection attacks and defenses
+        ├── 02_guardrail_frameworks      input/output/action guardrails
+        ├── 03_caching_strategies        exact, semantic, TTL caching + safety
+        ├── 04_privacy_and_data          PII detection and redaction
+        └── 05_security_evaluation       red-team harness and metrics
 ```
 
 ## Environment setup
@@ -134,7 +140,7 @@ Work top-to-bottom within each track. Times assume focused part-time study.
 | 25 | [Human-in-the-Loop](03_agentic_ai/02_langgraph/04_human_in_the_loop/) | ~3 h | Breakpoints, interrupt_before, human review |
 | 26 | [Streaming](03_agentic_ai/02_langgraph/05_streaming/) | ~3 h | stream_mode values, token/event streaming |
 | 27 | [Multi-Agent Systems](03_agentic_ai/02_langgraph/06_multi_agent_systems/) | ~4 h | Supervisor, swarm, agent handoffs |
-| 28 | [Travel Planner](03_agentic_ai/02_langgraph/07_travel_planner/) | ~4 h | Agentic travel planning with tools |
+| 28 | [Travel Planner](03_agentic_ai/02_langgraph/09_travel_planner/) | ~4 h | Agentic travel planning with tools |
 | **RAG Advanced** | | | |
 | 29 | [Hybrid Search](03_agentic_ai/03_rag_advanced/01_hybrid_search/) | ~4 h | Dense + sparse retrieval fusion |
 | 30 | [Multi-Modal RAG](03_agentic_ai/03_rag_advanced/02_multimodal_rag/) | ~4 h | Images, tables, and text in RAG |
@@ -167,6 +173,11 @@ Work top-to-bottom within each track. Times assume focused part-time study.
 | 56 | [Coding Agents & CLI](03_agentic_ai/04_crewai/04_production/03_coding_agents_and_cli/) | ~3 h | CodeInterpreter, AGENTS.md |
 | 57 | [LLM Connections](03_agentic_ai/04_crewai/04_production/04_llm_connections/) | ~3 h | LiteLLM, Ollama, Groq |
 | 58 | [Full-Stack App Builder](03_agentic_ai/04_crewai/04_production/05_capstone_full_stack_app_builder/) | ~6 h | 6-agent capstone with Flow orchestration |
+| 59 | [Prompt Injection](03_agentic_ai/05_production_security/01_prompt_injection/) | ~3 h | Injection attacks and defenses |
+| 60 | [Guardrail Frameworks](03_agentic_ai/05_production_security/02_guardrail_frameworks/) | ~4 h | Input/output/action guardrails |
+| 61 | [Caching Strategies](03_agentic_ai/05_production_security/03_caching_strategies/) | ~3 h | Exact, semantic, TTL caching + safety |
+| 62 | [Privacy & Data Handling](03_agentic_ai/05_production_security/04_privacy_and_data/) | ~3 h | PII detection and redaction |
+| 63 | [Security Evaluation](03_agentic_ai/05_production_security/05_security_evaluation/) | ~3 h | Red-team harness and metrics |
 
 Study discipline matters more than speed: read the section reference first,
 execute every cell, attempt exercises before solutions, and inspect errors

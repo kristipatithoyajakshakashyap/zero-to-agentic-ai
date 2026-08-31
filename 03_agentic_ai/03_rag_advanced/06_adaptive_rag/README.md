@@ -14,7 +14,9 @@ Classify incoming queries at runtime and dynamically select the optimal RAG stra
 
 ## Prerequisites
 
-- Modules 02-03 (Agent design, tool use), Module 01 (Hybrid search)
+- LangGraph modules [01_graph_basics](../../02_langgraph/01_graph_basics/README.md) and [02_tool_using_agents](../../02_langgraph/02_tool_using_agents/README.md) - agentic RAG is a graph with a retriever in it
+- Module 01 ([Hybrid Search](../01_hybrid_search/README.md)) - the retriever these pipelines build on
+- Modules 03-05 - the strategies this module chooses between at runtime
 
 ## When to use this technique
 

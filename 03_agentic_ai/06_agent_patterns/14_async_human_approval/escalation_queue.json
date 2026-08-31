@@ -1,0 +1,47 @@
+{
+  "d82801a5": {
+    "request_id": "d82801a5",
+    "thread_id": "purchase-needs-escalation",
+    "summary": "Approve: Emergency server upgrade ($9000.00)",
+    "payload": {
+      "item": "Emergency server upgrade"
+    },
+    "created_at": 1788194659.5614157,
+    "assigned_to": "vp-eng@company",
+    "escalation_level": 2,
+    "status": "approved",
+    "decided_by": "vp-eng@company",
+    "decided_at": 1788194673.632768,
+    "reason": "Approved after escalation to VP.",
+    "escalation_log": [
+      {
+        "from": "l1-reviewer@company",
+        "to": "l2-manager@company",
+        "note": "SLA of 3.0s exceeded",
+        "at": 1788194663.0839307
+      },
+      {
+        "from": "l2-manager@company",
+        "to": "vp-eng@company",
+        "note": "SLA of 3.0s exceeded",
+        "at": 1788194666.6009095
+      }
+    ]
+  },
+  "6b2dd3f7": {
+    "request_id": "6b2dd3f7",
+    "thread_id": "purchase-needs-escalation",
+    "summary": "Approve: Emergency server upgrade ($9000.00)",
+    "payload": {
+      "item": "Emergency server upgrade"
+    },
+    "created_at": 1788194673.641767,
+    "assigned_to": "l1-reviewer@company",
+    "escalation_level": 0,
+    "status": "pending",
+    "decided_by": null,
+    "decided_at": null,
+    "reason": null,
+    "escalation_log": []
+  }
+}

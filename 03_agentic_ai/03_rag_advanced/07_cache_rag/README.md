@@ -14,7 +14,8 @@ Implement semantic caching in RAG pipelines to avoid redundant retrieval and LLM
 
 ## Prerequisites
 
-- Module 10 (Vector stores), Module 02 (Agent foundations)
+- LangChain module [08_vector_stores](../../01_langchain/08_vector_stores/README.md) - semantic cache lookup is a vector search
+- Module 01 ([Hybrid Search](../01_hybrid_search/README.md)) - the retriever these pipelines build on
 
 ## When to use this technique
 

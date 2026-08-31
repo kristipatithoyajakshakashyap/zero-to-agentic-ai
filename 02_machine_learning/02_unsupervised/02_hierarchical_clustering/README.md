@@ -11,7 +11,7 @@ This book covers the merge logic, the linkage zoo, dendrogram reading, and the
 traps.
 
 **Contents**
-. [The idea in words](#-the-idea-in-words-agglomerative)
+1. [The idea in words](#1-the-idea-in-words-agglomerative)
 2. [Linkage types](#2-linkage-types-how-is-cluster-distance-defined)
 3. [Reading a dendrogram](#3-reading-a-dendrogram)
 4. [Scaling is mandatory](#4-scaling-is-mandatory)
@@ -23,7 +23,7 @@ traps.
 
 ---
 
-## . The idea in words (agglomerative)
+## 1. The idea in words (agglomerative)
 
 ```
 start:  every point is its own tiny cluster (n clusters)
@@ -40,7 +40,7 @@ of the dendrogram; longer branches = more dissimilar merges = stronger evidence
 of separate groups.
 
 >  **Why it's loved:** the tree shows ALL granularities at once - executives
-> can argue about 3 macro-segments while analysts inspect 2 micro-segments
+> can argue about 3 macro-segments while analysts inspect 12 micro-segments
 > from the same fit.
 
 ## 2. Linkage types - how is "cluster distance" defined?
@@ -100,7 +100,7 @@ X_scaled = StandardScaler().fit_transform(X)
 
  **Avoid when…**
 - **n is large**: naive algorithms cost O(n²) memory (distance matrix!) and
-  ~O(n² log n) time - 00k rows will hurt
+  ~O(n² log n) time - 100k rows will hurt
 - you must **assign NEW points later**: `AgglomerativeClustering` has NO
   `.predict()` - the tree is built once for the data it saw (K-Means wins here)
 - you need guaranteed convex, re-seedable partitions -> K-Means
@@ -129,7 +129,7 @@ both: scipy to LOOK, sklearn to LABEL.
 
 ## 7. Common pitfalls
 
-. **Wrong linkage for the shape** - `single` chains noise into mega-clusters;
+1. **Wrong linkage for the shape** - `single` chains noise into mega-clusters;
    `ward` shatters elongated truths. Compare linkages before believing any tree.
 2. **Unscaled features** - biggest-unit column dictates every early merge.
 3. **Memory blow-up** - the pairwise-distance approach is O(n²); subsample for
@@ -145,11 +145,12 @@ both: scipy to LOOK, sklearn to LABEL.
 ```
 02_hierarchical_clustering/
 ├── README.md                            <- this reference book
-├── 0_theory_and_mathematics.nb.py      <- merge 6 customers BY HAND + dendrogram
-├── 02_model_development_workflow.nb.py  <- penguins: dendrogram, cut, sanity check
-├── 0_easy_mall_dendrogram.nb.py        <- PROJECT: mall segments via ward tree
-├── 02_medium_penguins_discovery.nb.py   <- PROJECT: linkage face-off on penguins
-└── 03_hard_wine_linkages.nb.py          <- PROJECT: method x k silhouette grid
+├── 01_theory_and_mathematics.ipynb      <- merge 6 customers BY HAND + dendrogram
+├── 02_model_development_workflow.ipynb  <- penguins: dendrogram, cut, sanity check
+└── projects/
+    ├── 01_easy_mall_dendrogram.ipynb    <- PROJECT: mall segments via ward tree
+    ├── 02_medium_penguins_discovery.ipynb <- PROJECT: linkage face-off on penguins
+    └── 03_hard_wine_linkages.ipynb      <- PROJECT: method x k silhouette grid
 ```
 
 Datasets: Mall Customers, Penguins, Wine Quality (red).
@@ -161,7 +162,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import AgglomerativeClustering
 from scipy.cluster.hierarchy import linkage, dendrogram, fcluster
 
-Xs = StandardScaler().fit_transform(df[num_cols])       # . ALWAYS scale
+Xs = StandardScaler().fit_transform(df[num_cols])       # 1. ALWAYS scale
 
 Z = linkage(Xs, method="ward")                          # 2. merge table (scipy view)
 dendrogram(Z, truncate_mode="level", p=3)               #    readable top-of-tree
@@ -184,4 +185,4 @@ profile = df.assign(c=labels).groupby("c").mean()       # 5. interpret segments
 | number of clusters in Z | `len(np.unique(labels))` or count crossings at your cut |
 
 *Next: perform three merges with pen-and-paper numpy in
-`0_theory_and_mathematics.nb.py`.*
+`01_theory_and_mathematics.ipynb`.*

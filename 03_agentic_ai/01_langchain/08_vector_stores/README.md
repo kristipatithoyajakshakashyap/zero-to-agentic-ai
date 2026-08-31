@@ -98,9 +98,9 @@ context selection, near-duplicate detection, or "find similar items" features.
 
 | Notebook | What it does |
 |---|---|
-| `01_chroma_vector_store.nb.py` | Chapter-tagged Alice chunks into persistent Chroma; reopen from disk, scored search, metadata filtering, count(). |
-| `02_faiss_vector_store.nb.py` | Same chunks into FAISS; `save_local`/`load_local`, the dangerous-deserialization flag explained honestly, timed searches. |
-| `03_chroma_vs_faiss_head_to_head.nb.py` | Identical chunks and queries through both stores; agreement table, latency bars, verdict recap. |
+| [01_chroma_vector_store.ipynb](01_chroma_vector_store.ipynb) | Chapter-tagged Alice chunks into persistent Chroma; reopen from disk, scored search, metadata filtering, count(). |
+| [02_faiss_vector_store.ipynb](02_faiss_vector_store.ipynb) | Same chunks into FAISS; `save_local`/`load_local`, the dangerous-deserialization flag explained honestly, timed searches. |
+| [03_chroma_vs_faiss_head_to_head.ipynb](03_chroma_vs_faiss_head_to_head.ipynb) | Identical chunks and queries through both stores; agreement table, latency bars, verdict recap. |
 
 ## Summary
 

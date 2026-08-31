@@ -91,15 +91,17 @@ How to wire whichever you picked:
 
 ## 4. Contents
 
-1. `02_pydantic_with_llms.nb.py` - the payoff notebook: define `AnswerWithSources`,
+Work through them in file order:
+
+1. [01_pydantic_concepts.ipynb](01_pydantic_concepts.ipynb) - pure pydantic fundamentals, no LLM anywhere: typed
+   fields with `Field` constraints, `ValidationError` dissected via `.errors()`,
+   nested `Address` inside `Customer`, `@field_validator` normalization rules, and
+   lossless dict/JSON round trips - the contract skills every later module assumes.
+2. [02_pydantic_with_llms.ipynb](02_pydantic_with_llms.ipynb) - the payoff notebook: define `AnswerWithSources`,
    then fill it three ways - guarded `ChatGroq` via `with_structured_output`
    (Route A), the `PydanticOutputParser` fallback with format instructions printed
    verbatim and `OutputParserException` handled (Route B), and a hand-written JSON
    replay that teaches offline with zero API keys (Route C).
-2. `03_pydantic_concepts.nb.py` - pure pydantic fundamentals, no LLM anywhere: typed
-   fields with `Field` constraints, `ValidationError` dissected via `.errors()`,
-   nested `Address` inside `Customer`, `@field_validator` normalization rules, and
-   lossless dict/JSON round trips - the contract skills every later module assumes.
 
 Hands-on wiring of the string and list parsers into chains lands in module 04
 (LCEL), where parsers become ordinary pipe segments.

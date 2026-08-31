@@ -89,17 +89,19 @@ Five rules cover essentially every LCEL program you will write:
 
 ## 5. Contents
 
-1. `02_runnables_deepdive.nb.py` - the protocol made tangible: uniform
+Work through them in file order:
+
+1. [01_output_parsers_str_list.ipynb](01_output_parsers_str_list.ipynb) - gentlest possible chains: `StrOutputParser`
+   and `CommaSeparatedListOutputParser` piped at the END of `prompt | llm`, format
+   instructions shown verbatim and embedded correctly, with offline twins of every
+   parsing step and a bridge forward to the Pydantic tier.
+2. [02_runnables_deepdive.ipynb](02_runnables_deepdive.ipynb) - the protocol made tangible: uniform
    `invoke`/`batch`/`stream` across lambdas and prompts, `prompt | model | parser`
    assembled stage by stage (live model swaps for an offline echo when no key exists),
    `RunnableLambda` glue, the passthrough-plus-assign mini RAG shape, a
    summary-plus-keywords `RunnableParallel` fan-out, guarded `with_fallbacks`,
    token-by-token `.stream()`, `.batch()`, and a `bind(stop=...)` truncation demo -
    roughly half the notebook runs with zero providers.
-2. `01_output_parsers_str_list.nb.py` - gentlest possible chains: `StrOutputParser`
-   and `CommaSeparatedListOutputParser` piped at the END of `prompt | llm`, format
-   instructions shown verbatim and embedded correctly, with offline twins of every
-   parsing step and a bridge forward to the Pydantic tier.
 
 ## Summary
 

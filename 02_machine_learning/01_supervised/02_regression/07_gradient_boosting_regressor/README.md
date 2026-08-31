@@ -6,7 +6,7 @@ Gradient boosting is the idea that won Kaggle after Kaggle: build a regression m
 **slowly**, each new small tree trained to predict the **residuals** the current model
 still leaves behind, then added in with a shrinkage factor:
 
-$$F_m(x) \;=\; F_{m-}(x) \;+\; \nu \cdot h_m(x), \qquad 0 < \nu \le $$
+$$F_m(x) \;=\; F_{m-1}(x) \;+\; \nu \cdot h_m(x), \qquad 0 < \nu \le 1$$
 
 ## What you'll learn
 
@@ -18,10 +18,10 @@ $$F_m(x) \;=\; F_{m-}(x) \;+\; \nu \cdot h_m(x), \qquad 0 < \nu \le $$
 
 ## The loop in words
 
-. Start with a constant: $F_0(x) = \bar y$ (the mean minimises squared error).
-2. Compute residuals $r_i = y_i - F_{m-}(x_i)$.
+1. Start with a constant: $F_0(x) = \bar y$ (the mean minimises squared error).
+2. Compute residuals $r_i = y_i - F_{m-1}(x_i)$.
 3. Fit a shallow tree $h_m$ to those residuals (features -> *error corrections*).
-4. Add it in shrunk: $F_m = F_{m-} + \nu\, h_m$.
+4. Add it in shrunk: $F_m = F_{m-1} + \nu\, h_m$.
 5. Repeat `n_estimators` times. Predictions are just the final accumulated $F_M(x)$.
 
 ### Why residuals ARE gradients (the one-line calculus)
@@ -39,8 +39,8 @@ never changes. That generality is why this family is called gradient boosting.
 
 ### Shrinkage (why ν matters)
 
-Without shrinkage (ν=) each tree fully "corrects" the residuals - including noise -
-and the train MSE plummets while test error balloons. Small ν (0.0-0.3) makes each
+Without shrinkage (ν=1) each tree fully "corrects" the residuals - including noise -
+and the train MSE plummets while test error balloons. Small ν (0.01-0.3) makes each
 round a cautious nudge; errors decay smoothly and many rounds average out noise.
 The classic recipe: **small learning_rate + more trees + early stopping.**
 
@@ -77,10 +77,10 @@ When NOT to:
 
 | Parameter | Default | What it does |
 |---|---|---|
-| `learning_rate` (ν) | `0.` | shrinkage per tree; smaller = safer, needs more trees |
-| `n_estimators` | `00` | number of sequential trees (M) |
+| `learning_rate` (ν) | `0.1` | shrinkage per tree; smaller = safer, needs more trees |
+| `n_estimators` | `100` | number of sequential trees (M) |
 | `max_depth` | `3` | depth of each small tree; 2-4 is the sweet spot |
-| `subsample` | `.0` | fraction of rows per tree; `<` adds stochasticity (variance (down), speed (up)) |
+| `subsample` | `1.0` | fraction of rows per tree; `<1` adds stochasticity (variance (down), speed (up)) |
 | `loss` | `'squared_error'` | also `'absolute_error'`, `'huber'` for robustness |
 | `init` | mean Dummy | the starting constant model $F_0$ |
 | `random_state` | `None` | reproducibility of subsampling |
@@ -105,12 +105,12 @@ Useful extras: `staged_predict()` (prediction after every round),
 
 | File | Focus |
 |---|---|
-| `0_theory_and_mathematics.nb.py` | manual 4-round residual loop (bmi), verified == sklearn; ν comparison |
-| `02_model_development_workflow.nb.py` | insurance: log-target, `staged_predict` best-round, lr×depth grid, importances |
-| `projects/0_easy_diabetes_gbm.nb.py`  | baseline vs tuned, staged peak, bmi/s5 drivers |
-| `projects/02_medium_white_wine_gbm.nb.py`  | UCI white wine quality: baselines, MAE/RMSE/R², alcohol/density |
-| `projects/03_hard_insurance_log_gbm.nb.py`  | log-charges pipeline, $-metrics, smoker×bmi partial dependence |
-| `projects/04_advanced_california_staged.nb.py`  | 8k-row California: staged early-stop, subsample study, error hotspots |
+| `01_theory_and_mathematics.ipynb` | manual 4-round residual loop (bmi), verified == sklearn; ν comparison |
+| `02_model_development_workflow.ipynb` | insurance: log-target, `staged_predict` best-round, lr×depth grid, importances |
+| `projects/01_easy_diabetes_gbm.ipynb`  | baseline vs tuned, staged peak, bmi/s5 drivers |
+| `projects/02_medium_white_wine_gbm.ipynb`  | UCI white wine quality: baselines, MAE/RMSE/R², alcohol/density |
+| `projects/03_hard_insurance_log_gbm.ipynb`  | log-charges pipeline, $-metrics, smoker×bmi partial dependence |
+| `projects/04_advanced_california_staged.ipynb`  | 8k-row California: staged early-stop, subsample study, error hotspots |
 
 ## Cheat sheet
 
@@ -127,7 +127,7 @@ gbm = GradientBoostingRegressor(
 ).fit(X_train, y_train)
 
 # staged API: predictions after EVERY round -> pick the validation optimum
-for m, pred in enumerate(gbm.staged_predict(X_valid), start=):
+for m, pred in enumerate(gbm.staged_predict(X_valid), start=1):
     ...
 best_round = int(np.argmin([mse(y_valid, p) for p in gbm.staged_predict(X_valid)])) +
 final = GradientBoostingRegressor(n_estimators=best_round, **same_kwargs).fit(X_trval, y_trval)

@@ -11,7 +11,7 @@ forward with a small, shrunk step.
 
 Current ensemble score after m rounds:
 
-$$F_m(x) = F_{m-}(x) + \nu \cdot h_m(x)$$
+$$F_m(x) = F_{m-1}(x) + \nu \cdot h_m(x)$$
 
 - $h_m$ = the NEW small tree
 - $\nu$ = `learning_rate` (shrink every contribution)
@@ -31,10 +31,10 @@ extrapolation · slower than XGBoost at scale.
 ## Key sklearn parameters
 | param | meaning | start |
 |---|---|---|
-| `n_estimators` | number of trees | 00-500 |
-| `learning_rate` | step size ν | 0.03-0. |
+| `n_estimators` | number of trees | 100-500 |
+| `learning_rate` | step size ν | 0.03-0.1 |
 | `max_depth` | per-tree complexity | 2-4 |
-| `subsample` | rows per tree (< = stochastic) | 0.8 |
+| `subsample` | rows per tree (<1 = stochastic) | 0.8 |
 
 Golden rule: lower lr => more trees => better generalization (until time hurts).
 
@@ -44,7 +44,7 @@ Golden rule: lower lr => more trees => better generalization (until time hurts).
 - single-threaded sklearn version lags XGB/LightGBM on huge data
 
 ## Contents
-- `0_theory_and_mathematics.ipynb` - residuals fitted BY HAND on real tips
+- `01_theory_and_mathematics.ipynb` - residuals fitted BY HAND on real tips
 - `02_model_development_workflow.ipynb` - staged curves + lr×depth×subsample grid
 - `projects/` -  titanic ·  pima ·  credit-g staged ·  adult income
 

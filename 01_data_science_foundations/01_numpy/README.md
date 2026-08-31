@@ -1,17 +1,28 @@
 # NumPy - The Complete Reference (Zero to Advanced)
 
-> **MLCourse · Data Science Foundations · 0_numpy**
+> **MLCourse · Data Science Foundations · 01_numpy**
 
 NumPy (Numerical Python) is the foundation layer of the entire Python data stack. pandas builds its
 DataFrames on NumPy arrays, scikit-learn accepts them as input, Matplotlib plots them, and PyTorch
 and TensorFlow borrow their core ideas outright. This book takes you from "what is an array?" all
 the way to performance engineering and linear algebra - every idea mirrored in the companion
-notebooks `0_numpy_foundations`, `02_numpy_advanced`, `03_numpy_exercises` and
-`04_numpy_solutions`.
+notebooks in this folder.
+
+Companion notebooks in this folder:
+
+| File | Contents |
+|---|---|
+| `01_numpy_foundations.ipynb` | Creating arrays, dtypes, indexing and slicing, views vs copies, reshaping, broadcasting, ufuncs and aggregations - chapters 1-11 |
+| `02_numpy_advanced.ipynb` | Boolean masking, fancy indexing, the where-family, sorting and top-k, set ops, joining, vectorizing formulas, linear algebra, random numbers, performance - chapters 12-24 |
+| `03_numpy_exercises.ipynb` | Graded practice problems, no answers included |
+| `04_numpy_solutions.ipynb` | Fully commented solutions to the exercises |
+
+Read a chapter here, then run the matching notebook - the section numbers below
+line up with the notebook sections.
 
 ## Table of contents
 
-. [Why NumPy exists](#-why-numpy-exists)
+1. [Why NumPy exists](#1-why-numpy-exists)
 2. [The ndarray vs the Python list](#2-the-ndarray-vs-the-python-list)
 3. [Creating arrays](#3-creating-arrays)
 4. [Array attributes](#4-array-attributes)
@@ -20,29 +31,29 @@ notebooks `0_numpy_foundations`, `02_numpy_advanced`, `03_numpy_exercises` and
 7. [Views vs copies](#7-views-vs-copies)
 8. [Reshaping, transposing, new axes](#8-reshaping-transposing-new-axes)
 9. [Broadcasting](#9-broadcasting)
-0. [Elementwise operations and ufuncs](#0-elementwise-operations-and-ufuncs)
-. [Aggregations and axis](#-aggregations-and-axis)
-2. [Boolean masking](#2-boolean-masking)
-3. [Fancy indexing](#3-fancy-indexing)
-4. [The where-family toolkit](#4-the-where-family-toolkit)
-5. [Sorting, ranking, top-k](#5-sorting-ranking-top-k)
-6. [Unique values and set operations](#6-unique-values-and-set-operations)
-7. [Joining, splitting, tiling](#7-joining-splitting-tiling)
-8. [Vectorizing your own formulas](#8-vectorizing-your-own-formulas)
-9. [Linear algebra essentials](#9-linear-algebra-essentials)
+10. [Elementwise operations and ufuncs](#10-elementwise-operations-and-ufuncs)
+11. [Aggregations and axis](#11-aggregations-and-axis)
+12. [Boolean masking](#12-boolean-masking)
+13. [Fancy indexing](#13-fancy-indexing)
+14. [The where-family toolkit](#14-the-where-family-toolkit)
+15. [Sorting, ranking, top-k](#15-sorting-ranking-top-k)
+16. [Unique values and set operations](#16-unique-values-and-set-operations)
+17. [Joining, splitting, tiling](#17-joining-splitting-tiling)
+18. [Vectorizing your own formulas](#18-vectorizing-your-own-formulas)
+19. [Linear algebra essentials](#19-linear-algebra-essentials)
 20. [Random numbers done right](#20-random-numbers-done-right)
-2. [Performance playbook](#2-performance-playbook)
+21. [Performance playbook](#21-performance-playbook)
 22. [Saving and loading](#22-saving-and-loading)
 23. [Pitfall gallery](#23-pitfall-gallery)
 24. [One-page cheat sheet](#24-one-page-cheat-sheet)
 
 ---
 
-## . Why NumPy exists
+## 1. Why NumPy exists
 
 Three reasons, in order of importance:
 
-. **Speed.** NumPy's core routines are compiled C loops (often SIMD-vectorized - several numbers
+1. **Speed.** NumPy's core routines are compiled C loops (often SIMD-vectorized - several numbers
    processed per CPU instruction). A single call replaces millions of interpreted Python
    iterations.
 2. **Memory.** An array of one million float64s is one contiguous 8 MB buffer. A list of the same
@@ -54,7 +65,7 @@ Three reasons, in order of importance:
 import numpy as np
 
 a = np.arange(5_000_000)          # five million integers in one buffer
-total = a.sum()                   # one compiled pass: typically 00x+ faster than a Python loop
+total = a.sum()                   # one compiled pass: typically 100x+ faster than a Python loop
 ```
 
 >  **Pro tip:** benchmark honestly with `%timeit` inside Jupyter (`%timeit a.sum()`); it repeats
@@ -76,9 +87,9 @@ same number of bytes, element `i` sits at address `base + i * itemsize` - pure p
 no object chasing.
 
 ```python
-mixed = np.array([, 2.5])        # coercion happens silently
+mixed = np.array([1, 2.5])        # coercion happens silently
 print(mixed.dtype)                # float64 - int was promoted
-oops = np.array([, "two"])       # everything becomes '<U3' strings!
+oops = np.array([1, "two"])       # everything becomes '<U3' strings!
 ```
 
 >  **Common pitfall:** mixed inputs never raise; they silently coerce to one dtype. Check
@@ -90,12 +101,12 @@ oops = np.array([, "two"])       # everything becomes '<U3' strings!
 
 | function                     | purpose                              | example                          |
 |------------------------------|--------------------------------------|----------------------------------|
-| `np.array(obj)`              | from list / nested lists             | `np.array([[, 2], [3, 4]])`     |
+| `np.array(obj)`              | from list / nested lists             | `np.array([[1, 2], [3, 4]])`     |
 | `np.zeros(shape)`            | all zeros                            | `np.zeros((2, 3))`               |
 | `np.ones(shape)`             | all ones                             | `np.ones(4)`                     |
 | `np.full(shape, val)`        | any constant                         | `np.full((2, 2), 7)`             |
-| `np.arange(a, b, step)`      | integer range, stop EXCLUSIVE        | `np.arange(0, 0, 2)`            |
-| `np.linspace(a, b, n)`       | n points, endpoints INCLUSIVE        | `np.linspace(0, , 5)`           |
+| `np.arange(a, b, step)`      | integer range, stop EXCLUSIVE        | `np.arange(0, 10, 2)`            |
+| `np.linspace(a, b, n)`       | n points, endpoints INCLUSIVE        | `np.linspace(0, 1, 5)`           |
 | `np.eye(n)` / `np.identity(n)` | identity matrix (`eye` allows offset `k`) | `np.eye(3)`          |
 | `np.zeros_like(a)` etc.      | same shape/dtype as another array    | `np.ones_like(a)`                |
 
@@ -103,8 +114,8 @@ The classic difference worth memorizing - `arange` counts by STEP and excludes t
 `linspace` counts by NUMBER OF POINTS and includes both ends:
 
 ```python
-np.arange(0, , 0.2)     # array([0. , 0.2, 0.4, 0.6, 0.8])  <- .0 missing!
-np.linspace(0, , 5)     # array([0.  , 0.25, 0.5 , 0.75, . ])  <- exact endpoints
+np.arange(0, 1, 0.2)     # array([0. , 0.2, 0.4, 0.6, 0.8])  <- 1.0 missing!
+np.linspace(0, 1, 5)     # array([0.  , 0.25, 0.5 , 0.75, 1. ])  <- exact endpoints
 ```
 
 >  **Common pitfall:** floating-point steps make `arange` both unpredictable at the endpoint
@@ -124,7 +135,7 @@ Six metadata fields answer most debugging questions:
 | `.size`     | total elements (= product of shape)      | `24`                       |
 | `.dtype`    | element type                             | `int64`                    |
 | `.itemsize` | bytes per element                        | `8`                        |
-| `.nbytes`   | total bytes (`size * itemsize`)          | `92`                      |
+| `.nbytes`   | total bytes (`size * itemsize`)          | `192`                      |
 
 ```python
 T = np.arange(24).reshape(2, 3, 4)
@@ -137,25 +148,25 @@ assert T.nbytes == T.size * T.itemsize
 
 | dtype     | bytes | range / use                                     |
 |-----------|-------|-------------------------------------------------|
-| `int32`   | 4     | counters; +/- ~2. billion                      |
+| `int32`   | 4     | counters; +/- ~2.1 billion                      |
 | `int64`   | 8     | general-purpose default integer                 |
 | `float32` | 4     | images, deep-learning weights (~7 digits)       |
-| `float64` | 8     | scientific workhorse (~5-6 digits)            |
-| `bool`    |      | masks: True/False                               |
+| `float64` | 8     | scientific workhorse (~15-16 digits)            |
+| `bool`    | 1     | masks: True/False                               |
 
 Convert with `.astype()` - it ALWAYS returns a copy:
 
 ```python
-np.array([.9, -2.7]).astype(np.int32)    # -> [, -2]   truncates toward ZERO
-np.array([0, , 99]).astype(bool)         # -> [False, True, True]
-np.float32(np.pi)                          # -> 3.45927  precision silently dropped
+np.array([1.9, -2.7]).astype(np.int32)    # -> [1, -2]   truncates toward ZERO
+np.array([0, 1, 99]).astype(bool)         # -> [False, True, True]
+np.float32(np.pi)                          # -> 3.1415927  precision silently dropped
 ```
 
 >  **Common pitfall (overflow):** fixed-width integers wrap around SILENTLY:
 >
 > ```python
-> np.array([00, 20], dtype=np.int8) + np.array([00, 20], dtype=np.int8)
-> # -> [-56 -6]   (200 and 240 do not fit; no exception raised!)
+> np.array([100, 120], dtype=np.int8) + np.array([100, 120], dtype=np.int8)
+> # -> [-56 -16]   (200 and 240 do not fit; no exception raised!)
 > ```
 >
 > For image math on uint8 pixels, upcast first (`img.astype(np.int32)`), compute, clip, then cast
@@ -169,22 +180,22 @@ Python slice semantics carry over: `start:stop:step` with stop EXCLUSIVE, negati
 the end. Two dimensions are separated by ONE comma: `M[row, col]`.
 
 ```python
-x = np.arange(0, 20)
-x[0]; x[-]; x[2:5]; x[::2]; x[::-]      # first, last, slice, strided, reversed
+x = np.arange(10, 20)
+x[0]; x[-1]; x[2:5]; x[::2]; x[::-1]      # first, last, slice, strided, reversed
 
-G = np.arange(, 3).reshape(3, 4)
-G[, 2]        # single cell
-G[]           # whole row   (same as G[, :])
-G[:, ]        # whole column  -> array([ 2,  6, 0])
-G[0:2, :3]    # submatrix: rows 0-, cols -2
-G[::-]        # rows flipped upside down
-G[::-, ::-]  # 80-degree rotation
+G = np.arange(1, 13).reshape(3, 4)
+G[1, 2]        # single cell
+G[1]           # whole row 1  (same as G[1, :])
+G[:, 1]        # whole column 1 -> array([ 2,  6, 10])
+G[0:2, 1:3]    # submatrix: rows 0-1, cols 1-2
+G[::-1]        # rows flipped upside down
+G[::-1, ::-1]  # 180-degree rotation
 ```
 
->  **Common pitfall:** prefer `G[, 2]` over `G[][2]`. Both work, but the double-bracket form
+>  **Common pitfall:** prefer `G[1, 2]` over `G[1][2]`. Both work, but the double-bracket form
 > creates an intermediate view per bracket pair and hides your intent.
 >
-> >  **Pro tip:** read selectors aloud - `G[:, ]` is "all rows, column ". Saying it prevents
+> >  **Pro tip:** read selectors aloud - `G[:, 1]` is "all rows, column 1". Saying it prevents
 > most axis mix-ups.
 
 ---
@@ -196,21 +207,21 @@ datasets is free - and why mutations leak through unexpectedly.
 
 | operation                        | returns |
 |----------------------------------|---------|
-| basic slice `a[:]`, `a[:]`, `a[::2]` | view |
+| basic slice `a[:]`, `a[1:]`, `a[::2]` | view |
 | `reshape(...)`, `ravel()` (when possible) | view |
 | `.T` transpose                    | view    |
-| fancy indexing `a[[, 3]]`        | **copy** |
+| fancy indexing `a[[1, 3]]`        | **copy** |
 | boolean masking `a[a > 2]`        | **copy** |
 | `.copy()`, `flatten()`, `astype()`| **copy** |
 
 ```python
 a = np.arange(6)
-v = a[:4]
+v = a[1:4]
 v[0] = 999                 # write through the view...
 print(a)                   # ...original shows 999 too!
 
-f = a[[, 2]]              # fancy indexing: independent COPY
-f[0] = -00
+f = a[[1, 2]]              # fancy indexing: independent COPY
+f[0] = -100
 print(a)                   # untouched this time
 ```
 
@@ -227,10 +238,10 @@ with `np.shares_memory(x, y)` or by checking whether `x.base` points at another 
 Reshaping reinterprets the flat buffer - usually without moving a byte:
 
 ```python
-r = np.arange(2)
+r = np.arange(12)
 R = r.reshape(3, 4)        # 3x4 grid (view)
-R2 = r.reshape(-, 4)      # - = "infer this dimension"
-flat = R.ravel()           # back to -D: view if possible
+R2 = r.reshape(-1, 4)      # -1 = "infer this dimension"
+flat = R.ravel()           # back to 1-D: view if possible
 flat2 = R.flatten()        # ALWAYS a fresh copy
 Ct = R.T                   # transpose: rows <-> columns (view)
 ```
@@ -239,11 +250,11 @@ Add an axis with `np.newaxis` (identical to `None`) - the standard setup for bro
 
 ```python
 x = np.arange(4)
-x[np.newaxis, :].shape     # (, 4)  row-like
-x[:, np.newaxis].shape     # (4, )  column-like
+x[np.newaxis, :].shape     # (1, 4)  row-like
+x[:, np.newaxis].shape     # (4, 1)  column-like
 ```
 
->  **Common pitfall:** reshape cannot change the element count - 2 values will never fit a
+>  **Common pitfall:** reshape cannot change the element count - 12 values will never fit a
 > `(5, 3)` grid; you get `ValueError`. Product of new shape must equal `arr.size`.
 
 ---
@@ -253,27 +264,27 @@ x[:, np.newaxis].shape     # (4, )  column-like
 Broadcasting lets binary operators combine different shapes WITHOUT copying data. Three rules,
 applied from the LAST dimension backwards:
 
-. **Pad** - the shape with fewer dimensions gets s prepended until ranks match.
-2. **Stretch** - dimensions of size  expand (for free) to match the other operand.
-3. **Fail** - sizes that differ AND neither equals  raise `ValueError`.
+1. **Pad** - the shape with fewer dimensions gets 1s prepended until ranks match.
+2. **Stretch** - dimensions of size 1 expand (for free) to match the other operand.
+3. **Fail** - sizes that differ AND neither equals 1 raise `ValueError`.
 
 Resulting dimension = max of the two padded sizes, per axis.
 
 | left shape     | right shape  | result        | why                                    |
 |----------------|--------------|---------------|----------------------------------------|
 | `(3,)`         | `()` scalar  | `(3,)`        | scalars broadcast into anything        |
-| `(3, 4)`       | `(4,)`       | `(3, 4)`      | right pads to `(, 4)`, stretches down |
-| `(3, )`       | `(3,)`       | `(3, 3)`      | pad right to `(, 3)`; stretch BOTH    |
-| `(8, , 6, )` | `(7, , 5)`  | `(8, 7, 6, 5)`| pad to `(, 7, , 5)`; stretch all s  |
-| `(3, 2)`       | `(3,)`       | ERROR         | last dims 2 vs 3, neither is          |
+| `(3, 4)`       | `(4,)`       | `(3, 4)`      | right pads to `(1, 4)`, stretches down |
+| `(3, 1)`       | `(3,)`       | `(3, 3)`      | pad right to `(1, 3)`; stretch BOTH    |
+| `(8, 1, 6, 1)` | `(7, 1, 5)`  | `(8, 7, 6, 5)`| pad to `(1, 7, 1, 5)`; stretch all 1s  |
+| `(3, 2)`       | `(3,)`       | ERROR         | last dims 2 vs 3, neither is 1         |
 
-Worked diagram for the outer-sum case `(3, ) + (3,) -> (3, 3)`:
+Worked diagram for the outer-sum case `(3, 1) + (3,) -> (3, 3)`:
 
 ```text
-col (3,)          row (3,) stretched right        result (3,3)
-[[0],              [0 20 30 ->  ->                [[0 20 30]
- [],                                              [ 2 3]
- [2]]                                              [2 22 32]]
+col (3,1)          row (3,) stretched right        result (3,3)
+[[0],              [10 20 30 ->  ->                [[10 20 30]
+ [1],                                              [11 21 31]
+ [2]]                                              [12 22 32]]
 ```
 
 ```python
@@ -282,14 +293,14 @@ F + g              # ValueError: operands could not be broadcast together
 ```
 
 >  **Common pitfall:** `(n,)` is neither row nor column until YOU decide. For columns use
-> `x.reshape(-, )` or `x[:, None]`; orientation bugs produce plausible garbage downstream.
+> `x.reshape(-1, 1)` or `x[:, None]`; orientation bugs produce plausible garbage downstream.
 >
-> >  **Pro tip:** `np.broadcast_shapes((8, , 6, ), (7, , 5))` predicts result shapes without
+> >  **Pro tip:** `np.broadcast_shapes((8, 1, 6, 1), (7, 1, 5))` predicts result shapes without
 > computing anything - handy when designing tensor code.
 
 ---
 
-## 0. Elementwise operations and ufuncs
+## 10. Elementwise operations and ufuncs
 
 All Python operators act ELEMENTWISE; under the hood each is a *universal function* (ufunc) - a
 compiled loop over the buffers.
@@ -303,9 +314,9 @@ compiled loop over the buffers.
 | comparison| `==  !=  <  <=  >  >=`  (return boolean arrays)              |
 
 ```python
-u = np.array([., 2., 3.]); w = np.array([0., 20., 30.])
-u * w                       # array([0., 40., 90.])  ELEMENTWISE, not dot product!
-u @ w                       # 40.0 - matrix/vector product is the @ operator
+u = np.array([1., 2., 3.]); w = np.array([10., 20., 30.])
+u * w                       # array([10., 40., 90.])  ELEMENTWISE, not dot product!
+u @ w                       # 140.0 - matrix/vector product is the @ operator
 ```
 
 >  **Common pitfall:** `*` multiplies elementwise. If you wanted linear-algebra multiplication,
@@ -313,7 +324,7 @@ u @ w                       # 40.0 - matrix/vector product is the @ operator
 
 ---
 
-## . Aggregations and axis
+## 11. Aggregations and axis
 
 Read `axis=` as **"collapse THIS axis"**:
 
@@ -321,44 +332,44 @@ Read `axis=` as **"collapse THIS axis"**:
 |-------------------------|-------------------------------------------|--------------|
 | `A.sum()`               | collapse everything                       | `()` scalar  |
 | `A.sum(axis=0)`         | collapse ROWS -> one value per COLUMN     | `(ncols,)`   |
-| `A.sum(axis=)`         | collapse COLUMNS -> one value per ROW     | `(nrows,)`   |
-| `A.sum(axis=0, keepdims=True)` | same but keeps a `(, ncols)` stub | good for broadcasting |
+| `A.sum(axis=1)`         | collapse COLUMNS -> one value per ROW     | `(nrows,)`   |
+| `A.sum(axis=0, keepdims=True)` | same but keeps a `(1, ncols)` stub | good for broadcasting |
 
 Available reducers: `sum`, `mean`, `std` (ddof=0 default), `var`, `min`, `max`, plus index
 versions `argmin`/`argmax` ("where is the extreme?") and cumulative versions `cumsum`/`cumprod`.
 
 ```python
-A = np.arange(2, dtype=float).reshape(3, 4)
+A = np.arange(12, dtype=float).reshape(3, 4)
 A.mean(axis=0)             # per-column means, shape (4,)
-A.argmax(axis=)           # winning column within each row, shape (3,)
-np.cumsum(np.array([3, 5, 2, 8]))    # running totals: [3 8 0 8]
+A.argmax(axis=1)           # winning column within each row, shape (3,)
+np.cumsum(np.array([3, 5, 2, 8]))    # running totals: [3 8 10 18]
 ```
 
 Real data has holes; every reducer has a NaN-skipping twin:
 
 ```python
-readings = np.array([[., np.nan, 3.], [4., 5., 6.]])
+readings = np.array([[1., np.nan, 3.], [4., 5., 6.]])
 readings.sum()             # nan - infection spreads through any NaN
-np.nansum(readings)        # 9.0 - NaN treated as absent
+np.nansum(readings)        # 19.0 - NaN treated as absent
 np.nanmean(readings)       # mean over valid cells only
 ```
 
 >  **Common pitfall:** axis confusion is THE beginner bug. Drill the mantra - axis=0 goes down
-> the rows, axis= goes across the columns - and print `.shape` after reductions until automatic.
+> the rows, axis=1 goes across the columns - and print `.shape` after reductions until automatic.
 
 ---
 
-## 2. Boolean masking
+## 12. Boolean masking
 
 Comparisons produce boolean arrays; masks then count, select and replace - loop-free:
 
 ```python
-temps = np.array([8, 2, 25, 29, 3, 27, 22, 7, 30, 26])
+temps = np.array([18, 21, 25, 29, 31, 27, 22, 17, 30, 26])
 
 hot = temps > 25                    # boolean mask
 hot.sum()                           # count Trues
 temps[hot]                          # filter: only hot values (returns a COPY)
-temps[(temps >= 8) & (temps <= 26)]   # combined condition - parentheses REQUIRED
+temps[(temps >= 18) & (temps <= 26)]   # combined condition - parentheses REQUIRED
 temps[~hot]                         # negation
 temps[hot] = 0                      # in-place replacement via mask assignment
 ```
@@ -367,7 +378,7 @@ Combining conditions uses the bitwise operators `&` (and), `|` (or), `~` (not) -
 `and`/`or`/`not`, which demand a single truth value and explode on arrays:
 
 ```python
-arr = np.arange(, 0)
+arr = np.arange(1, 10)
 arr[(arr > 3) & (arr < 8)]          # correct
 arr[arr > 3 & arr < 8]              # WRONG: & binds tighter than comparisons ->
                                     # ValueError about ambiguous truth value
@@ -378,18 +389,18 @@ arr[arr > 3 & arr < 8]              # WRONG: & binds tighter than comparisons ->
 
 ---
 
-## 3. Fancy indexing
+## 13. Fancy indexing
 
 Select with ARRAYS of integers: arbitrary order, duplicates fine, negatives fine - always a COPY.
 
 ```python
-a = np.array([0, 20, 30, 40, 50])
-a[[3, 0, 3]]                  # [40 0 40]
-a[[-, ]]                    # [50 20]
+a = np.array([10, 20, 30, 40, 50])
+a[[3, 0, 3]]                  # [40 10 40]
+a[[-1, 1]]                    # [50 20]
 
-G = np.arange(6).reshape(4, 4)
-G[[3, , 2]]                  # reorder whole rows
-G[[0, , 2], [, 2, 3]]       # paired coordinates: cells (0,), (,2), (2,3)
+G = np.arange(16).reshape(4, 4)
+G[[3, 1, 2]]                  # reorder whole rows
+G[[0, 1, 2], [1, 2, 3]]       # paired coordinates: cells (0,1), (1,2), (2,3)
 G[:, [2, 0]]                  # all rows, two columns swapped
 ```
 
@@ -397,18 +408,18 @@ Duplicate-index accumulation gotcha - buffered reads mean repeated indices incre
 
 ```python
 counts = np.zeros(5, dtype=int)
-counts[[0, 0, ]] +=         # [  0 0 0] - lost an increment!
-np.add.at(counts, [0, 0, ], )   # [2  0 0 0] - unbuffered, every hit lands
+counts[[0, 0, 1]] += 1        # [1 1 0 0 0] - lost an increment!
+np.add.at(counts, [0, 0, 1], 1)   # [2 1 0 0 0] - unbuffered, every hit lands
 ```
 
 ---
 
-## 4. The where-family toolkit
+## 14. The where-family toolkit
 
 | function                  | job                                                     |
 |---------------------------|---------------------------------------------------------|
 | `np.where(cond, x, y)`    | vectorized if/else, elementwise                         |
-| `np.where(cond)`          | indices where cond is True (tuple; take `[0]` in -D)   |
+| `np.where(cond)`          | indices where cond is True (tuple; take `[0]` in 1-D)   |
 | `np.clip(a, lo, hi)`      | clamp values into `[lo, hi]`                            |
 | `np.count_nonzero(mask)`  | number of Trues (same as `mask.sum()`)                  |
 | `np.nonzero(cond)`        | index arrays of Trues (per dimension)                   |
@@ -417,17 +428,17 @@ np.add.at(counts, [0, 0, ], )   # [2  0 0 0] - unbuffered, every hit lands
 ```python
 vals = np.array([88, 45, 92, 58])
 np.where(vals >= 60, "pass", "fail")   # ['pass' 'fail' 'pass' 'fail']
-np.where(vals < 60)[0]                 # array([, 3])
+np.where(vals < 60)[0]                 # array([1, 3])
 np.clip(vals, 0, 80)                   # [80 45 80 58]
 (vals >= 60).any(), bool((vals < 0).all())
 ```
 
->  **Common pitfall:** one-argument `np.where` returns a TUPLE of arrays. In -D grab `[0]`;
+>  **Common pitfall:** one-argument `np.where` returns a TUPLE of arrays. In 1-D grab `[0]`;
 > forgetting it poisons shapes downstream.
 
 ---
 
-## 5. Sorting, ranking, top-k
+## 15. Sorting, ranking, top-k
 
 | need                                | tool                                |
 |-------------------------------------|-------------------------------------|
@@ -435,16 +446,16 @@ np.clip(vals, 0, 80)                   # [80 45 80 58]
 | sort IN PLACE (returns None!)       | `x.sort()`                          |
 | the ORDER that sorts (ranking)      | `np.argsort(x)`                     |
 | descending                          | `np.argsort(-x)` or reverse the idx |
-| top-k indices, ordered              | `np.argsort(x)[-k:][::-]`          |
+| top-k indices, ordered              | `np.argsort(x)[-k:][::-1]`          |
 | top/bottom-k values fast, unordered | `np.partition(x, k)`                |
 
 ```python
-raw = np.array([23, 7, 3, 42, 4, 9])
+raw = np.array([23, 7, 13, 42, 4, 19])
 names = np.array(["ada", "bob", "cy", "dee", "eli", "fay"])
 
-order = np.argsort(raw)            # [4  2 5 0 3]
+order = np.argsort(raw)            # [4 1 2 5 0 3]
 names[order]                       # leaderboard names via fancy indexing
-top3_idx = np.argsort(raw)[-3:][::-]      # [3 0 5] -> 42, 23, 9
+top3_idx = np.argsort(raw)[-3:][::-1]      # [3 0 5] -> 42, 23, 19
 
 part = np.partition(raw, len(raw) - 3)     # O(n): 3rd-largest placed correctly,
 part[-3:]                                  # bigger elements to its right (unordered set)
@@ -458,32 +469,32 @@ part[-3:]                                  # bigger elements to its right (unord
 
 ---
 
-## 6. Unique values and set operations
+## 16. Unique values and set operations
 
 ```python
-draws = np.array([3, , 4, , 5, 9, 2, 6, 5, 3, 5])
+draws = np.array([3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5])
 
 uniq, cnts = np.unique(draws, return_counts=True)   # frequency table
 uniq[cnts.argmax()]                                   # the mode
 uniq, first_idx = np.unique(draws, return_index=True) # where each value FIRST appeared
 
-a = np.array([, 2, 3, 4]); b = np.array([3, 4, 5, 6])
-np.intersectd(a, b)      # [3 4]        in both
-np.uniond(a, b)          # [ 2 3 4 5 6]
-np.setdiffd(a, b)        # [ 2]        in a but not b
+a = np.array([1, 2, 3, 4]); b = np.array([3, 4, 5, 6])
+np.intersect1d(a, b)      # [3 4]        in both
+np.union1d(a, b)          # [1 2 3 4 5 6]
+np.setdiff1d(a, b)        # [1 2]        in a but not b
 np.isin(a, [2, 4, 6])     # [False True False True]  elementwise membership
 ```
 
 ---
 
-## 7. Joining, splitting, tiling
+## 17. Joining, splitting, tiling
 
 | operation                    | function(s)                                            |
 |------------------------------|--------------------------------------------------------|
-| join along an axis           | `np.concatenate([a, b], axis=0 or )`                  |
+| join along an axis           | `np.concatenate([a, b], axis=0 or 1)`                  |
 | stack as rows                | `np.vstack([a, b])` (legacy alias: `row_stack`)        |
 | join side-by-side            | `np.hstack([a, b])`                                    |
-| -D vectors -> columns       | `np.column_stack([x, y])`  (**not hstack!**)           |
+| 1-D vectors -> columns       | `np.column_stack([x, y])`  (**not hstack!**)           |
 | add depth axis               | `np.dstack([a, b])` briefly                            |
 | split rows / cols evenly     | `np.vsplit(M, n)` / `np.hsplit(M, n)`                  |
 | uneven splitting             | `np.array_split(x, n)`                                 |
@@ -491,16 +502,16 @@ np.isin(a, [2, 4, 6])     # [False True False True]  elementwise membership
 | repeat EACH element          | `np.repeat(p, n)`                                      |
 
 ```python
-x = np.array([, 2, 3]); y = np.array([40, 50, 60])
-np.hstack([x, y])            # [   2  3 40 50 60]   <- flat!
-np.column_stack([x, y])      # [[  40] [ 2 50] [ 3 60]]  <- design-matrix material
+x = np.array([1, 2, 3]); y = np.array([40, 50, 60])
+np.hstack([x, y])            # [ 1  2  3 40 50 60]   <- flat!
+np.column_stack([x, y])      # [[ 1 40] [ 2 50] [ 3 60]]  <- design-matrix material
 
-p = np.array([, 2, 3])
-np.tile(p, 3)                # [ 2 3  2 3  2 3]
-np.repeat(p, 3)              # [   2 2 2 3 3 3]
+p = np.array([1, 2, 3])
+np.tile(p, 3)                # [1 2 3 1 2 3 1 2 3]
+np.repeat(p, 3)              # [1 1 1 2 2 2 3 3 3]
 ```
 
->  **Common pitfall:** building feature matrices with `hstack` on -D features yields one long
+>  **Common pitfall:** building feature matrices with `hstack` on 1-D features yields one long
 > row vector. Use `column_stack`.
 >
 > >  **Pro tip:** joining in a loop copies on every iteration. Collect parts in a list, then
@@ -508,27 +519,27 @@ np.repeat(p, 3)              # [   2 2 2 3 3 3]
 
 ---
 
-## 8. Vectorizing your own formulas
+## 18. Vectorizing your own formulas
 
 Any formula composed of ufuncs runs at C speed over whole arrays. Write the scalar math, apply it
 to arrays - unchanged:
 
 ```python
-# Compound interest across a rate curve: A = P * ( + r/n)**(n*t)
-P, t, n = 0_000.0, 0, 4
-rates = np.linspace(0.0, 0.0, 0)
-fv = P * ( + rates / n) ** (n * t)          # ten answers, zero loops
+# Compound interest across a rate curve: A = P * (1 + r/n)**(n*t)
+P, t, n = 10_000.0, 10, 4
+rates = np.linspace(0.01, 0.10, 10)
+fv = P * (1 + rates / n) ** (n * t)          # ten answers, zero loops
 ```
 
 The pairwise-difference broadcasting trick - memorize this sandwich:
 
 ```python
 xs = np.array([0., 2., 5., 9.])
-D = np.abs(xs[:, None] - xs[None, :])        # (4,)-(,4) -> (4,4) matrix of |xi-xj|
+D = np.abs(xs[:, None] - xs[None, :])        # (4,1)-(1,4) -> (4,4) matrix of |xi-xj|
 
 pts = rng.normal(size=(6, 2))                # N points in D dims
 delta = pts[:, None, :] - pts[None, :, :]    # (N, N, D)
-dist = np.sqrt((delta ** 2).sum(axis=-))    # full Euclidean distance matrix
+dist = np.sqrt((delta ** 2).sum(axis=-1))    # full Euclidean distance matrix
 ```
 
 `np.vectorize(f)` wraps a scalar-only Python function so it accepts arrays. It is pure CONVENIENCE
@@ -537,7 +548,7 @@ bespoke branching, never for arithmetic.
 
 ---
 
-## 9. Linear algebra essentials
+## 19. Linear algebra essentials
 
 | task                        | tool                                |
 |-----------------------------|-------------------------------------|
@@ -555,13 +566,13 @@ Worked system:
 
 ```text
 2x +  y =  5
- x + 3y = 0
+ x + 3y = 10
 ```
 
 ```python
-A = np.array([[2., .], [., 3.]])
-b = np.array([5., 0.])
-x = np.linalg.solve(A, b)              # -> [. 3.]
+A = np.array([[2., 1.], [1., 3.]])
+b = np.array([5., 10.])
+x = np.linalg.solve(A, b)              # -> [1. 3.]
 np.allclose(A @ x, b)                  # True - substitute-back verification
 ```
 
@@ -572,7 +583,7 @@ np.allclose(A @ x, b)                  # True - substitute-back verification
 
 ## 20. Random numbers done right
 
-Modern best practice (NumPy >= .7): create ONE seeded Generator and use its methods. Explicit
+Modern best practice (NumPy >= 1.17): create ONE seeded Generator and use its methods. Explicit
 seed = reproducibility; no hidden global state; better algorithms (PCG64).
 
 | method                                 | draws                                  |
@@ -583,13 +594,13 @@ seed = reproducibility; no hidden global state; better algorithms (PCG64).
 | `rng.choice(a, size, replace, p)`      | sample with/without replacement, weights|
 | `rng.permutation(x)`                   | shuffled COPY                          |
 | `rng.shuffle(x)`                       | shuffle IN PLACE (returns None)        |
-| `rng.random(size)`                     | U[0, ) floats                         |
+| `rng.random(size)`                     | U[0, 1) floats                         |
 
 ```python
 rng = np.random.default_rng(42)               # instantiate once, reuse everywhere
-dice = rng.integers(, 7, size=(000, 2))     # fair dice, faces ..6
-heights = rng.normal(70, 0, size=5)
-lottery = rng.choice(np.arange(, 50), size=6, replace=False)
+dice = rng.integers(1, 7, size=(1000, 2))     # fair dice, faces 1..6
+heights = rng.normal(170, 10, size=5)
+lottery = rng.choice(np.arange(1, 50), size=6, replace=False)
 deck_copy = rng.permutation(deck)             # original intact
 rng.shuffle(deck)                             # deck itself reordered
 ```
@@ -602,7 +613,7 @@ and still dominates old tutorials. Recognize it; write Generator code instead.
 
 ---
 
-## 2. Performance playbook
+## 21. Performance playbook
 
 Why vectorization wins: interpreted Python pays per-element bytecode dispatch, while NumPy runs a
 compiled C loop - often SIMD-vectorized, processing multiple lanes per instruction.
@@ -647,7 +658,7 @@ def grow_good(n):
 | text/CSV    | `np.savetxt(path, M, delimiter=",")` | `np.loadtxt(path, delimiter=",")` | human-readable; dtype NOT preserved |
 
 ```python
-matrix = np.arange(2).reshape(3, 4)
+matrix = np.arange(12).reshape(3, 4)
 np.save("m.npy", matrix)
 np.loadtxt  # comes back float64 even if you saved ints - astype(int) if needed
 ```
@@ -661,13 +672,13 @@ np.loadtxt  # comes back float64 even if you saved ints - astype(int) if needed
 
 The eight classics, collected from the notebooks above:
 
-. Mixed-type `np.array([...])` coerces silently - check `.dtype`.
+1. Mixed-type `np.array([...])` coerces silently - check `.dtype`.
 2. Fixed-width integer overflow wraps without error - upcast before heavy integer math.
 3. Slices are views; writes leak into parents. Fancy/boolean selections are copies.
-4. `axis=0` collapses rows, `axis=` collapses columns - print `.shape` to confirm.
+4. `axis=0` collapses rows, `axis=1` collapses columns - print `.shape` to confirm.
 5. Compound masks NEED parentheses: `(a > 3) & (a < 8)`, and use `&`/`|`/`~`, not `and`/`or`.
 6. `arr.sort()` returns None - `np.sort(arr)` for a copy.
-7. One-arg `np.where` returns a tuple - index `[0]` in -D.
+7. One-arg `np.where` returns a tuple - index `[0]` in 1-D.
 8. Never build arrays with repeated `np.append` - preallocate or convert a list once.
 
 ---
@@ -681,19 +692,19 @@ rng = np.random.default_rng(42)
 
 | I want to...                        | one-liner                                       |
 |-------------------------------------|-------------------------------------------------|
-| make 0..n-                         | `np.arange(n)`                                  |
+| make 0..n-1                         | `np.arange(n)`                                  |
 | n evenly spaced incl. endpoints     | `np.linspace(a, b, n)`                          |
 | zeros / ones / constant             | `np.zeros(s)`, `np.ones(s)`, `np.full(s, v)`    |
 | identity                            | `np.eye(n)`                                     |
 | inspect                             | `.shape .ndim .size .dtype .nbytes`             |
 | change dtype                        | `a.astype(np.float64)`                          |
 | pick cell / row / col               | `M[i, j]`, `M[i]`, `M[:, j]`                    |
-| submatrix / reverse                 | `M[0:2, :3]`, `M[::-]`                        |
+| submatrix / reverse                 | `M[0:2, 1:3]`, `M[::-1]`                        |
 | reshape / flatten                   | `a.reshape(r, c)`, `a.ravel()` (view), `a.flatten()` (copy) |
 | transpose                           | `a.T`                                           |
 | add axis                            | `a[:, None]` or `a[np.newaxis, :]`              |
 | broadcast-safe stats                | `X.mean(axis=0, keepdims=True)`                 |
-| reduce with axis                    | `A.sum(axis=0)` down rows, `axis=` across cols |
+| reduce with axis                    | `A.sum(axis=0)` down rows, `axis=1` across cols |
 | NaN-safe reduce                     | `np.nansum`, `np.nanmean`, `np.nanmax`          |
 | running totals                      | `np.cumsum(x)`                                  |
 | mask / filter / count               | `m = x > v`; `x[m]`; `m.sum()`                  |
@@ -703,14 +714,14 @@ rng = np.random.default_rng(42)
 | positions of Trues                  | `np.where(cond)[0]` / `np.nonzero(cond)`        |
 | sort copy / in place                | `np.sort(x)` / `x.sort()`                       |
 | ranking / descending                | `np.argsort(x)` / `np.argsort(-x)`              |
-| top-k indices                       | `np.argsort(x)[-k:][::-]`                      |
+| top-k indices                       | `np.argsort(x)[-k:][::-1]`                      |
 | fast top-k values                   | `np.partition(x, -k)[-k:]`                      |
 | frequency table / mode              | `np.unique(x, return_counts=True)`              |
-| set ops                             | `intersectd uniond setdiffd isin`            |
+| set ops                             | `intersect1d union1d setdiff1d isin`            |
 | join / stack columns                | `np.concatenate`, `np.vstack`, `np.column_stack`|
 | split                               | `np.hsplit`, `np.vsplit`, `np.array_split`      |
 | duplicate pattern / elements        | `np.tile(p, n)` / `np.repeat(p, n)`             |
-| distance matrix                     | `np.abs(x[:, None] - x[None, :])` (-D)         |
+| distance matrix                     | `np.abs(x[:, None] - x[None, :])` (1-D)         |
 | matrix product / solve              | `A @ B`, `np.linalg.solve(A, b)`                |
 | det / inv / trace / norm            | `np.linalg.det/inv`, `np.trace`, `np.linalg.norm`|
 | random ints / normal / choice       | `rng.integers`, `rng.normal`, `rng.choice`      |

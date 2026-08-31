@@ -51,3 +51,6 @@ dist/
 # Agentic AI secrets
 03_agentic_ai/.env
 .env
+
+# --- graphify knowledge-graph output (local tool cache) -------
+graphify-out/

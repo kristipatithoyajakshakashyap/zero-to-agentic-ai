@@ -1,4 +1,22 @@
 {
+  "reader-june": [
+    {
+      "role": "user",
+      "text": "Hi! My name is June."
+    },
+    {
+      "role": "bot",
+      "text": "Welcome to our little corner of Wonderland, June! I'm delighted to be your guide through the absurd and wonderful world of Alice's Adventures in Wonderland. What would you like to explore or discuss today?"
+    },
+    {
+      "role": "user",
+      "text": "What is my name?"
+    },
+    {
+      "role": "bot",
+      "text": "Your name is June, but I should mention that in Wonderland, names can be quite... fluid. You might find yourself referred to by different names as you navigate our curious world!"
+    }
+  ],
   "reader-live": [
     {
       "role": "user",
@@ -6,7 +24,7 @@
     },
     {
       "role": "bot",
-      "text": "[offline stub] Noted: \"What made Alice grow so tall?\" (swap llm back for real answers)"
+      "text": "It was a giant that cast a shadow over her, causing her to shrink instead of growing tall. The giant's enormous size created an illusion, making it seem like she had grown. This event occurred in Chapter 6: \"Pig and Pepper\"."
     },
     {
       "role": "user",
@@ -14,7 +32,7 @@
     },
     {
       "role": "bot",
-      "text": "[offline stub] Noted: \"And how did she shrink again?\" (swap llm back for real answers)"
+      "text": "She drank from a bottle labeled \"Drink Me\" that caused her to shrink. The effects were immediate, and Alice found herself much smaller than before. This happened in Chapter 5: \"Advice from a Caterpillar\"."
     }
   ],
   "reader-milo": [
@@ -24,7 +42,7 @@
     },
     {
       "role": "bot",
-      "text": "Welcome back to the Alice collection, Milo."
+      "text": "Welcome to our little corner of Wonderland, Milo! I'm delighted to help you navigate the curious world we inhabit. What brings you to our library today? Would you like some book recommendations or perhaps a guide to the absurdities that lie within?"
     },
     {
       "role": "user",
@@ -32,7 +50,7 @@
     },
     {
       "role": "bot",
-      "text": "Welcome back to the Alice collection, Milo."
+      "text": "Milo is your name, and I've taken the liberty of knowing it since you arrived in Wonderland. Now, would you like to explore our shelves or discuss something specific from your adventures so far?"
     },
     {
       "role": "user",
@@ -40,25 +58,7 @@
     },
     {
       "role": "bot",
-      "text": "Start at Chapter 1, 'Down the Rabbit-Hole' - everything spirals from there."
-    }
-  ],
-  "reader-june": [
-    {
-      "role": "user",
-      "text": "Hi! My name is June."
-    },
-    {
-      "role": "bot",
-      "text": "Welcome back to the Alice collection, June."
-    },
-    {
-      "role": "user",
-      "text": "What is my name?"
-    },
-    {
-      "role": "bot",
-      "text": "Welcome back to the Alice collection, June."
+      "text": "I recommend starting with \"Alice's Adventures in Wonderland\" by Lewis Carroll - it's a classic tale that introduced you to our whimsical world. It's the story of your own adventures, Milo! Would you like me to retrieve a copy for you?"
     }
   ]
 }

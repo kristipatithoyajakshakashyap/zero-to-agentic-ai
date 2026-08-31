@@ -92,7 +92,7 @@ retrieval failures wearing a generation costume.
 
 ## Contents
 
-1. `01_minimal_rag_pipeline.nb.py` - defensive corpus recreation, `[id]`-tagged
+1. [01_minimal_rag_pipeline.ipynb](01_minimal_rag_pipeline.ipynb) - defensive corpus recreation, `[id]`-tagged
    formatting, dict-prelude AND assign idioms side by side, three real Alice
    questions with evidence previews, World-Cup refusal demo, Groq comparison
    behind a key guard, printed eyeball checklist.

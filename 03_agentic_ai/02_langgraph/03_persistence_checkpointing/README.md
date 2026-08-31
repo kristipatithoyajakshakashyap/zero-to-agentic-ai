@@ -1,4 +1,4 @@
-# Module 04: Persistence & Checkpointing
+# Module 03: Persistence & Checkpointing
 
 > **MLCourse - Agentic AI - LangGraph**
 
@@ -15,7 +15,7 @@ Saving and restoring agent state across invocations — from in-memory checkpoin
 
 ## Prerequisites
 
-- Module 03 (Tool-Using Agents)
+- Module 02 ([Tool-Using Agents](../02_tool_using_agents/README.md))
 
 ## What you'll learn
 

@@ -1,0 +1,269 @@
+{
+ "nodes": [
+  "Alice",
+  "Caterpillar",
+  "Cheshire Cat",
+  "Cook",
+  "Dormouse",
+  "Duchess",
+  "Gryphon",
+  "King of Hearts",
+  "Knave of Hearts",
+  "Lobster Quadrille",
+  "Mad Hatter",
+  "March Hare",
+  "Mock Turtle",
+  "Queen of Hearts",
+  "Time",
+  "White Rabbit",
+  "baby",
+  "beheadings",
+  "cake",
+  "croquet",
+  "flamingo",
+  "grin",
+  "growing",
+  "hedgehog",
+  "his history",
+  "little bottle",
+  "mad tea party",
+  "mushroom",
+  "pepper",
+  "pig",
+  "playing cards",
+  "pocket watch",
+  "rabbit hole",
+  "shrinking",
+  "size change",
+  "tarts",
+  "trial",
+  "white roses"
+ ],
+ "edges": [
+  {
+   "source": "Alice",
+   "relation": "follows",
+   "target": "White Rabbit"
+  },
+  {
+   "source": "Alice",
+   "relation": "falls down",
+   "target": "rabbit hole"
+  },
+  {
+   "source": "Alice",
+   "relation": "drinks from",
+   "target": "little bottle"
+  },
+  {
+   "source": "Alice",
+   "relation": "eats",
+   "target": "cake"
+  },
+  {
+   "source": "Alice",
+   "relation": "meets",
+   "target": "Caterpillar"
+  },
+  {
+   "source": "Alice",
+   "relation": "meets",
+   "target": "Cheshire Cat"
+  },
+  {
+   "source": "Alice",
+   "relation": "attends",
+   "target": "mad tea party"
+  },
+  {
+   "source": "Alice",
+   "relation": "meets",
+   "target": "Queen of Hearts"
+  },
+  {
+   "source": "Alice",
+   "relation": "testifies at",
+   "target": "trial"
+  },
+  {
+   "source": "White Rabbit",
+   "relation": "carries",
+   "target": "pocket watch"
+  },
+  {
+   "source": "White Rabbit",
+   "relation": "serves",
+   "target": "Duchess"
+  },
+  {
+   "source": "White Rabbit",
+   "relation": "is herald for",
+   "target": "King of Hearts"
+  },
+  {
+   "source": "Duchess",
+   "relation": "nurses",
+   "target": "baby"
+  },
+  {
+   "source": "Duchess",
+   "relation": "employs",
+   "target": "Cook"
+  },
+  {
+   "source": "King of Hearts",
+   "relation": "presides over",
+   "target": "trial"
+  },
+  {
+   "source": "little bottle",
+   "relation": "causes",
+   "target": "shrinking"
+  },
+  {
+   "source": "cake",
+   "relation": "causes",
+   "target": "growing"
+  },
+  {
+   "source": "Caterpillar",
+   "relation": "sits on",
+   "target": "mushroom"
+  },
+  {
+   "source": "Caterpillar",
+   "relation": "advises",
+   "target": "Alice"
+  },
+  {
+   "source": "mushroom",
+   "relation": "causes",
+   "target": "size change"
+  },
+  {
+   "source": "Cheshire Cat",
+   "relation": "belongs to",
+   "target": "Duchess"
+  },
+  {
+   "source": "Cheshire Cat",
+   "relation": "vanishes leaving",
+   "target": "grin"
+  },
+  {
+   "source": "Cheshire Cat",
+   "relation": "directs Alice to",
+   "target": "Mad Hatter"
+  },
+  {
+   "source": "Mad Hatter",
+   "relation": "attends",
+   "target": "mad tea party"
+  },
+  {
+   "source": "Mad Hatter",
+   "relation": "quarrelled with",
+   "target": "Time"
+  },
+  {
+   "source": "Mad Hatter",
+   "relation": "testifies at",
+   "target": "trial"
+  },
+  {
+   "source": "March Hare",
+   "relation": "attends",
+   "target": "mad tea party"
+  },
+  {
+   "source": "Dormouse",
+   "relation": "attends",
+   "target": "mad tea party"
+  },
+  {
+   "source": "baby",
+   "relation": "turns into",
+   "target": "pig"
+  },
+  {
+   "source": "Cook",
+   "relation": "throws",
+   "target": "pepper"
+  },
+  {
+   "source": "Queen of Hearts",
+   "relation": "orders",
+   "target": "beheadings"
+  },
+  {
+   "source": "Queen of Hearts",
+   "relation": "plays",
+   "target": "croquet"
+  },
+  {
+   "source": "Queen of Hearts",
+   "relation": "is married to",
+   "target": "King of Hearts"
+  },
+  {
+   "source": "Queen of Hearts",
+   "relation": "commands",
+   "target": "playing cards"
+  },
+  {
+   "source": "Queen of Hearts",
+   "relation": "baked",
+   "target": "tarts"
+  },
+  {
+   "source": "Queen of Hearts",
+   "relation": "sends",
+   "target": "Gryphon"
+  },
+  {
+   "source": "croquet",
+   "relation": "uses",
+   "target": "flamingo"
+  },
+  {
+   "source": "croquet",
+   "relation": "uses",
+   "target": "hedgehog"
+  },
+  {
+   "source": "playing cards",
+   "relation": "paint",
+   "target": "white roses"
+  },
+  {
+   "source": "Knave of Hearts",
+   "relation": "is accused of stealing",
+   "target": "tarts"
+  },
+  {
+   "source": "Knave of Hearts",
+   "relation": "stands at",
+   "target": "trial"
+  },
+  {
+   "source": "Gryphon",
+   "relation": "takes Alice to",
+   "target": "Mock Turtle"
+  },
+  {
+   "source": "Gryphon",
+   "relation": "dances",
+   "target": "Lobster Quadrille"
+  },
+  {
+   "source": "Mock Turtle",
+   "relation": "tells",
+   "target": "his history"
+  },
+  {
+   "source": "Mock Turtle",
+   "relation": "dances",
+   "target": "Lobster Quadrille"
+  }
+ ]
+}

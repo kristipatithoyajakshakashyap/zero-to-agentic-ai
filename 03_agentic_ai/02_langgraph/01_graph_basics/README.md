@@ -1,4 +1,4 @@
-# Module 02: Graph Basics
+# Module 01: Graph Basics
 
 > **MLCourse - Agentic AI - LangGraph**
 
@@ -15,7 +15,7 @@ Introduction to LangGraph fundamentals — why graphs matter for agentic AI, and
 
 ## Prerequisites
 
-- Modules 01–04 (Python basics, LangChain fundamentals)
+- The [01_langchain](../../01_langchain/README.md) track (chat models, prompts, LCEL) - LangGraph assumes you can already build a simple chain
 
 ## What you'll learn
 

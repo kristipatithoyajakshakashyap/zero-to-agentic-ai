@@ -1,4 +1,4 @@
-# Module 06: Streaming
+# Module 05: Streaming
 
 > **MLCourse - Agentic AI - LangGraph**
 
@@ -14,7 +14,7 @@ Real-time output from graphs — token-level streaming with `stream()` and `astr
 
 ## Prerequisites
 
-- Module 03 (Tool-Using Agents)
+- Module 02 ([Tool-Using Agents](../02_tool_using_agents/README.md))
 
 ## What you'll learn
 

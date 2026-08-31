@@ -15,7 +15,7 @@ Extend RAG beyond text by indexing and retrieving across images, tables, and doc
 
 ## Prerequisites
 
-- Modules 07-10 (Embeddings, vector stores, basic RAG pipelines)
+- LangChain modules [07_embeddings](../../01_langchain/07_embeddings/README.md), [08_vector_stores](../../01_langchain/08_vector_stores/README.md), [09_retrievers](../../01_langchain/09_retrievers/README.md) and [10_basic_rag](../../01_langchain/10_basic_rag/README.md)
 
 ## When to use this technique
 

@@ -15,7 +15,8 @@ Augment RAG with an agent that actively decides what to retrieve, how to reformu
 
 ## Prerequisites
 
-- Modules 02-03 (Agent design, tool use), Module 01 (Hybrid search)
+- LangGraph modules [01_graph_basics](../../02_langgraph/01_graph_basics/README.md) and [02_tool_using_agents](../../02_langgraph/02_tool_using_agents/README.md) - agentic RAG is a graph with a retriever in it
+- Module 01 ([Hybrid Search](../01_hybrid_search/README.md)) - the retriever these pipelines build on
 
 ## When to use this technique
 

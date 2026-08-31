@@ -14,7 +14,7 @@ but we only care WHICH SIDE of zero it lands on.
 Training maximizes the street width $\frac{2}{\lVert w\rVert}$ subject to every
 point being outside/on the curb:
 
-$$y_i(w^Tx_i + b) \ge $$
+$$y_i(w^Tx_i + b) \ge 1$$
 
 Only the points ON the curbs matter - the **support vectors**. Delete everything
 else and the boundary doesn't move.
@@ -39,7 +39,7 @@ computed WITHOUT ever building that space:
 ## When / how to use
  small-to-medium datasets · clear-margin problems · high-dimensional but
 low-sample (text, genomics).
- big n (>~00k trains slowly) · heavy noise overlap · when you need fast
+ big n (>~100k trains slowly) · heavy noise overlap · when you need fast
 probabilities or feature importances.
 
 ## Key sklearn parameters
@@ -52,12 +52,12 @@ probabilities or feature importances.
 ALWAYS scale features (margins are distance-based).
 
 ## Contents
-- `0_theory_and_mathematics.ipynb` - margin geometry drawn on real penguins
+- `01_theory_and_mathematics.ipynb` - margin geometry drawn on real penguins
 - `02_model_development_workflow.ipynb` - C/gamma sweeps + grid search on breast cancer
 - `projects/` -  penguins boundary ·  heart kernels ·  german credit costs
 
 ## Cheat sheet
 ```python
 Pipeline([("sc", StandardScaler()),
-          ("svm", SVC(kernel="rbf", C=0, gamma="scale"))])
+          ("svm", SVC(kernel="rbf", C=10, gamma="scale"))])
 ```

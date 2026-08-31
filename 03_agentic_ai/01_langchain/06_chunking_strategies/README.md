@@ -127,12 +127,12 @@ What are you cutting?
 
 | Notebook | Teaches |
 |---|---|
-| `01_character_splitting.nb.py` | separator mechanics, overlap arithmetic, the no-fallback trap |
-| `02_recursive_splitting.nb.py` | separator hierarchy walkthrough, the sensible default |
-| `03_token_splitting.nb.py` | thinking in tokens, `cl100k_base`, budget-driven sizes |
-| `04_markdown_header_aware.nb.py` | structure-aware splits, header lineage metadata |
-| `05_code_aware_splitting.nb.py` | language-aware splitting, keeping functions whole |
-| `06_strategy_comparison.nb.py` | all strategies on one slice, one honest scoreboard |
+| [01_character_splitting.ipynb](01_character_splitting.ipynb) | separator mechanics, overlap arithmetic, the no-fallback trap |
+| [02_recursive_splitting.ipynb](02_recursive_splitting.ipynb) | separator hierarchy walkthrough, the sensible default |
+| [03_token_splitting.ipynb](03_token_splitting.ipynb) | thinking in tokens, `cl100k_base`, budget-driven sizes |
+| [04_markdown_header_aware.ipynb](04_markdown_header_aware.ipynb) | structure-aware splits, header lineage metadata |
+| [05_code_aware_splitting.ipynb](05_code_aware_splitting.ipynb) | language-aware splitting, keeping functions whole |
+| [06_strategy_comparison.ipynb](06_strategy_comparison.ipynb) | all strategies on one slice, one honest scoreboard |
 
 ## Summary
 

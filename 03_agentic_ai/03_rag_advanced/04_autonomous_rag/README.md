@@ -14,7 +14,8 @@ Build RAG systems that autonomously route queries, self-correct retrieval failur
 
 ## Prerequisites
 
-- Modules 02-03 (Agent design, tool use), Module 03 (Agentic RAG)
+- LangGraph modules [01_graph_basics](../../02_langgraph/01_graph_basics/README.md) and [02_tool_using_agents](../../02_langgraph/02_tool_using_agents/README.md) - agentic RAG is a graph with a retriever in it
+- Module 03 ([Agentic RAG](../03_agentic_rag/README.md)) - the agent loop this module makes self-governing
 
 ## When to use this technique
 

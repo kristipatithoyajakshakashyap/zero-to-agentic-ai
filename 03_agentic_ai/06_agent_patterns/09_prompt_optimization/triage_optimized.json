@@ -1,0 +1,46 @@
+{
+  "traces": [],
+  "train": [],
+  "demos": [
+    {
+      "augmented": true,
+      "message": "You charged my card twice for order 8812, please refund one.",
+      "priority": "P1"
+    },
+    {
+      "augmented": true,
+      "message": "How do I change the language in the settings screen?",
+      "priority": "P2"
+    },
+    {
+      "augmented": true,
+      "message": "The whole dashboard is blank for everyone on my team since 9am.",
+      "priority": "P0"
+    },
+    {
+      "message": "No hurry: the annual plan charged me the monthly rate by mistake.",
+      "priority": "P1"
+    }
+  ],
+  "signature": {
+    "instructions": "Assign a support priority to an incoming customer message.",
+    "fields": [
+      {
+        "prefix": "Message:",
+        "description": "the raw customer message"
+      },
+      {
+        "prefix": "Priority:",
+        "description": "the triage priority"
+      }
+    ]
+  },
+  "lm": null,
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.11",
+      "dspy": "3.3.1",
+      "cloudpickle": "3.1"
+    }
+  }
+}

@@ -95,13 +95,13 @@ reach chunking, embeddings, or retrieval.
 
 | Notebook | Teaches |
 |---|---|
-| `01_text_loader.nb.py` | TextLoader basics, inspection ritual, Gutenberg boilerplate strip |
-| `02_markdown_loader.nb.py` | loading markdown as text, headers survive, light vs unstructured trade-off |
-| `03_csv_loader.nb.py` | CSVLoader delimiters, `content_columns` / `metadata_columns`, filtering by metadata |
-| `04_json_loader.nb.py` | JSONLoader jq schemas, two granularities, `metadata_func`, graceful jq fallback |
-| `05_pdf_loader.nb.py` | PyPDFLoader page Documents, metadata, page concatenation |
-| `06_web_base_loader.nb.py` | WebBaseLoader, metadata, boilerplate cleaning, web etiquette |
-| `07_directory_loader.nb.py` | DirectoryLoader globs, progress, per-file error behavior |
+| [01_text_loader.ipynb](01_text_loader.ipynb) | TextLoader basics, inspection ritual, Gutenberg boilerplate strip |
+| [02_markdown_loader.ipynb](02_markdown_loader.ipynb) | loading markdown as text, headers survive, light vs unstructured trade-off |
+| [03_csv_loader.ipynb](03_csv_loader.ipynb) | CSVLoader delimiters, `content_columns` / `metadata_columns`, filtering by metadata |
+| [04_json_loader.ipynb](04_json_loader.ipynb) | JSONLoader jq schemas, two granularities, `metadata_func`, graceful jq fallback |
+| [05_pdf_loader.ipynb](05_pdf_loader.ipynb) | PyPDFLoader page Documents, metadata, page concatenation |
+| [06_web_base_loader.ipynb](06_web_base_loader.ipynb) | WebBaseLoader, metadata, boilerplate cleaning, web etiquette |
+| [07_directory_loader.ipynb](07_directory_loader.ipynb) | DirectoryLoader globs, progress, per-file error behavior |
 
 ## Summary
 

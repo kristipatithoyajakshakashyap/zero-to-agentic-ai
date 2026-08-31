@@ -27,11 +27,11 @@ $$\min \tfrac{1}{2}\|w\|^2 + C\sum_i(\xi_i + \xi_i^*) \quad\text{s.t.}\quad |y_i
 | `gamma` (rbf) | each point's reach is long -> nearly-linear curve, underfit | reach tiny -> islands around single points, wild overfit |
 | `epsilon` | thin tube -> almost all points become SVs, slow & noisy-fit | fat tube -> few/no SVs, near-constant prediction |
 
-Rule of thumb: start `epsilon` at roughly 0% of the target's standard
+Rule of thumb: start `epsilon` at roughly 10% of the target's standard
 deviation, tune C/gamma on a log grid via cross-validation.
 
 ## When / how to use
- medium-sized data (~00-0,000 rows) · smooth nonlinear trends · robustness
+ medium-sized data (~100-10,000 rows) · smooth nonlinear trends · robustness
 to moderate noise/outliers (they sit inside ε and are ignored) · regression on
 a transformed target (e.g. log-price).
  very large n (training cost grows ~O(n²-n³)) · heteroscedastic noise (one
@@ -45,9 +45,9 @@ unscaled features dominate them exactly like in k-NN.
 | param | meaning |
 |---|---|
 | `kernel` | `"linear"` (fast, interpretable-ish), `"rbf"` (smooth curves, default) |
-| `C` | price of leaving the tube - log-grid [0. … 000] |
+| `C` | price of leaving the tube - log-grid [0.1 … 1000] |
 | `epsilon` | half-width of the no-penalty tube |
-| `gamma` | rbf reach per point - `"scale"` default, then try 0.× / 0× |
+| `gamma` | rbf reach per point - `"scale"` default, then try 0.1× / 10× |
 
 ## Pitfalls
 - forgetting `StandardScaler` -> silently terrible fits
@@ -56,8 +56,8 @@ unscaled features dominate them exactly like in k-NN.
 - judging SVR on train R²: with small ε it can look perfect yet generalize poorly
 
 ## Contents
-- `0_theory_and_mathematics.nb.py` - draw the ε-tube on real tips data; count support vectors
-- `02_model_development_workflow.nb.py` - kernel shootout + C/gamma grid on California housing
+- `01_theory_and_mathematics.ipynb` - draw the ε-tube on real tips data; count support vectors
+- `02_model_development_workflow.ipynb` - kernel shootout + C/gamma grid on California housing
 - `projects/` -  tips tube vs OLS ·  white-wine quality as regression ·  insurance charges with log-target
 
 ## Cheat sheet
@@ -67,7 +67,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVR
 
 pipe = Pipeline([("sc", StandardScaler()),
-                 ("svr", SVR(kernel="rbf", C=0, gamma="scale", epsilon=0.))])
+                 ("svr", SVR(kernel="rbf", C=10, gamma="scale", epsilon=0.1))])
 pipe.fit(X_train, y_train)
 pred = pipe.predict(X_test)          # smooth nonlinear regression, outliers ignored
 ```

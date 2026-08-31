@@ -1,4 +1,4 @@
-# Module 07: Multi-Agent Systems
+# Module 06: Multi-Agent Systems
 
 > **MLCourse - Agentic AI - LangGraph**
 
@@ -15,8 +15,8 @@ Composing multiple agents into coordinated systems — supervisor orchestration,
 
 ## Prerequisites
 
-- Module 03 (Tool-Using Agents)
-- Module 06 (Streaming)
+- Module 02 ([Tool-Using Agents](../02_tool_using_agents/README.md))
+- Module 05 ([Streaming](../05_streaming/README.md))
 
 ## What you'll learn
 
