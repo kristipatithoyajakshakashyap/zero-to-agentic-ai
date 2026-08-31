@@ -31,7 +31,7 @@ Always wrap `StandardScaler` + `KNeighborsRegressor` in a `Pipeline`.
 | balanced (10-50) | smooth local averages | sweet spot |
 | too large (~n) | predicts nearly the global mean everywhere | underfit (high bias) |
 
-Pick k by cross-validation curve - shown in `02_model_development_workflow`.
+Pick k by cross-validation curve - shown in `03_sklearn_implementation.ipynb`.
 
 ## When / how to use
  small-to-medium tabular data · fast baseline before boosting/tree models ·
@@ -57,7 +57,8 @@ trends/extrapolation (k-NN can only interpolate between seen neighbors).
 
 ## Contents
 - `01_theory_and_mathematics.ipynb` - distances & neighbor-averaging by hand on real penguins
-- `02_model_development_workflow.ipynb` - end-to-end sklearn workflow on California housing
+- `02_from_scratch_oop.ipynb` - pure-NumPy `MyKNNRegressor` implementation
+- `03_sklearn_implementation.ipynb` - end-to-end sklearn workflow on California housing
 - `projects/` -  penguin body mass ·  MPG fuel efficiency ·  California housing deep-dive
 
 ## Cheat sheet
