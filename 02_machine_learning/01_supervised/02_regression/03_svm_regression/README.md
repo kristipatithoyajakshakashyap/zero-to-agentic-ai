@@ -57,7 +57,8 @@ unscaled features dominate them exactly like in k-NN.
 
 ## Contents
 - `01_theory_and_mathematics.ipynb` - draw the ε-tube on real tips data; count support vectors
-- `02_model_development_workflow.ipynb` - kernel shootout + C/gamma grid on California housing
+- `02_from_scratch_oop.ipynb` - pure-NumPy `MySVR` implementation
+- `03_sklearn_implementation.ipynb` - kernel shootout + C/gamma grid on California housing
 - `projects/` -  tips tube vs OLS ·  white-wine quality as regression ·  insurance charges with log-target
 
 ## Cheat sheet
