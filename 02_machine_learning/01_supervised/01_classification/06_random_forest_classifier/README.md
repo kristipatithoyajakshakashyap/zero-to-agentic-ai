@@ -46,7 +46,8 @@ large datasets where boosting wins accuracy-per-byte.
 
 ## Contents
 - `01_theory_and_mathematics.ipynb` - bootstrap & vote mechanics by hand
-- `02_model_development_workflow.ipynb` - OOB, tuning grid, importances on breast cancer
+- `02_from_scratch_oop.ipynb` - pure-NumPy `MyRandomForestClassifier` implementation
+- `03_sklearn_implementation.ipynb` - OOB, tuning grid, importances on breast cancer
 - `projects/` -  penguins ·  heart ·  credit-g with permutation audit
 
 ## Cheat sheet
