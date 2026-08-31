@@ -56,7 +56,8 @@ CV/OOB, then confirm with a held-out test set.
 ## Contents
 - `01_theory_and_mathematics.ipynb` - hand-built 5-tree forest on penguins,
   OOB ≈37% demonstrated live, single-tree vs forest stability across seeds
-- `02_model_development_workflow.ipynb` - California housing: OOB baseline,
+- `02_from_scratch_oop.ipynb` - pure-NumPy `MyRandomForestRegressor` implementation
+- `03_sklearn_implementation.ipynb` - California housing: OOB baseline,
   OOB-vs-n_estimators curve, permutation importance, actual-vs-pred scatter
 - `projects/` - easy penguins RF · medium mpg RF · hard insurance RF ·
   advanced OOB + error-hotspot audit
