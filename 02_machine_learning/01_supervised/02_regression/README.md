@@ -17,7 +17,8 @@ Predicting numbers. Modules in recommended study order:
 
 Each module follows the same shape: `README.md` (intuition, maths and when to
 reach for the model), `01_theory_and_mathematics.ipynb` (the algorithm worked by
-hand, then verified against scikit-learn), `02_model_development_workflow.ipynb`
+hand, then verified against scikit-learn), `02_from_scratch_oop.ipynb`
+(pure-NumPy implementation), `03_sklearn_implementation.ipynb`
 (the full end-to-end workflow) and `projects/` (graded notebooks, easy -> hard).
 
 `01_linear_regression` goes deeper, because everything later builds on it: it

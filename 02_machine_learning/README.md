@@ -7,7 +7,7 @@ algorithm lives in its own module with a consistent structure:
 <module>/
 ├── README.md                        reference sheet: intuition, when/how to use
 ├── 01_theory_and_mathematics.ipynb  gentle math demonstrated on real data
-├── 02_model_development_workflow.ipynb  end-to-end sklearn workflow
+├── 03_sklearn_implementation.ipynb  end-to-end sklearn workflow
 └── projects/                        3-4 graded notebooks, easy -> advanced
 ```
 
