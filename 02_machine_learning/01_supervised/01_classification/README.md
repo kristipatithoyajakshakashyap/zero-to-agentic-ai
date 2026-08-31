@@ -21,7 +21,8 @@ Inside every module you will find the same rhythm:
 - `README.md` - the intuition and the maths, written to be read before you code.
 - `01_theory_and_mathematics.ipynb` - the algorithm worked by hand on a small,
   real dataset, then checked against scikit-learn.
-- `02_model_development_workflow.ipynb` - the full end-to-end workflow: split,
+- `02_from_scratch_oop.ipynb` - pure-NumPy implementation of the algorithm.
+- `03_sklearn_implementation.ipynb` - the full end-to-end workflow: split,
   preprocess, tune, evaluate, interpret.
 - `projects/` - 3-4 graded notebooks (easy -> hard) with their own README.
 
