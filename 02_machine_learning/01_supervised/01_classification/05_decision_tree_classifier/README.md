@@ -43,7 +43,8 @@ unstable: tiny data change -> different tree.
 
 ## Contents
 - `01_theory_and_mathematics.ipynb` - Gini by hand + grow/visualize a real tree
-- `02_model_development_workflow.ipynb` - depth tuning, pruning, feature importances
+- `02_from_scratch_oop.ipynb` - pure-NumPy `MyDecisionTreeClassifier` implementation
+- `03_sklearn_implementation.ipynb` - depth tuning, pruning, feature importances
 - `projects/` -  titanic readable-tree ·  penguins multiclass ·  credit-g pruning
 
 ## Cheat sheet
