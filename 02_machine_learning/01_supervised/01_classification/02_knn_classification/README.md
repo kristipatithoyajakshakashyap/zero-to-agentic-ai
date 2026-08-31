@@ -46,7 +46,8 @@ distinguishing - "curse of dimensionality") · categorical-heavy features.
 
 ## Contents
 - `01_theory_and_mathematics.ipynb` - distances & voting by hand on real penguins
-- `02_model_development_workflow.ipynb` - end-to-end sklearn workflow on real wine data
+- `02_from_scratch_oop.ipynb` - pure-NumPy `MyKNNClassifier` implementation
+- `03_sklearn_implementation.ipynb` - end-to-end sklearn workflow on real wine data
 - `projects/` -  iris ·  wine quality ·  breast cancer diagnosis
 
 ## Cheat sheet
